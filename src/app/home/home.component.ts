@@ -9,12 +9,15 @@ import { FormControl } from '@angular/forms';
 })
 export class HomeComponent {
   id = new FormControl('');
-  constructor() { }
+  name = new FormControl('');
+  image = new FormControl('');
+  quantity = new FormControl('');
+  price = new FormControl('');
 
+  constructor() { }
 
   insertdata(){
     this.id.setValue('5');
-
   }
 
 }
