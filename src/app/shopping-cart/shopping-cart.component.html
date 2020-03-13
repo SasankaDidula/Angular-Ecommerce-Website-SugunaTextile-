@@ -1,0 +1,70 @@
+<table class="table" cellspacing="0" ng-init= "loadCart()">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" ></th>
+            <th scope="col" ></th>
+            <th scope="col" >Product</th>
+            <th scope="col" >Price</th>
+            <th scope="col" >Quantity</th>
+            <th scope="col" >Total</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="item in data">
+            <td>
+                <a href="#">×</a>		
+            </td>
+
+            <td>
+                <a href="#"><img width="58" height="72" src=" item.image " sizes="(max-width: 58px) 100vw, 58px"></a>	
+            </td>
+
+            <td>
+                <a href="#"> item.itemName </a>
+            </td>
+
+            <td>
+                <span>රු.  item.itemPrice </span>
+            </td>
+
+            <td>
+                <div>
+                    <input type="number" step="1" min="0" max="" value=" item.quantity " title="Qty" size="4" pattern="" inputmode="" ng-model = "item.quantity">
+                </div>
+            </td>
+
+            <td>
+                <span>රු.  item.itemPrice * item.quantity </span>					
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="6">
+                <input type="submit" value="Update Cart" class="buttonClass" ng-click="updateCart()" > message 
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+
+<div>
+    <div>
+        <h2>Cart Totals</h2>
+
+        <table cellspacing="0">
+            <tbody>
+                <tr>
+                    <th>Subtotal</th>
+                    <td><span>රු. setTotals </span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div>
+            <a routerLink="/check-out">Proceed to Checkout</a>
+        </div>
+    </div>
+</div>
+
