@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import { RouterModule } from '@angular/router';
@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
-import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ChechOutComponent } from './chech-out/chech-out.component';
@@ -19,6 +18,11 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './material/material.module';
+import { HomeComponent } from './home/home.component';
+import { PolicyService } from './policy.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MyOrdersComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -43,6 +47,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,  
     AppRoutingModule,  
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
       {path: 'products', component: ProductsComponent},
@@ -54,9 +60,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       {path: 'admin/products', component: AdminProductsComponent},
       {path: 'admin/orders', component: AdminOrdersComponent},
 
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [PolicyService, AngularFirestore],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

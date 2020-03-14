@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "api-key",
-    authDomain: "project-id.firebaseapp.com",
-    databaseURL: "https://project-id.firebaseio.com",
-    projectId: "project-id",
-    storageBucket: "project-id.appspot.com",
-    messagingSenderId: "sender-id",
-    appId: "app-id",
-    measurementId: "G-measurement-id",
+    apiKey: "AIzaSyAiDv09uY8WxqBV2Z37uvUw9jvZpQVZq7s",
+    authDomain: "sugunatextile-48424.firebaseapp.com",
+    databaseURL: "https://sugunatextile-48424.firebaseio.com",
+    projectId: "sugunatextile-48424",
+    storageBucket: "sugunatextile-48424.appspot.com",
+    messagingSenderId: "817282923901",
+    appId: "1:817282923901:web:f9c866f30fb10710d8e014",
+    measurementId: "G-Q06SZH78QH"
   }
 };
 
