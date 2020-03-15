@@ -22,7 +22,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './material/material.module';
 import { HomeComponent } from './home/home.component';
-import { PolicyService } from './policy.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +62,7 @@ import { PolicyService } from './policy.service';
     ]),
     BrowserAnimationsModule
   ],
-  providers: [PolicyService, AngularFirestore],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
