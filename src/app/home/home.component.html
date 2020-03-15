@@ -1,5 +1,12 @@
-<ul>
-  <li *ngFor = "let product of products">
-      {{ product.value }}
-  </li>
-</ul>
+<div *ngIf="products?.length > 0;else noItems">
+    <ul *ngFor="let product of products" class="Collection">
+        <li class="Collection-item">
+            <strong>{{ product.title}}: </strong> {{ product.description }}
+        </li>
+    </ul>
+</div>
+
+<ng-template #noItems>
+    <hr>
+    <h5>There  are no items to list</h5>
+</ng-template>

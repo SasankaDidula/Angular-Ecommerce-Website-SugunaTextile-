@@ -1,7 +1,8 @@
-export interface Products {
-    $key: string;
-    name: string;
-    image: string;
-    quantity: number;
-    price: number;
-}
+
+export interface Products{
+    id?: string;
+    name?:String;
+    image?:string;
+    quantity?:string;
+    price?:string;
+  }

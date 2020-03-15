@@ -1,22 +1,23 @@
-import { Component } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { Component, OnInit } from '@angular/core';
 import { Products } from '../products';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent{
+export class HomeComponent implements OnInit{
   products: Products[];
 
-  constructor(db: AngularFireDatabase){
-    db.list('/products')
-      .valueChanges().subscribe((products: any[])=> {
-        this.products = products;
-        console.log(this.products);
-      },(err) => {console.log(err)});
+  constructor(private productServce: ProductsService){
       
+  }
+  ngOnInit(): void {
+    this.productServce.getItems().subscribe(products => {
+      this.products = products;
+      console.log(products);
+    })
   }
 
 }
