@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
-import { Products } from './products';
-import { Observable } from 'rxjs';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-  productsCollection: AngularFirestoreCollection<Products>;
-  items: Observable<Products[]>;
   
-  constructor(public afs: AngularFirestore) { 
-    this.items = this.afs.collection('/items').valueChanges();
+  constructor(public db: AngularFireDatabase) { 
+    
+  }  
+  
+  create(product: any) {
+    return this.db.list('/products').push(product);
   }
-
-  getItems(){
-    return this.items;
+  
+  getAll() {
+    return this.db.list('/products').valueChanges();
   }
+  
 }
 
