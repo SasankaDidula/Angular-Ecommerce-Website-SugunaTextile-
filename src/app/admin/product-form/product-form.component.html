@@ -18,7 +18,10 @@
     <div class="form-group">
         <label for="category">Category</label>
         <select id="category" class="form-control">
-            <option value=""></option>    
+            <option value=""></option>
+            <option *ngFor="let c of categories$" [value]="c.key">
+                {{ c.name }}
+            </option>    
         </select>
      </div>
 
