@@ -23,7 +23,7 @@ export class ProductsService {
         const key = a.key;
         return { key, ...data };
       }))
-    );;
+    );
   }
   
 }
