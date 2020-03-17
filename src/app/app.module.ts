@@ -28,6 +28,7 @@ import { UserService } from './user.service';
 import { AdminAuthGuardService as AdminAuthGuard } from './admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { CategoryService } from './category.service';
+import { ShoppingCartService } from './shopping-cart.service';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { CategoryService } from './category.service';
               AuthGuard,
               UserService,
               AdminAuthGuard,
-              CategoryService
+              CategoryService,
+              ShoppingCartService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
