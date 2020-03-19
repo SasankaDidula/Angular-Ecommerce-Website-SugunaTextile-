@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
 import { Products } from './models/products';
 import { take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { ShoppingCart } from './models/shopping-cart';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,8 @@ export class ShoppingCartService {
     });
   }
 
-  private getCart(cartId: string){
+  async getCart(): Promise<AngularFireObject<ShoppingCart>>{
+    let cartId = await this.getOrCreateCartId();
     return this.db.object('/shopping-carts/'+ cartId)
   }
 
