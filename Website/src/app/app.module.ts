@@ -29,6 +29,7 @@ import { AdminAuthGuardService as AdminAuthGuard } from './admin-auth-guard.serv
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { CategoryService } from './category.service';
 import { ShoppingCartService } from './shopping-cart.service';
+import { ValueArrayPipe } from './value-array-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ShoppingCartService } from './shopping-cart.service';
     AdminOrdersComponent,
     LoginComponent,
     ProductFormComponent,
+    ValueArrayPipe,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

@@ -1,4 +1,8 @@
-<table class="table" cellspacing="0" ng-init= "loadCart()">
+
+<h1 style="margin-top: 20px" class="text-center">Shopping Cart</h1>
+<ng-container *ngIf="cart$ | async as cart">
+
+<table class="table" cellspacing="0">
     <thead class="thead-dark">
         <tr>
             <th scope="col" ></th>
@@ -9,39 +13,39 @@
             <th scope="col" >Total</th>
         </tr>
     </thead>
-
+    
     <tbody>
-        <tr ng-repeat="item in data">
+        <tr *ngFor = "let item of cart.items | valueArray">
             <td>
                 <a href="#">×</a>		
             </td>
 
             <td>
-                <a href="#"><img width="58" height="72" src=" item.image " sizes="(max-width: 58px) 100vw, 58px"></a>	
+                <a href="#"><img width="58" height="72" src="{{ item.product.imageUrl}}" sizes="(max-width: 58px) 100vw, 58px"></a>	
             </td>
 
             <td>
-                <a href="#"> item.itemName </a>
+                <a href="#"> {{ item.product.title }} </a>
             </td>
 
             <td>
-                <span>රු.  item.itemPrice </span>
+                <span>රු.  {{ item.product.price }} </span>
             </td>
 
             <td>
                 <div>
-                    <input type="number" step="1" min="0" max="" value=" item.quantity " title="Qty" size="4" pattern="" inputmode="" ng-model = "item.quantity">
+                    <input type="number" step="1" min="0" max="" value="{{ item.quantity }}" title="Qty" size="4" pattern="" inputmode="">
                 </div>
             </td>
 
             <td>
-                <span>රු.  item.itemPrice * item.quantity </span>					
+                <span>රු. {{ item.product.price * item.quantity }}</span>					
             </td>
         </tr>
 
         <tr>
             <td colspan="6">
-                <input type="submit" value="Update Cart" class="buttonClass" ng-click="updateCart()" > message 
+                <input type="submit" value="Update Cart" class="buttonClass" ng-click="updateCart()" >
             </td>
         </tr>
 
@@ -57,7 +61,7 @@
             <tbody>
                 <tr>
                     <th>Subtotal</th>
-                    <td><span>රු. setTotals </span></td>
+                    <td><span>රු. </span></td>
                 </tr>
             </tbody>
         </table>
@@ -67,4 +71,6 @@
         </div>
     </div>
 </div>
+
+</ng-container>
 
