@@ -4,11 +4,29 @@ import { Products } from './models/products';
 import { take, map } from 'rxjs/operators';
 import { Observable, pipe } from 'rxjs';
 import { ShoppingCart } from './models/shopping-cart';
+import { ShoppingCartItem } from './models/shopping-cart-item';
+import { ProductsComponent } from './products/products.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingCartService {
+  
+  removeFromCart(product: Products) {
+    this.updateItem(product, -1);
+  }
+
+  private async updateItem(product, change: number) {
+    let cartId = await this.getOrCreateCartId();
+    let item$ = this.getItem(cartId, product.$key);
+    item$.valueChanges().pipe(take(1)).subscribe((item: ShoppingCartItem) =>{
+      item$.update({ 
+        title: product.title,
+        imageUrl: product.imageUrl,
+        price: product.price, 
+        quantity: (item.quantity || 0) + change});
+    })
+  }
 
   constructor(private db: AngularFireDatabase) { }
 
@@ -20,7 +38,8 @@ export class ShoppingCartService {
 
   async getCart(): Promise<Observable<ShoppingCart>>{
     let cartId = await this.getOrCreateCartId();
-    return this.db.object('/shopping-carts/'+ cartId).valueChanges().pipe(map((x: ShoppingCart) => new ShoppingCart(x.items)))
+    return this.db.object('/shopping-carts/'+ cartId).valueChanges().pipe(map((x: ShoppingCart) => new ShoppingCart(x.itemsMap) ));
+
   }
 
   getItem(cartId: string, productId: string){

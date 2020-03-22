@@ -30,6 +30,7 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
 import { CategoryService } from './category.service';
 import { ShoppingCartService } from './shopping-cart.service';
 import { ValueArrayPipe } from './value-array-pipe.pipe';
+import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
 
 import { HumanRComponent } from './HR/human-r/human-r.component';
 import { EmployeeService } from './HR/services/employee-service.service';
@@ -51,16 +52,12 @@ import { CreatEmployeeComponent } from './HR/creat-employee/creat-employee.compo
     LoginComponent,
     ProductFormComponent,
     ValueArrayPipe,
-    
     HumanRComponent,
-    
     EmployeeDetailsComponent,
-    
-    
-    
-    CreatEmployeeComponent
-    
+    CreatEmployeeComponent,
+    ProductQuantityComponent,
   ],
+  
   imports: [
     AngularFireModule.initializeApp(environment.firebase,'SagunaTexttile'),
     AngularFirestoreModule,
