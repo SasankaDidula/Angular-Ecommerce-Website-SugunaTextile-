@@ -18,7 +18,7 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './material/material.module';
 import { HomeComponent } from './home/home.component';
@@ -34,7 +34,6 @@ import { ValueArrayPipe } from './value-array-pipe.pipe';
 import { HumanRComponent } from './HR/human-r/human-r.component';
 import { EmployeeService } from './HR/services/employee-service.service';
 import { EmployeeDetailsComponent } from './HR/employee-details/employee-details.component';
-import { EmployeeListComponent } from './HR/employee-list/employee-list.component';
 import { CreatEmployeeComponent } from './HR/creat-employee/creat-employee.component';
 
 @NgModule({
@@ -57,13 +56,14 @@ import { CreatEmployeeComponent } from './HR/creat-employee/creat-employee.compo
     
     EmployeeDetailsComponent,
     
-    EmployeeListComponent,
+    
     
     CreatEmployeeComponent
     
   ],
   imports: [
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase,'SagunaTexttile'),
+    AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgbModule,
@@ -78,7 +78,7 @@ import { CreatEmployeeComponent } from './HR/creat-employee/creat-employee.compo
       {path: 'products', component: ProductsComponent},
       {path: 'shopping-cart', component: ShoppingCartComponent},
       {path: 'login', component: LoginComponent},
-      {path: 'HR/human-r', component: HumanRComponent},
+      {path: 'HR/employee-details', component: EmployeeDetailsComponent},
 
       {path: 'check-out', component: ChechOutComponent, canActivate: [AuthGuard]},
       {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard]},

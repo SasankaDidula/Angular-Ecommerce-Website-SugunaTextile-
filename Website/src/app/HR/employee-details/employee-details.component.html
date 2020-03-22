@@ -1,11 +1,12 @@
-<div *ngIf = "employee">
-    <div>
-        <label>First Name:</label>{{employee.name}}
-    </div>
-    <div>
-        <label> Age:</label>{{customer.age}}
-    </div>
-    <div>
-        <span class="button is-small btn-danger" (click) = 'deleteEmployee()'>Delete</span>
-    </div>
+
+<app-creat-employee></app-creat-employee>
+<div *ngIf="employees?.length>0; else noEmployees">
+    <ul *ngFor="let Employee of employees" class="collection">
+        <li class="collection-employee"><strong>{{Employee.name}}:</strong>{{Employee.age}}</li>
+    </ul>
 </div>
+<ng-template #noEmployees>
+    <hr>
+    <h5>there are no employees</h5>
+</ng-template>
+

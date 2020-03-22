@@ -9,15 +9,18 @@ import { EmployeeService } from '../services/employee-service.service';
 })
 export class EmployeeDetailsComponent implements OnInit {
 
-  @Input() employee: Employee;
+ employees: Employee[];
 
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
+    this.employeeService.getEmployees().subscribe(employees=>{
+      this.employees = employees;
+    });
   }
-  deleteEmployee(){
-    this.employeeService.deleteEmployee(this.employee.key)
-    .catch(err => console.log(err));
-  }
+  // deleteEmployee(){
+  //   this.employeeService.deleteEmployee(this.employee.key)
+  //   .catch(err => console.log(err));
+  // }
 
 }

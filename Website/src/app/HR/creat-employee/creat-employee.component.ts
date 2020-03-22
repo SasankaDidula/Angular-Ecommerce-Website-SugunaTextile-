@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Employee } from 'src/app/models/modelsHR/Employee';
+import { EmployeeService } from '../services/employee-service.service';
 
 @Component({
   selector: 'app-creat-employee',
@@ -8,11 +10,20 @@ import { Employee } from 'src/app/models/modelsHR/Employee';
 })
 export class CreatEmployeeComponent implements OnInit {
 
-  
-  submitted = false;
-  constructor() { }
-
-  ngOnInit(): void {
+  employee: Employee ={
+    name:'',
+    age:''
   }
+  
+  constructor(private employeeService: EmployeeService) { }
 
+  ngOnInit(){
+  }
+  onSubmit(){
+    if(this.employee.name !='' && this.employee.age!=''){
+      this.employeeService.addEmployee(this.employee);
+      this.employee.name='';
+      this.employee.age='';
+    }
+  }
 }
