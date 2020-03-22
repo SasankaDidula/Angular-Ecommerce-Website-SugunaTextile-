@@ -79,6 +79,7 @@ import { CreatEmployeeComponent } from './HR/creat-employee/creat-employee.compo
       {path: 'shopping-cart', component: ShoppingCartComponent},
       {path: 'login', component: LoginComponent},
       {path: 'HR/employee-details', component: EmployeeDetailsComponent},
+      {path: 'HR/creat-employee', component:CreatEmployeeComponent},
 
       {path: 'check-out', component: ChechOutComponent, canActivate: [AuthGuard]},
       {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard]},

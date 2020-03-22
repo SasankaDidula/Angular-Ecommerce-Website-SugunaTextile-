@@ -11,8 +11,8 @@ import { EmployeeService } from '../services/employee-service.service';
 export class CreatEmployeeComponent implements OnInit {
 
   employee: Employee ={
-    name:'',
-    age:''
+    name: '',
+    age: ''
   }
   
   constructor(private employeeService: EmployeeService) { }
@@ -20,7 +20,7 @@ export class CreatEmployeeComponent implements OnInit {
   ngOnInit(){
   }
   onSubmit(){
-    if(this.employee.name !='' && this.employee.age!=''){
+    if(this.employee.name != '' && this.employee.age != ''){
       this.employeeService.addEmployee(this.employee);
       this.employee.name='';
       this.employee.age='';
