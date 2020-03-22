@@ -29,17 +29,15 @@
             </td>
 
             <td>
-                <span>රු.  {{ item.product.price }} </span>
+                <span>{{ item.product.price | currency:'රු.':true}} </span>
             </td>
 
             <td>
-                <div>
-                    <input type="number" step="1" min="0" max="" value="{{ item.quantity }}" title="Qty" size="4" pattern="" inputmode="">
-                </div>
+                <quantity [product]="item" [shopping-cart]="cart"></quantity>
             </td>
 
             <td>
-                <span>රු. {{ item.product.price * item.quantity }}</span>					
+                <span>{{ item.totalPrice | currency:'රු.':true }}</span>					
             </td>
         </tr>
 
@@ -50,27 +48,17 @@
         </tr>
 
     </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <th>Subtotal</th>
+            <td><span>{{ cart.totalPrice | currency:'රු.':true }} </span></td>
+        </tr> 
 </table>
-
-
-<div>
-    <div>
-        <h2>Cart Totals</h2>
-
-        <table cellspacing="0">
-            <tbody>
-                <tr>
-                    <th>Subtotal</th>
-                    <td><span>රු. </span></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div>
-            <a routerLink="/check-out">Proceed to Checkout</a>
-        </div>
-    </div>
-</div>
-
+            <button routerLink="/check-out">Proceed to Checkout</button>
+            <br><br>
 </ng-container>
 

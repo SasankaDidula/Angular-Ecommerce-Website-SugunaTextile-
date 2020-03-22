@@ -30,6 +30,7 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
 import { CategoryService } from './category.service';
 import { ShoppingCartService } from './shopping-cart.service';
 import { ValueArrayPipe } from './value-array-pipe.pipe';
+import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ValueArrayPipe } from './value-array-pipe.pipe';
     LoginComponent,
     ProductFormComponent,
     ValueArrayPipe,
+    ProductQuantityComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
