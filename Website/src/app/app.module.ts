@@ -18,7 +18,7 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './material/material.module';
 import { HomeComponent } from './home/home.component';
@@ -31,6 +31,11 @@ import { CategoryService } from './category.service';
 import { ShoppingCartService } from './shopping-cart.service';
 import { ValueArrayPipe } from './value-array-pipe.pipe';
 import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
+
+import { HumanRComponent } from './HR/human-r/human-r.component';
+import { EmployeeService } from './HR/services/employee-service.service';
+import { EmployeeDetailsComponent } from './HR/employee-details/employee-details.component';
+import { CreatEmployeeComponent } from './HR/creat-employee/creat-employee.component';
 
 @NgModule({
   declarations: [
@@ -47,10 +52,15 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
     LoginComponent,
     ProductFormComponent,
     ValueArrayPipe,
+    HumanRComponent,
+    EmployeeDetailsComponent,
+    CreatEmployeeComponent,
     ProductQuantityComponent,
   ],
+  
   imports: [
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase,'SagunaTexttile'),
+    AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgbModule,
@@ -65,6 +75,8 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
       {path: 'products', component: ProductsComponent},
       {path: 'shopping-cart', component: ShoppingCartComponent},
       {path: 'login', component: LoginComponent},
+      {path: 'HR/employee-details', component: EmployeeDetailsComponent},
+      {path: 'HR/creat-employee', component:CreatEmployeeComponent},
 
       {path: 'check-out', component: ChechOutComponent, canActivate: [AuthGuard]},
       {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard]},
@@ -83,7 +95,8 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
               UserService,
               AdminAuthGuard,
               CategoryService,
-              ShoppingCartService
+              ShoppingCartService,
+              EmployeeService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
