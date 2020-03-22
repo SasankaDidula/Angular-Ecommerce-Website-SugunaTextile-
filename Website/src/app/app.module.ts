@@ -31,6 +31,12 @@ import { CategoryService } from './category.service';
 import { ShoppingCartService } from './shopping-cart.service';
 import { ValueArrayPipe } from './value-array-pipe.pipe';
 
+import { HumanRComponent } from './HR/human-r/human-r.component';
+import { EmployeeService } from './HR/services/employee-service.service';
+import { EmployeeDetailsComponent } from './HR/employee-details/employee-details.component';
+import { EmployeeListComponent } from './HR/employee-list/employee-list.component';
+import { CreatEmployeeComponent } from './HR/creat-employee/creat-employee.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +52,15 @@ import { ValueArrayPipe } from './value-array-pipe.pipe';
     LoginComponent,
     ProductFormComponent,
     ValueArrayPipe,
+    
+    HumanRComponent,
+    
+    EmployeeDetailsComponent,
+    
+    EmployeeListComponent,
+    
+    CreatEmployeeComponent
+    
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -63,6 +78,7 @@ import { ValueArrayPipe } from './value-array-pipe.pipe';
       {path: 'products', component: ProductsComponent},
       {path: 'shopping-cart', component: ShoppingCartComponent},
       {path: 'login', component: LoginComponent},
+      {path: 'HR/human-r', component: HumanRComponent},
 
       {path: 'check-out', component: ChechOutComponent, canActivate: [AuthGuard]},
       {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard]},
@@ -81,7 +97,8 @@ import { ValueArrayPipe } from './value-array-pipe.pipe';
               UserService,
               AdminAuthGuard,
               CategoryService,
-              ShoppingCartService
+              ShoppingCartService,
+              EmployeeService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
