@@ -1,0 +1,11 @@
+src
+    app
+        SUPPLIERS
+            suppliers.component.ts|.html|.css
+            supplier
+                supplier.component.ts|.html|.css
+
+                shared
+                    supplier.service.ts(form group)
+
+        app.module.ts
