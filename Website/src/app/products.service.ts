@@ -8,11 +8,11 @@ import { Products } from './models/products';
 })
 export class ProductsService {
   
-  constructor(public db: AngularFireDatabase) { 
+  constructor(private db: AngularFireDatabase) { 
     
   }  
   
-  create(product: any) {
+  create(product: Products) {
     return this.db.list('/products').push(product);
   }
   

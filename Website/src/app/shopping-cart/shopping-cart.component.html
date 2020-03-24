@@ -15,21 +15,21 @@
     </thead>
     
     <tbody>
-        <tr *ngFor = "let item of cart.items | valueArray">
+        <tr *ngFor = "let item of cart.items">
             <td>
-                <a href="#">×</a>		
+                <a href="#">X</a>		
             </td>
 
             <td>
-                <a href="#"><img width="58" height="72" src="{{ item.product.imageUrl}}" sizes="(max-width: 58px) 100vw, 58px"></a>	
+                <a href="#"><img width="58" height="72" src="{{ item.imageUrl}}" sizes="(max-width: 58px) 100vw, 58px"></a>	
             </td>
 
             <td>
-                <a href="#"> {{ item.product.title }} </a>
+                <a href="#"> {{ item.title }} </a>
             </td>
 
             <td>
-                <span>{{ item.product.price | currency:'රු.':true}} </span>
+                <span>{{ item.price | currency:'LKR':true}} </span>
             </td>
 
             <td>
@@ -37,7 +37,7 @@
             </td>
 
             <td>
-                <span>{{ item.totalPrice | currency:'රු.':true }}</span>					
+                <span>{{ item.totalPrice | currency:'LKR':true }}</span>					
             </td>
         </tr>
 
@@ -55,10 +55,14 @@
             <td></td>
             <td></td>
             <th>Subtotal</th>
-            <td><span>{{ cart.totalPrice | currency:'රු.':true }} </span></td>
+            <td><span>{{ cart.totalPrice | currency:'LKR':true }} </span></td>
         </tr> 
-</table>
-            <button routerLink="/check-out">Proceed to Checkout</button>
+        <tr>
+            <th colspan="6">
+                <a *ngIf="cart.items.length" routerLink="/check-out" class="btn btn-primary">Proceed to Checkout</a>
+            </th>
+        </tr>
+    </table>
             <br><br>
 </ng-container>
 
