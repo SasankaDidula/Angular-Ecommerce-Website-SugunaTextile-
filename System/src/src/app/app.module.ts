@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SuppliersComponent } from './suppliers/suppliers.component';
 import { SupplierComponent } from './suppliers/supplier/supplier.component';
-import { SuppliersService } from './shared/suppliers.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,7 @@ import { SuppliersService } from './shared/suppliers.service';
     AppRoutingModule,
     MaterialModule
   ],
-  providers: [SuppliersService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
