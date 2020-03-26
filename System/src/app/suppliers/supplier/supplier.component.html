@@ -20,6 +20,31 @@
               </mat-form-field>
           </div>
         </mat-grid-tile>
-        
+        <mat-grid-tile>
+          <div class="controles-container">
+  
+            <mat-form-field>
+                  <input formControlName="address" matInput placeholder="Address">
+            </mat-form-field>
+              <mat-form-field>
+                  <mat-select formControlName="oType" placeholder="Order Type">
+                      <mat-option>None</mat-option>
+                          <ng-container *ngFor="let OrderTypes of OrderTypes">
+                              <mat-option value="{{OrderTypes.id}}">{{OrderTypes.value}}</mat-option>
+                          </ng-container>
+                  </mat-select>
+              </mat-form-field>
+  
+              
+  
+  
+  
+  
+  
+  
+  
+  
+          </div>       
+        </mat-grid-tile>
       </mat-grid-list>
     </form>

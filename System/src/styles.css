@@ -16,3 +16,18 @@ form.normal-form{
 
     margin: 10px;
 }
+
+.controles-container > * {
+    width: 100%;
+}
+
+
+.controles-container2 > * {
+    width: 100%;
+    padding-right: 50px;
+}
+
+.button-row button {
+    margin: 5px;
+}
+
