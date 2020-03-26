@@ -11,3 +11,8 @@ div.container{
         flex: 1 1 auto;
     }
     
+  
+form.normal-form{
+
+    margin: 10px;
+}
