@@ -21,4 +21,25 @@ OrderTypes = [
     
   }
 
+  onClear() {
+    this.service.form.reset();
+    
+
+  }
+
+  demo(){
+
+    this.service.form.setValue({
+  
+      $key:null,
+        supName:'Shadini',
+        compName:'ShaFashion',
+        email:'shadinikalansooriya98@gmail.com',
+        mobile:'0763792769',
+        address:'Diloma, Aththalapitiya Road Bandarawela',
+        oType:0,
+    
+    })
+  }
+
 }
