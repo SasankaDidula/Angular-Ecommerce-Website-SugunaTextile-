@@ -14,6 +14,7 @@ import { ShoppingCart } from '../../../shared/models/shopping-cart';
 export class ShippingFormComponent implements OnInit, OnDestroy {
   @Input('cart') cart: ShoppingCart;
   shipping: any = {};
+  payment: any = {};
   userSubscription: Subscription;
   userId: string;
 
@@ -31,7 +32,7 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
   }
 
   async placeOrder(){
-    let order = new Order(this.userId, this.shipping, this.cart);
+    let order = new Order(this.userId, this.shipping, this.cart, this.payment);
     let result = await this.orderService.placeOrder(order);
     this.router.navigate(['/order-success/', result.key]);
   }

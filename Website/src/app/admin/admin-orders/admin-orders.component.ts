@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { OrderService } from 'src/app/order.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-admin-orders',
@@ -8,10 +9,10 @@ import { OrderService } from 'src/app/order.service';
 })
 export class AdminOrdersComponent {
 
-  orders$;
+  orders$: Observable<any>;
 
   constructor(private orderService: OrderService) {
-    this.orders$ = orderService.getOrders();
+    this.orders$ = orderService.getOrders().valueChanges();
    }
 
 }
