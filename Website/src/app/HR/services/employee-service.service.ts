@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 
-import { Employee } from 'src/app/models/modelsHR/Employee';
+import { Employee } from 'src/app/shared/models/modelsHR/Employee';
 import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
 import { promise } from 'protractor';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
