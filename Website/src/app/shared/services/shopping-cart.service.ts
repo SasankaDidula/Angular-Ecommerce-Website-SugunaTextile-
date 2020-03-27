@@ -5,7 +5,6 @@ import { take, map } from 'rxjs/operators';
 import { Observable, pipe } from 'rxjs';
 import { ShoppingCart } from '../models/shopping-cart';
 import { ShoppingCartItem } from '../models/shopping-cart-item';
-import { ProductsComponent } from '../../shopping/components/products/products.component';
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +42,7 @@ export class ShoppingCartService {
 
   private async updateItem(product : Products, change: number) {
     let cartId = await this.getOrCreateCartId();
-    let item$ = this.getItem(cartId, product.$key);
+    let item$ = this.getItem(cartId, product.key || product.$key);
     item$.valueChanges().pipe(take(1)).subscribe((items : ShoppingCartItem) =>{
       if(items != null){
         let quantity = ( items.quantity || 0 ) + change;

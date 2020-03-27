@@ -33,6 +33,9 @@ import { HumanRComponent } from './HR/human-r/human-r.component';
 import { EmployeeService } from './HR/services/employee-service.service';
 import { EmployeeDetailsComponent } from './HR/employee-details/employee-details.component';
 import { CreatEmployeeComponent } from './HR/creat-employee/creat-employee.component';
+import { OrderService } from './order.service';
+import { ShoppingCartSummaryComponent } from './shopping/components/shopping-cart-summary/shopping-cart-summary.component';
+import { ShippingFormComponent } from './shopping/components/shipping-form/shipping-form.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +55,8 @@ import { CreatEmployeeComponent } from './HR/creat-employee/creat-employee.compo
     EmployeeDetailsComponent,
     CreatEmployeeComponent,
     ProductQuantityComponent,
+    ShoppingCartSummaryComponent,
+    ShippingFormComponent,
   ],
   
   imports: [
@@ -73,7 +78,7 @@ import { CreatEmployeeComponent } from './HR/creat-employee/creat-employee.compo
       {path: 'HR/creat-employee', component:CreatEmployeeComponent},
 
       {path: 'check-out', component: ChechOutComponent, canActivate: [AuthGuard]},
-      {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard]},
+      {path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuard]},
       {path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard]},
       
       {path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuard, AdminAuthGuard]},
@@ -90,7 +95,8 @@ import { CreatEmployeeComponent } from './HR/creat-employee/creat-employee.compo
               AdminAuthGuard,
               CategoryService,
               ShoppingCartService,
-              EmployeeService
+              EmployeeService,
+              OrderService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

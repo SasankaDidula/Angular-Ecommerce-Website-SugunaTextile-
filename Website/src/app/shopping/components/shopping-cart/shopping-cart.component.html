@@ -6,7 +6,6 @@
     <thead class="thead-dark">
         <tr>
             <th scope="col" ></th>
-            <th scope="col" ></th>
             <th scope="col" >Product</th>
             <th scope="col" >Price</th>
             <th scope="col" >Quantity</th>
@@ -16,10 +15,6 @@
     
     <tbody>
         <tr *ngFor = "let item of cart.items">
-            <td>
-                <a href="#">X</a>		
-            </td>
-
             <td>
                 <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail"></div>
             </td>
@@ -44,17 +39,17 @@
     </tbody>
     <tfoot>
         <tr>
-            <td><button 
+            <td><button
+                *ngIf="cart.items.length" 
                 (click) ="clearCart()"
                 class="btn btn-danger btn-sm">Clear Shoppin cart</button></td>
             <td></td>
             <td></td>
-            <td></td>
-            <th>Subtotal</th>
-            <td><span>{{ cart.totalPrice | currency:'LKR':true }} </span></td>
+            <th *ngIf="cart.items.length">Subtotal</th>
+            <td><span *ngIf="cart.items.length">{{ cart.totalPrice | currency:'LKR':true }} </span></td>
         </tr> 
         <tr>
-            <th colspan="6">
+            <th colspan="5">
                 <a *ngIf="cart.items.length" routerLink="/check-out" class="btn btn-primary">Proceed to Checkout</a>
             </th>
         </tr>
