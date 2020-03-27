@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from 'src/app/products.service';
+import { ProductsService } from 'src/app/shared/services/products.service';
 import { Observable } from 'rxjs';
-import { ShoppingCartService } from 'src/app/shopping-cart.service';
-import { Products } from 'src/app/models/products';
+import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.service';
+import { Products } from 'src/app/shared/models/products';
 
 @Component({
   selector: 'app-admin-products',

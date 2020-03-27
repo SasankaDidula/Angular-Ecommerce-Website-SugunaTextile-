@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { Appuser } from './models/app-user';
+import { Appuser } from '../models/app-user';
 import { switchMap } from 'rxjs/internal/operators/switchMap';
 import { UserService } from './user.service';
 import { EmptyObservable } from 'rxjs/observable/EmptyObservable';

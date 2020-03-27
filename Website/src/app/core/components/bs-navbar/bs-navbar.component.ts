@@ -1,11 +1,11 @@
 import { Component, OnInit} from '@angular/core';
-import { AuthService } from '../auth.service';
-import { Appuser } from '../models/app-user';
+import { AuthService } from '../../../shared/services/auth.service';
+import { Appuser } from '../../../shared/models/app-user';
 import { Router } from '@angular/router';
-import { ShoppingCartService } from '../shopping-cart.service';
+import { ShoppingCartService } from '../../../shared/services/shopping-cart.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Observable } from 'rxjs';
-import { ShoppingCart } from '../models/shopping-cart';
+import { ShoppingCart } from '../../../shared/models/shopping-cart';
 
 @Component({
   selector: 'bs-navbar',
