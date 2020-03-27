@@ -1,7 +1,6 @@
 import { OrderTypesService } from './../../shared/order-types.service';
 import { Component, OnInit } from '@angular/core';
 import { SuppliersService } from "../../shared/suppliers.service";
-
 @Component({
   selector: 'app-supplier',
   templateUrl: './supplier.component.html',
@@ -17,14 +16,27 @@ OrderTypes = [
   {id: 1, value : 'Order Type 3'}
 ]
 
-  ngOnInit(): void {
-    
-  }
+ngOnInit() {
+  this.service.getSuppliers();
+}
 
   onClear() {
     this.service.form.reset();
     this.service.initializeFormGroup();
 
+
+  }
+
+  onSubmit(){
+    if(this.service.form.valid){
+      if (!this.service.form.get('$key').value)
+      this.service.insertSupplier(this.service.form.value) // insert new employee to firebase DB collection
+      else
+      this.service.updateSupplier(this.service.form.value);
+      this.service.form.reset();
+      this.service.initializeFormGroup();
+
+    }
 
   }
 

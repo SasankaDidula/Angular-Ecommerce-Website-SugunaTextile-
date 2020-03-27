@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormControl,Validators  } from '@angular/forms';
+import { AngularFireDatabase,AngularFireList } from "angularfire2/database";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SuppliersService {
 
-  constructor() { }
+  constructor(private firebase :AngularFireDatabase) { }
+
+  supplierList : AngularFireList<any>;
 
   form: FormGroup = new FormGroup({
     $key : new FormControl(null),
@@ -33,4 +36,51 @@ export class SuppliersService {
     
     })
   }
+
+  getSuppliers(){
+    this.supplierList =this.firebase.list('suppliers');
+    return this.supplierList.snapshotChanges(); 
+  }
+
+//inserts a new supplier to the firebase database
+//primary key or the $ key will be automatically created
+  insertSupplier(supplier){
+    this.supplierList.push({
+      supName: supplier.supName,
+      compName: supplier.compName,
+      email: supplier.email,
+      mobile: supplier.mobile,
+      address: supplier.address,
+      oType: supplier.oType,
+      count: 0
+     
+    });
+  }
+
+  //In update the primary key should be passed
+
+  updateSupplier(supplier){
+    this.supplierList.update(supplier.$key,
+      {
+        supName: supplier.supName,
+        compName: supplier.compName,
+        email: supplier.email,
+        mobile: supplier.mobile,
+        address: supplier.address,
+        oType: supplier.oType,
+       
+      } );
+  }
+
+
+
+deleteSupplier($key:string){
+  this.supplierList.remove($key);
+
+}
+
+populateForm(supplier) {
+  this.form.patchValue(supplier);
+}
+
 }
