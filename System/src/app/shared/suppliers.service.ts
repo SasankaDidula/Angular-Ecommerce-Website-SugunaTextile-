@@ -18,4 +18,19 @@ export class SuppliersService {
     oType : new FormControl(0),
 
   });
+
+  initializeFormGroup(){
+
+    this.form.setValue({
+
+      $key:null,
+      supName:'',
+      compName:'',
+      email:'',
+      mobile:'',
+      address:'',
+      oType:0,
+    
+    })
+  }
 }

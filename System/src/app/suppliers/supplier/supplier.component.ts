@@ -23,7 +23,8 @@ OrderTypes = [
 
   onClear() {
     this.service.form.reset();
-    
+    this.service.initializeFormGroup();
+
 
   }
 
