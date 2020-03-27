@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Employee } from 'src/app/models/modelsHR/Employee';
+
 import { EmployeeService } from '../services/employee-service.service';
+import { Employee } from 'src/app/modelsHR/Employee';
 
 @Component({
   selector: 'app-creat-employee',

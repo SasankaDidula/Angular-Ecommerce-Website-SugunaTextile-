@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 
 
-import { Employee } from 'src/app/models/modelsHR/Employee';
-import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
-import { promise } from 'protractor';
+
+
+
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map'
+import { Employee } from 'src/app/modelsHR/Employee';
 
 @Injectable({
   providedIn: 'root'

@@ -31,10 +31,7 @@ import { CategoryService } from './category.service';
 import { ShoppingCartService } from './shopping-cart.service';
 import { ValueArrayPipe } from './value-array-pipe.pipe';
 
-import { HumanRComponent } from './HR/human-r/human-r.component';
-import { EmployeeService } from './HR/services/employee-service.service';
-import { EmployeeDetailsComponent } from './HR/employee-details/employee-details.component';
-import { CreatEmployeeComponent } from './HR/creat-employee/creat-employee.component';
+
 
 @NgModule({
   declarations: [
@@ -50,15 +47,9 @@ import { CreatEmployeeComponent } from './HR/creat-employee/creat-employee.compo
     AdminOrdersComponent,
     LoginComponent,
     ProductFormComponent,
-    ValueArrayPipe,
-    
-    HumanRComponent,
-    
-    EmployeeDetailsComponent,
+    ValueArrayPipe
     
     
-    
-    CreatEmployeeComponent
     
   ],
   imports: [
@@ -78,8 +69,7 @@ import { CreatEmployeeComponent } from './HR/creat-employee/creat-employee.compo
       {path: 'products', component: ProductsComponent},
       {path: 'shopping-cart', component: ShoppingCartComponent},
       {path: 'login', component: LoginComponent},
-      {path: 'HR/employee-details', component: EmployeeDetailsComponent},
-      {path: 'HR/creat-employee', component:CreatEmployeeComponent},
+      
 
       {path: 'check-out', component: ChechOutComponent, canActivate: [AuthGuard]},
       {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard]},
@@ -99,7 +89,7 @@ import { CreatEmployeeComponent } from './HR/creat-employee/creat-employee.compo
               AdminAuthGuard,
               CategoryService,
               ShoppingCartService,
-              EmployeeService
+             
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
