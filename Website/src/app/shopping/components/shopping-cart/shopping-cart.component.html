@@ -21,7 +21,7 @@
             </td>
 
             <td>
-                <a href="#"><img width="58" height="72" src="{{ item.imageUrl}}" sizes="(max-width: 58px) 100vw, 58px"></a>	
+                <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail"></div>
             </td>
 
             <td>
@@ -41,16 +41,12 @@
             </td>
         </tr>
 
-        <tr>
-            <td colspan="6">
-                <input type="submit" value="Update Cart" class="buttonClass" ng-click="updateCart()" >
-            </td>
-        </tr>
-
     </tbody>
     <tfoot>
         <tr>
-            <td></td>
+            <td><button 
+                (click) ="clearCart()"
+                class="btn btn-danger btn-sm">Clear Shoppin cart</button></td>
             <td></td>
             <td></td>
             <td></td>

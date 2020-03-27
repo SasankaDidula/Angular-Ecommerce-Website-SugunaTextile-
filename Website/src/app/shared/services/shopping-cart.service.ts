@@ -15,17 +15,15 @@ export class ShoppingCartService {
 
   async getCart(): Promise<Observable<ShoppingCart>>{
     let cartId = await this.getOrCreateCartId();
-    return this.db.object('/shopping-carts/'+ cartId).valueChanges().pipe(map(((x: ShoppingCartItem ) => new ShoppingCart(x) )));
+    return this.db.object('/shopping-carts/'+ cartId).valueChanges().pipe(map(({items}) => new ShoppingCart(items)));
   }
   
-  removeFromCart(product: Products) {
+  async removeFromCart(product: Products) {
     this.updateItem(product, -1);
-    this.updateProd(product, 1);
   }
 
   async addToCart(product: Products) { 
     this.updateItem(product, 1);
-    this.updateProd(product,-1);
   }
 
   async clearCart() { 
@@ -36,7 +34,6 @@ export class ShoppingCartService {
   private create() {
     return this.db.list('/shopping-carts').push({
       dateCreated: new Date().getTime(),
-      items: null
     });
   }
 
@@ -44,29 +41,12 @@ export class ShoppingCartService {
     return this.db.object('/shopping-carts/' + cartId + '/items/' + productId);
   }
 
-  private getProd(productId: string){
-    return this.db.object('/products/'+ productId);
-  }
-
-  private async updateProd(product: Products, change: number){
-    let item$ = this.getProd(product.key);
-    item$.valueChanges().pipe(take(1)).subscribe((item: ShoppingCartItem) =>{
-      let quantity = (item.quantity || 0) + change;
-      if (quantity === 0) item$.remove();
-      else item$.update({ 
-        quantity: quantity
-      });
-    });
-  }
-
-
-  
-private async updateItem(product : Products, change: number) {
+  private async updateItem(product : Products, change: number) {
     let cartId = await this.getOrCreateCartId();
-    let item$ = this.getItem(cartId, product.key);
+    let item$ = this.getItem(cartId, product.$key);
     item$.valueChanges().pipe(take(1)).subscribe((items : ShoppingCartItem) =>{
       if(items != null){
-        let quantity = ( items.quantity || 0 ) + 1;
+        let quantity = ( items.quantity || 0 ) + change;
         if (quantity === 0) item$.remove();
         else item$.update({ 
           title: product.title,
