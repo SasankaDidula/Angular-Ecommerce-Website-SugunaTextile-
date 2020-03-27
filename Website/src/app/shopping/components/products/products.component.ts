@@ -26,7 +26,10 @@ export class ProductsComponent implements OnInit {
 
   async ngOnInit() {
     this.cart$ = (await this.shoppingCartService.getCart());
+    this.populateProduct();
+  }
 
+  private populateProduct(){
     this.productService
     .getAll()
     .pipe(switchMap(products => {
@@ -35,10 +38,15 @@ export class ProductsComponent implements OnInit {
     }))
     .subscribe(params => {
       this.category = params.get('category');
-
-      this.filteredProducts = (this.category) ?
-      this.products.filter(p => p.category === this.category): this.products;
+      this.applyFilter();
+      
     })
+  }
+
+  private applyFilter(){
+    this.filteredProducts = (this.category) ?
+      this.products.filter(p => p.category === this.category): 
+      this.products;
   }
 
 }
