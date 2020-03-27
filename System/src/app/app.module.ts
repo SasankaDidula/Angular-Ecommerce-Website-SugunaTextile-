@@ -12,6 +12,11 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { AngularFireModule } from "angularfire2";
+import { AngularFireDatabaseModule } from "angularfire2/database";
+import {MatExpansionModule} from '@angular/material/expansion';
+import { environment } from "../environments/environment";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +34,11 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     BrowserAnimationsModule,
     MatSliderModule,
     MatDialogModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    MatExpansionModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [SuppliersService],
   bootstrap: [AppComponent]
