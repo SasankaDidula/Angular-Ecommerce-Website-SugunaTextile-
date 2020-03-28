@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild} from '@angular/core';
 import { SupplierComponent } from "./../supplier/supplier.component";
 import { SuppliersService } from '../../shared/suppliers.service';
 import { MatTableDataSource } from "@angular/material/table";
@@ -28,6 +28,9 @@ export class SupplierListComponent implements OnInit {
   BarChart=[];
   expandedElement : MatTableDataSource<any>;
 
+  @ViewChild(MatSort,{static: true}) sort: MatSort;
+    @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
+    searchKey: string;
 
   ngOnInit(): void {
     
@@ -40,8 +43,11 @@ export class SupplierListComponent implements OnInit {
           };
         });
         this.listData = new MatTableDataSource(array);
-
+        this.listData.sort = this.sort;
+        this.listData.paginator = this.paginator;
+    
       });
+
 
       
     }
@@ -57,6 +63,15 @@ onEdit(row){
   dialogConfig.autoFocus = true;
   dialogConfig.width = "60%";
   this.dialog.open(SupplierComponent,dialogConfig);
+}
+
+onSearchClear() {
+  this.searchKey = "";
+  this.applyFilter();
+}
+
+applyFilter() {
+  this.listData.filter = this.searchKey.trim().toLowerCase();
 }
 
 onDelete($key){
