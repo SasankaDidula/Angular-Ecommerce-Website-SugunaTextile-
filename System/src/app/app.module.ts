@@ -24,6 +24,10 @@ import { DepartmentService } from './shared/department.service';
 import { EmployeeService } from './shared/employee.service';
 import { NotificationService } from './shared/notification.service';
 import { DatePipe } from '@angular/common';
+import { SupplierListComponent } from './suppliers/supplier-list/supplier-list.component';
+
+import {MatDialogRef} from '@angular/material/dialog';
+import { OrderTypesService } from "./shared/order-types.service";
 
 
 @NgModule({
@@ -31,10 +35,10 @@ import { DatePipe } from '@angular/common';
     AppComponent,
     SuppliersComponent,
     SupplierComponent,
-   
+    SupplierListComponent,
     EmployeeListComponent,
     EmployeesComponent,
-    EmployeeComponent,
+    EmployeeComponent
     
   ],
   imports: [
@@ -59,7 +63,11 @@ import { DatePipe } from '@angular/common';
     EmployeeService,
     NotificationService,
     DatePipe,
-  ],
+    SuppliersService,
+    OrderTypesService, {
+    provide: MatDialogRef,
+    useValue: {}
+  }],
   bootstrap: [AppComponent]
 
 })
