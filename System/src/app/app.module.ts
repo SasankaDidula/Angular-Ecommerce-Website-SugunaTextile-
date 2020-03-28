@@ -17,12 +17,23 @@ import { AngularFireDatabaseModule } from "angularfire2/database";
 import {MatExpansionModule} from '@angular/material/expansion';
 import { environment } from "../environments/environment";
 
+import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+import { EmployeesComponent } from './employees/employees.component';
+import { EmployeeComponent } from './employees/employee/employee.component';
+import { DepartmentService } from './shared/department.service';
+import { EmployeeService } from './shared/employee.service';
+import { NotificationService } from './shared/notification.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SuppliersComponent,
     SupplierComponent,
+   
+    EmployeeListComponent,
+    EmployeesComponent,
+    EmployeeComponent,
     
   ],
   imports: [
@@ -41,7 +52,12 @@ import { environment } from "../environments/environment";
     MatExpansionModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [SuppliersService],
+  providers: [
+    SuppliersService,
+    DepartmentService,
+    EmployeeService,
+    NotificationService
+  ],
   bootstrap: [AppComponent]
 
 })
