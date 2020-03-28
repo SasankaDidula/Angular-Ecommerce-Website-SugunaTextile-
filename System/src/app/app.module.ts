@@ -18,12 +18,14 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { environment } from "../environments/environment";
 import {MatDialogRef} from '@angular/material/dialog';
 import { OrderTypesService } from "./shared/order-types.service";
+import { SupplierListComponent } from './suppliers/supplier-list/supplier-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SuppliersComponent,
     SupplierComponent,
+    SupplierListComponent,
     
   ],
   imports: [
