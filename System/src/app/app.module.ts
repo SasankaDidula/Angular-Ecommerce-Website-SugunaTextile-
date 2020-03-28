@@ -16,7 +16,8 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import {MatExpansionModule} from '@angular/material/expansion';
 import { environment } from "../environments/environment";
-
+import {MatDialogRef} from '@angular/material/dialog';
+import { OrderTypesService } from "./shared/order-types.service";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,10 @@ import { environment } from "../environments/environment";
     MatExpansionModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [SuppliersService],
+  providers: [SuppliersService,,OrderTypesService, {
+    provide: MatDialogRef,
+    useValue: {}
+  }],
   bootstrap: [AppComponent]
 
 })
