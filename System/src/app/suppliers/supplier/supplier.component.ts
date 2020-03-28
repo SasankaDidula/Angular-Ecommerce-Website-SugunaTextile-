@@ -2,6 +2,7 @@ import { OrderTypesService } from './../../shared/order-types.service';
 import { Component, OnInit } from '@angular/core';
 import { SuppliersService } from "../../shared/suppliers.service";
 import { MatDialogRef } from '@angular/material/dialog';
+import { NotifcationService } from "../../shared/notification.service";
 
 @Component({
   selector: 'app-supplier',
@@ -10,7 +11,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class SupplierComponent implements OnInit {
 
-  constructor(public service: SuppliersService,public ordType : OrderTypesService, public dialogRef: MatDialogRef <SupplierComponent>) { }
+  constructor(public service: SuppliersService,public ordType : OrderTypesService,     private notificationService : NotifcationService,
+    public dialogRef: MatDialogRef <SupplierComponent>) { }
 
 
 
@@ -33,7 +35,8 @@ ngOnInit() {
       this.service.updateSupplier(this.service.form.value);
       this.service.form.reset();
       this.service.initializeFormGroup();
-
+      this.notificationService.success(':: Submitted Succesfully' );
+      this.onClose();
     }
 
   }
