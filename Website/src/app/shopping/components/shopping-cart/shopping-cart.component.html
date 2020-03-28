@@ -24,7 +24,7 @@
             </td>
 
             <td>
-                <span>{{ item.price | currency:'LKR':true}} </span>
+                <span>{{ item.price | currency:'LKR':"symbol-narrow"}} </span>
             </td>
 
             <td>
@@ -32,7 +32,7 @@
             </td>
 
             <td>
-                <span>{{ item.totalPrice | currency:'LKR':true }}</span>					
+                <span>{{ item.totalPrice | currency:'LKR':"symbol-narrow"}}</span>					
             </td>
         </tr>
 
@@ -46,7 +46,7 @@
             <td></td>
             <td></td>
             <th *ngIf="cart.items.length">Subtotal</th>
-            <td><span *ngIf="cart.items.length">{{ cart.totalPrice | currency:'LKR':true }} </span></td>
+            <td><span *ngIf="cart.items.length">{{ cart.totalPrice | currency:'LKR':"symbol-narrow" }} </span></td>
         </tr> 
         <tr>
             <th colspan="5">

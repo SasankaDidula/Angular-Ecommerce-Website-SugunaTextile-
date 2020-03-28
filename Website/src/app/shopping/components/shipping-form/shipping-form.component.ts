@@ -5,6 +5,7 @@ import { OrderService } from '../../../order.service';
 import { AuthService } from '../../../shared/services/auth.service';
 import { Order } from '../../../shared/models/order';
 import { ShoppingCart } from '../../../shared/models/shopping-cart';
+import { FormGroup, FormControl, Validators,} from '@angular/forms';
 
 @Component({
   selector: 'shipping-form',
@@ -17,6 +18,7 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
   payment: any = {};
   userSubscription: Subscription;
   userId: string;
+  mobNumberPattern = "^((\\+94-?)|0)?[0-9]{9}$"; 
 
   constructor(
     private router: Router,
