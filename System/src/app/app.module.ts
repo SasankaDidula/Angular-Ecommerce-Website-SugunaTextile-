@@ -23,6 +23,7 @@ import { EmployeeComponent } from './employees/employee/employee.component';
 import { DepartmentService } from './shared/department.service';
 import { EmployeeService } from './shared/employee.service';
 import { NotificationService } from './shared/notification.service';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { NotificationService } from './shared/notification.service';
     SuppliersService,
     DepartmentService,
     EmployeeService,
-    NotificationService
+    NotificationService,
+    DatePipe,
   ],
   bootstrap: [AppComponent]
 

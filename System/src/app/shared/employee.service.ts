@@ -60,16 +60,16 @@ export class EmployeeService {
 //employee object contains details automatically creted the primary key
     insertEmployee(employee){
       this.employeeList.push({
-      empID:employee.empID,
+      empID: employee.empID,
       empName: employee.empName,
-      designation:employee.designation,
-      email:employee.email,
-      address:employee.address,
-      mobile:employee.mobile,
-      department:employee.department,
-      joined:employee.joined  == "" ? "" : this.datePipe.transform(employee.joined, 'yyyy-MM-dd'),
-      salary:employee.salary,
-      isPermanent:false
+      designation: employee.designation,
+      email: employee.email,
+      address: employee.address,
+      mobile: employee.mobile,
+      department: employee.department,
+      joined: employee.joined  == "" ? "" : this.datePipe.transform(employee.joined, 'yyyy-MM-dd'),
+      salary: employee.salary,
+      isPermanent: false
       });
     }
 
@@ -77,15 +77,15 @@ export class EmployeeService {
     updateEmployee(employee){
       this.employeeList.update(employee.$key,
         {
-          empID:employee.empID,
+          empID: employee.empID,
           empName: employee.empName,
-          designation:employee.designation,
-          email:employee.email,
-          address:employee.address,
-          mobile:employee.mobile,
-          department:employee.department,
-          joined:employee.joined  == "" ? "" : this.datePipe.transform(employee.joined, 'yyyy-MM-dd'),
-          salary:employee.salary,
+          designation: employee.designation,
+          email: employee.email,
+          address: employee.address,
+          mobile: employee.mobile,
+          department: employee.department,
+          joined: employee.joined  == "" ? "" : this.datePipe.transform(employee.joined, 'yyyy-MM-dd'),
+          salary: employee.salary,
           isPermanent: employee.isPermanent
 
         } );
