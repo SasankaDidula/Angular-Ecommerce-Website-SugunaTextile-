@@ -58,7 +58,7 @@
               <div class="controles-container">
                 <mat-form-field>
                 <mat-select formControlName="department" placeholder="Department">
-                  <mat-option>None</mat-option>
+                  <mat-option>Department List</mat-option>
                   <ng-container *ngFor="let department of departmentService.array">
                     <mat-option value="{{department.$key}}">{{department.$key}}</mat-option>
                   </ng-container>
