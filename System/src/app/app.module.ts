@@ -68,7 +68,8 @@ import { OrderTypesService } from "./shared/order-types.service";
     provide: MatDialogRef,
     useValue: {}
   }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ SupplierComponent]
 
 })
 export class AppModule { }

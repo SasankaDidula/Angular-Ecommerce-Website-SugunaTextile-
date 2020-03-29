@@ -74,6 +74,15 @@ applyFilter() {
   this.listData.filter = this.searchKey.trim().toLowerCase();
 }
 
+onCreate() {
+  this.service.initializeFormGroup();
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.disableClose = true;
+  dialogConfig.autoFocus = true;
+  dialogConfig.width = "60%";
+  this.dialog.open(SupplierComponent,dialogConfig);
+}
+
 onDelete($key){
   this.service.deleteSupplier($key);
 }
