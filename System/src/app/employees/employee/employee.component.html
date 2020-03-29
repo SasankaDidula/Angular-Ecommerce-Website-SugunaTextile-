@@ -1,4 +1,4 @@
-<p>employee works!</p>
+
 <mat-toolbar>
     <span>{{service.form.controls['$key'].value?"Modify Employee":"New Employee"}}</span>
     <span class="fill-remaining-space"></span>
@@ -16,8 +16,8 @@
 
 
             <mat-form-field>
-          <input formControlName="$key"
-          matInput placeholder="Employee Code"> -->
+          <input readonly="$key"
+          matInput placeholder="Employee Code"> 
           <mat-error>This field is mandatory</mat-error>
         </mat-form-field>
 
@@ -60,7 +60,7 @@
                 <mat-select formControlName="department" placeholder="Department">
                   <mat-option>None</mat-option>
                   <ng-container *ngFor="let department of departmentService.array">
-                    <mat-option value="{{department.$key}}">{{department.Code}}-{{department.value}}</mat-option>
+                    <mat-option value="{{department.$key}}">{{department.$key}}</mat-option>
                   </ng-container>
                 </mat-select>
             </mat-form-field>
