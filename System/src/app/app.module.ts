@@ -28,6 +28,7 @@ import { SupplierListComponent } from './suppliers/supplier-list/supplier-list.c
 
 import {MatDialogRef} from '@angular/material/dialog';
 import { OrderTypesService } from "./shared/order-types.service";
+import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { OrderTypesService } from "./shared/order-types.service";
     SupplierListComponent,
     EmployeeListComponent,
     EmployeesComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    MatConfirmDialogComponent
     
   ],
   imports: [
@@ -69,7 +71,7 @@ import { OrderTypesService } from "./shared/order-types.service";
     useValue: {}
   }],
   bootstrap: [AppComponent],
-  entryComponents: [ SupplierComponent]
+  entryComponents: [ SupplierComponent,MatConfirmDialogComponent]
 
 })
 export class AppModule { }

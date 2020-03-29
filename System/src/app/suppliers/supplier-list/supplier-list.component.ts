@@ -6,6 +6,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { MatSort } from "@angular/material/sort";
 import { MatPaginator } from "@angular/material/paginator";
+import { DialogService } from '../../shared/dialog.service';
 @Component({
   selector: 'app-supplier-list',
   templateUrl: './supplier-list.component.html',
@@ -15,8 +16,8 @@ export class SupplierListComponent implements OnInit {
 
   constructor(public service : SuppliersService,
      private dialog: MatDialog,
-     private NotificationService :NotificationService
-     ) { }
+     private NotificationService :NotificationService,
+     private dialogService :DialogService)  { }
 
   listData: MatTableDataSource<any>;
   x:MatTableDataSource<any>;
@@ -91,11 +92,13 @@ onEdit(row){
 
 
 onDelete($key){
-  if(confirm('Are You sure You want to delete this record?'))
-  {
-  this.service.deleteSupplier($key);
-  this.NotificationService.warn('! Deleted Successfully');
-  }
+  // if(confirm('Are you sure to delete this record?'))
+  // {
+  // this.service.deleteSupplier($key);
+  // this.NotificationService.warn('! Deleted Successfully');
+  // }
+
+  this.dialogService.openConfirmDialog('Are you sure to delete this record?');
 }
 
   
