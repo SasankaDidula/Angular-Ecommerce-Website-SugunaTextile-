@@ -1,3 +1,4 @@
+import { NotificationService } from './../../shared/notification.service';
 import { Component, OnInit , ViewChild} from '@angular/core';
 import { SupplierComponent } from "./../supplier/supplier.component";
 import { SuppliersService } from '../../shared/suppliers.service';
@@ -12,7 +13,10 @@ import { MatPaginator } from "@angular/material/paginator";
 })
 export class SupplierListComponent implements OnInit {
 
-  constructor(public service : SuppliersService, private dialog: MatDialog) { }
+  constructor(public service : SuppliersService,
+     private dialog: MatDialog,
+     private NotificationService :NotificationService
+     ) { }
 
   listData: MatTableDataSource<any>;
   x:MatTableDataSource<any>;
@@ -56,14 +60,7 @@ export class SupplierListComponent implements OnInit {
 // console.log(this.companyNameList);
 // console.log(this.supplysumList);
 
-onEdit(row){
-  this.service.populateForm(row);
-  const dialogConfig = new MatDialogConfig();
-  dialogConfig.disableClose = false;
-  dialogConfig.autoFocus = true;
-  dialogConfig.width = "60%";
-  this.dialog.open(SupplierComponent,dialogConfig);
-}
+
 
 onSearchClear() {
   this.searchKey = "";
@@ -83,8 +80,22 @@ onCreate() {
   this.dialog.open(SupplierComponent,dialogConfig);
 }
 
+onEdit(row){
+  this.service.populateForm(row);
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.disableClose = false;
+  dialogConfig.autoFocus = true;
+  dialogConfig.width = "60%";
+  this.dialog.open(SupplierComponent,dialogConfig);
+}
+
+
 onDelete($key){
+  if(confirm('Are You sure You want to delete this record?'))
+  {
   this.service.deleteSupplier($key);
+  this.NotificationService.warn('! Deleted Successfully');
+  }
 }
 
   
