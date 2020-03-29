@@ -92,13 +92,16 @@ onEdit(row){
 
 
 onDelete($key){
-  // if(confirm('Are you sure to delete this record?'))
-  // {
-  // this.service.deleteSupplier($key);
-  // this.NotificationService.warn('! Deleted Successfully');
-  // }
+ 
 
-  this.dialogService.openConfirmDialog('Are you sure to delete this record?');
+  this.dialogService.openConfirmDialog('Are you sure to delete this record?')
+  .afterClosed().subscribe(res =>{
+    console.log(res);
+    if(res){
+      this.service.deleteSupplier($key);
+      this.NotificationService.warn('! Deleted Successfully');
+    }
+  });
 }
 
   
