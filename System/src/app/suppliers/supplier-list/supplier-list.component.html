@@ -1,3 +1,25 @@
+<div class="search-div">
+
+  <button mat-raised-button >
+
+    <mat-icon>add</mat-icon>Create
+
+  </button>
+
+  <mat-form-field class="search-form-field" floatLabel="never">
+
+    <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()" >
+
+    <button mat-button matSuffix mat-icon-button aria-label="Clear"*ngIf="searchKey" (click)="onSearchClear()">
+
+      <mat-icon>close</mat-icon>
+
+    </button>
+
+  </mat-form-field>
+
+</div>
+
 <div class="mat-elevation-z8 table">
     <mat-table DataPreview [dataSource]="listData" multiTemplateDataRows  matSort width = "100%">
   
@@ -74,6 +96,12 @@
   
           </mat-cell>
         </ng-container>
+
+        <ng-container mattColoumnDef="loading">
+          <mat-footer-cell *matFooterCellDef colspan ="6">
+            Loading data...
+          </mat-footer-cell>
+        </ng-container>
     
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     
@@ -107,6 +135,7 @@
   
   
   
+
   
       </mat-table>
       <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
