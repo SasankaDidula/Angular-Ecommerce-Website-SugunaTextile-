@@ -16,9 +16,19 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import {MatExpansionModule} from '@angular/material/expansion';
 import { environment } from "../environments/environment";
+
+import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+import { EmployeesComponent } from './employees/employees.component';
+import { EmployeeComponent } from './employees/employee/employee.component';
+import { DepartmentService } from './shared/department.service';
+import { EmployeeService } from './shared/employee.service';
+import { NotificationService } from './shared/notification.service';
+import { DatePipe } from '@angular/common';
+import { SupplierListComponent } from './suppliers/supplier-list/supplier-list.component';
+
 import {MatDialogRef} from '@angular/material/dialog';
 import { OrderTypesService } from "./shared/order-types.service";
-import { SupplierListComponent } from './suppliers/supplier-list/supplier-list.component';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +36,9 @@ import { SupplierListComponent } from './suppliers/supplier-list/supplier-list.c
     SuppliersComponent,
     SupplierComponent,
     SupplierListComponent,
+    EmployeeListComponent,
+    EmployeesComponent,
+    EmployeeComponent
     
   ],
   imports: [
@@ -44,7 +57,14 @@ import { SupplierListComponent } from './suppliers/supplier-list/supplier-list.c
     MatExpansionModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [SuppliersService,,OrderTypesService, {
+  providers: [
+    SuppliersService,
+    DepartmentService,
+    EmployeeService,
+    NotificationService,
+    DatePipe,
+    SuppliersService,
+    OrderTypesService, {
     provide: MatDialogRef,
     useValue: {}
   }],

@@ -2,7 +2,7 @@ import { OrderTypesService } from './../../shared/order-types.service';
 import { Component, OnInit } from '@angular/core';
 import { SuppliersService } from "../../shared/suppliers.service";
 import { MatDialogRef } from '@angular/material/dialog';
-import { NotifcationService } from "../../shared/notification.service";
+import { NotificationService } from 'src/app/shared/notification.service';
 
 @Component({
   selector: 'app-supplier',
@@ -11,7 +11,7 @@ import { NotifcationService } from "../../shared/notification.service";
 })
 export class SupplierComponent implements OnInit {
 
-  constructor(public service: SuppliersService,public ordType : OrderTypesService,     private notificationService : NotifcationService,
+  constructor(public service: SuppliersService,public ordType : OrderTypesService,     private notificationService : NotificationService,
     public dialogRef: MatDialogRef <SupplierComponent>) { }
 
 
