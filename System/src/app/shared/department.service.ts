@@ -9,16 +9,18 @@ export class DepartmentService {
   departmentList: AngularFireList<any>;//retrieve all and convert array
   array = [];
   constructor(private firebase: AngularFireDatabase) {
-    this.departmentList = this.firebase.list('departments'); //firebase node departments
+    this.departmentList = this.firebase.list('depatment'); //firebase node departments
     this.departmentList.snapshotChanges().subscribe(
       list => {
         this.array = list.map(item => { 
+          console.log(item);
           return {
             $key: item.key,
             ...item.payload.val() //destructuring syntax from javascript
           };
         });
       });
+      
    }
    getDepartment($key) {
     if ($key == "0")
