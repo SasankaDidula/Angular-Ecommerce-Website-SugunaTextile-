@@ -11,14 +11,17 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class EmployeeComponent implements OnInit {
 
-  constructor(private service: EmployeeService,
-    private notificationService : NotificationService,
-     private departmentService: DepartmentService,
-     private dialogRef:MatDialogRef<EmployeeComponent>){}
+  department: any;
+
+  constructor(public service: EmployeeService,
+    public notificationService : NotificationService,
+     public departmentService: DepartmentService,
+     public dialogRef:MatDialogRef<EmployeeComponent>){}
      
 
   ngOnInit() {
     this.service.getEmployees();//this will called when ALL the modification  and deletion happens
+    // this.department = this.departmentService.departmentList;
   }
   
 
