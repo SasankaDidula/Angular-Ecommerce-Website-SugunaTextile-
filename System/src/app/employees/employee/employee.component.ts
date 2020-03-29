@@ -21,7 +21,7 @@ export class EmployeeComponent implements OnInit {
 
   ngOnInit() {
     this.service.getEmployees();//this will called when ALL the modification  and deletion happens
-    // this.department = this.departmentService.departmentList;
+     this.department = this.departmentService.departmentList;
   }
   
 

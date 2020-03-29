@@ -17,7 +17,7 @@
 
             <mat-form-field>
           <input formControlName="$key"
-           matInput placeholder="Employee Code">
+          matInput placeholder="Employee Code"> -->
           <mat-error>This field is mandatory</mat-error>
         </mat-form-field>
 
@@ -60,7 +60,7 @@
                 <mat-select formControlName="department" placeholder="Department">
                   <mat-option>None</mat-option>
                   <ng-container *ngFor="let department of departmentService.array">
-                    <mat-option value="{{department.$key}}">{{department.code}}-{{department.name}}</mat-option>
+                    <mat-option value="{{department.$key}}">{{department.Code}}-{{department.value}}</mat-option>
                   </ng-container>
                 </mat-select>
             </mat-form-field>
