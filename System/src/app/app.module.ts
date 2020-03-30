@@ -29,6 +29,7 @@ import { SupplierListComponent } from './suppliers/supplier-list/supplier-list.c
 import {MatDialogRef} from '@angular/material/dialog';
 import { OrderTypesService } from "./shared/order-types.service";
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
+import { TailoringsComponent } from './tailorings/tailorings.component';
 
 
 
@@ -42,6 +43,7 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
     EmployeesComponent,
     EmployeeComponent,
     MatConfirmDialogComponent,
+    TailoringsComponent,
 
   ],
   imports: [
