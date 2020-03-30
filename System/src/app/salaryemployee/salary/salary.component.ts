@@ -5,8 +5,8 @@ import { SalaryslipComponent } from '../salaryslip/salaryslip.component';
 
 import *as  jsPDF from 'jspdf';
 import 'jspdf-autotable';
-import *as html2canvas from 'html2canvas';
 import { MatDialog } from '@angular/material/dialog';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-salary',

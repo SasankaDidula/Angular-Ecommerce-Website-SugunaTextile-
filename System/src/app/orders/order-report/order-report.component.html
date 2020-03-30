@@ -33,101 +33,72 @@
         <mat-table [dataSource]="listData"  matSort>
          
             <ng-container matColumnDef="Order ID">
-      
                 <mat-header-cell *matHeaderCellDef  mat-sort-header>Order ID</mat-header-cell>
-          
                 <mat-cell *matCellDef="let element; index as i">{{i+1}}</mat-cell>
-          
               </ng-container>
+
               <ng-container matColumnDef="shipping.name">
-      
                 <mat-header-cell *matHeaderCellDef  mat-sort-header>Customer Name</mat-header-cell>
-          
                 <mat-cell *matCellDef="let element">{{element.shipping.name}}</mat-cell>
-          
               </ng-container>
-              <ng-container matColumnDef="shipping.phone">
-      
-                <mat-header-cell *matHeaderCellDef  mat-sort-header>Mobile No</mat-header-cell>
-          
-                <mat-cell *matCellDef="let element">{{element.shipping.phone}}</mat-cell>
-          
-              </ng-container>
-              <ng-container matColumnDef="shipping.addressLine1">
-      
-                <mat-header-cell *matHeaderCellDef  mat-sort-header>Address</mat-header-cell>
-          
-                <mat-cell *matCellDef="let element">{{element.shipping.addressLine1}}<br>{{element.shipping.addressLine2}}</mat-cell>
-          
-              </ng-container>
-              <ng-container matColumnDef="datePlaced">
-      
-                <mat-header-cell *matHeaderCellDef  mat-sort-header>Date Placed</mat-header-cell>
-          
-                <mat-cell *matCellDef="let element">{{element.datePlaced}}</mat-cell>
-          
-              </ng-container>
-      
-    
-          <ng-container matColumnDef="totalprice">
-      
-            <mat-header-cell *matHeaderCellDef  mat-sort-header>Total Price</mat-header-cell>
-      
-            <mat-cell *matCellDef="let element">${{element.totalprice}}</mat-cell>
-      
-          </ng-container>
-          <ng-container matColumnDef="newprice">
-      
-            <mat-header-cell *matHeaderCellDef  mat-sort-header>New Price</mat-header-cell>
-      
-            <mat-cell *matCellDef="let element">${{element.newprice}}</mat-cell>
-      
-          </ng-container>
 
-    
+              <ng-container matColumnDef="shipping.mobNumber">
+                <mat-header-cell *matHeaderCellDef  mat-sort-header>Contact Number</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.shipping.mobNumber}}</mat-cell>
+              </ng-container>
 
-          <ng-container  matColumnDef="Quantities">
-  
-            <mat-header-cell *matHeaderCellDef  mat-sort-header>Quantities</mat-header-cell>  
-            <mat-cell *matCellDef="let element" > 
-                <ng-container *ngFor = "let key of objectKeys(element.items)">
-                
-                    *{{element.items[key].quantity}}<br><br>
-                  
-                  </ng-container>
-              </mat-cell>
-          </ng-container>
-
-          <ng-container matColumnDef="Titles">
-      
-            <mat-header-cell *matHeaderCellDef  mat-sort-header>Product Titles</mat-header-cell>
-      
-            <mat-cell *matCellDef="let element" >
+              <ng-container matColumnDef="shipping.email">
+                <mat-header-cell *matHeaderCellDef  mat-sort-header>Email</mat-header-cell>
+                <mat-cell *matCellDef="let element" [ngClass]="'customWidthClass'">{{element.shipping.email}}<br></mat-cell>
+              </ng-container>
               
-              <ng-container *ngFor = "let key of objectKeys(element.items)">
-                  *{{element.items[key].title}}<br><br></ng-container>
-                  
-            </mat-cell>
+              <ng-container matColumnDef="shipping.address">
+                <mat-header-cell *matHeaderCellDef  mat-sort-header>Address</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.shipping.address}}<br>{{element.shipping.city}}<br>{{ element.shipping.state }}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="shipping.zip">
+                <mat-header-cell *matHeaderCellDef  mat-sort-header>Zip Code</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.shipping.zip}}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="datePlaced">
+                <mat-header-cell *matHeaderCellDef  mat-sort-header>Date Placed</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.datePlaced}}</mat-cell>
+              </ng-container>
       
-          </ng-container>
-        
+              <ng-container matColumnDef="totalprice">
+                <mat-header-cell *matHeaderCellDef  mat-sort-header>Total Price</mat-header-cell>
+                <mat-cell *matCellDef="let element">${{element.totalprice}}</mat-cell>      
+              </ng-container>
+
+              <ng-container  matColumnDef="Quantities">
+                <mat-header-cell *matHeaderCellDef  mat-sort-header>Quantities</mat-header-cell>  
+                <mat-cell *matCellDef="let element" > 
+                    <ng-container *ngFor = "let key of objectKeys(element.items)">
+                        *{{element.items[key].quantity}} x ${{ element.items[key].product.price}}<br><br>            
+                      </ng-container>
+                  </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="Titles">
+                <mat-header-cell *matHeaderCellDef  mat-sort-header>Product Titles</mat-header-cell>
+                <mat-cell *matCellDef="let element" >
+                  <ng-container *ngFor = "let key of objectKeys(element.items)">
+                      *{{element.items[key].product.title}}<br><br></ng-container>          
+                </mat-cell>
+              </ng-container>
+      
+
         <div matColumnDef="actions">
-    
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
-      
             <mat-cell *matCellDef="let row">
-      
               <button mat-icon-button color="warn" (click)="ondelete(row.$key)"><mat-icon>delete_outline</mat-icon></button>
-      
             </mat-cell>
-      
         </div>
-      
+
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      
           <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-      
-          
         </mat-table>
       </div>   
     </div>

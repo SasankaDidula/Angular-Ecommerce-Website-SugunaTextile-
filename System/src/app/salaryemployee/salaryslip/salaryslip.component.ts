@@ -4,7 +4,7 @@ import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 
 import * as jsPDF from 'jspdf';
 import 'jspdf-autotable';
-import *as html2canvas from 'html2canvas';
+
 
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { NotificationService } from 'src/app/shared/notification.service';
@@ -12,6 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import html2canvas from 'html2canvas';
 
 
 @Component({
