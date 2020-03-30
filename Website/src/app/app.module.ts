@@ -29,7 +29,10 @@ import { CategoryService } from './shared/services/category.service';
 import { ShoppingCartService } from './shared/services/shopping-cart.service';
 import { ProductQuantityComponent } from './shared/components/product-quantity/product-quantity.component';
 
-
+import { HumanRComponent } from './HR/human-r/human-r.component';
+import { EmployeeService } from './HR/services/employee-service.service';
+import { EmployeeDetailsComponent } from './HR/employee-details/employee-details.component';
+import { CreatEmployeeComponent } from './HR/creat-employee/creat-employee.component';
 import { OrderService } from './order.service';
 import { ShoppingCartSummaryComponent } from './shopping/components/shopping-cart-summary/shopping-cart-summary.component';
 import { ShippingFormComponent } from './shopping/components/shipping-form/shipping-form.component';
@@ -48,6 +51,9 @@ import { ShippingFormComponent } from './shopping/components/shipping-form/shipp
     AdminOrdersComponent,
     LoginComponent,
     ProductFormComponent,
+    HumanRComponent,
+    EmployeeDetailsComponent,
+    CreatEmployeeComponent,
     ProductQuantityComponent,
     ShoppingCartSummaryComponent,
     ShippingFormComponent,
@@ -68,6 +74,9 @@ import { ShippingFormComponent } from './shopping/components/shipping-form/shipp
       {path: 'products', component: ProductsComponent},
       {path: 'shopping-cart', component: ShoppingCartComponent},
       {path: 'login', component: LoginComponent},
+      {path: 'HR/employee-details', component: EmployeeDetailsComponent},
+      {path: 'HR/creat-employee', component:CreatEmployeeComponent},
+
       {path: 'check-out', component: ChechOutComponent, canActivate: [AuthGuard]},
       {path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuard]},
       {path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard]},
@@ -86,6 +95,7 @@ import { ShippingFormComponent } from './shopping/components/shipping-form/shipp
               AdminAuthGuard,
               CategoryService,
               ShoppingCartService,
+              EmployeeService,
               OrderService
   ],
   bootstrap: [AppComponent],
