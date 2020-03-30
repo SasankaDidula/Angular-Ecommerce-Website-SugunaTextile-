@@ -29,6 +29,10 @@ import { SupplierListComponent } from './suppliers/supplier-list/supplier-list.c
 import {MatDialogRef} from '@angular/material/dialog';
 import { OrderTypesService } from "./shared/order-types.service";
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
+import { SalaryComponent } from './salaryemployee/salary/salary.component';
+import { SalaryemployeeComponent } from './salaryemployee/salaryemployee.component';
+import { SalaryslipComponent } from './salaryemployee/salaryslip/salaryslip.component';
+import { SalaryService } from './shared/salary.service';
 
 
 
@@ -42,6 +46,9 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
     EmployeesComponent,
     EmployeeComponent,
     MatConfirmDialogComponent,
+    SalaryComponent,
+    SalaryemployeeComponent,
+    SalaryslipComponent
 
   ],
   imports: [
@@ -65,6 +72,7 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
     DepartmentService,
     EmployeeService,
     NotificationService,
+    SalaryService,
     DatePipe,
     SuppliersService,
     OrderTypesService, {
