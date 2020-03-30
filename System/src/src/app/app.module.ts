@@ -28,9 +28,7 @@ import { SuppliesComponent } from './suppliers/supplies/supplies.component';
 import { SuppliesService } from "./shared/supplies.service";
 
 import { SupplyComponent } from './suppliers/supplies/supply/supply.component';
-import { MatSliderModule } from '@angular/material/slider';
-import {  MatDialogModule } from '@angular/material/dialog';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSliderModule, MatDialogModule, MatProgressBarModule } from '@angular/material';
 import {MatExpansionModule} from '@angular/material/expansion';
 
 
