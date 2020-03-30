@@ -33,6 +33,9 @@ import { SalaryComponent } from './salaryemployee/salary/salary.component';
 import { SalaryemployeeComponent } from './salaryemployee/salaryemployee.component';
 import { SalaryslipComponent } from './salaryemployee/salaryslip/salaryslip.component';
 import { SalaryService } from './shared/salary.service';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderReportComponent } from './orders/order-report/order-report.component';
+import { OrderService } from './shared/order.service';
 
 
 
@@ -48,7 +51,9 @@ import { SalaryService } from './shared/salary.service';
     MatConfirmDialogComponent,
     SalaryComponent,
     SalaryemployeeComponent,
-    SalaryslipComponent
+    SalaryslipComponent,
+    OrdersComponent,
+    OrderReportComponent
 
   ],
   imports: [
@@ -75,7 +80,8 @@ import { SalaryService } from './shared/salary.service';
     SalaryService,
     DatePipe,
     SuppliersService,
-    OrderTypesService, {
+    OrderTypesService,
+    OrderService, {
     provide: MatDialogRef,
     useValue: {}
   }],
