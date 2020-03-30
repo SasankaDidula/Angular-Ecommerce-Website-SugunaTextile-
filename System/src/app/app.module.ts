@@ -29,6 +29,11 @@ import { SupplierListComponent } from './suppliers/supplier-list/supplier-list.c
 import {MatDialogRef} from '@angular/material/dialog';
 import { OrderTypesService } from "./shared/order-types.service";
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
+import { ProductComponent } from './product/product.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
+import { ProductStockComponent } from './products/product-stock/product-stock.component';
+import { ProductStockListComponent } from './products/product-stock-list/product-stock-list.component';
 
 
 @NgModule({
@@ -40,7 +45,12 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
     EmployeeListComponent,
     EmployeesComponent,
     EmployeeComponent,
-    MatConfirmDialogComponent
+    MatConfirmDialogComponent,
+    ProductComponent,
+    ProductsComponent,
+    ProductListComponent,
+    ProductStockComponent,
+    ProductStockListComponent
     
   ],
   imports: [
