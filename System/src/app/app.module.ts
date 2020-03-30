@@ -30,6 +30,8 @@ import {MatDialogRef} from '@angular/material/dialog';
 import { OrderTypesService } from "./shared/order-types.service";
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
 import { TailoringsComponent } from './tailorings/tailorings.component';
+import { TailoringComponent } from './tailorings/tailoring/tailoring.component';
+import { TailoringListComponent } from './tailorings/tailoring-list/tailoring-list.component';
 
 
 
@@ -44,6 +46,8 @@ import { TailoringsComponent } from './tailorings/tailorings.component';
     EmployeeComponent,
     MatConfirmDialogComponent,
     TailoringsComponent,
+    TailoringComponent,
+    TailoringListComponent,
 
   ],
   imports: [
