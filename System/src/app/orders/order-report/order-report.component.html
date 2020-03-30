@@ -54,12 +54,7 @@
               
               <ng-container matColumnDef="shipping.address">
                 <mat-header-cell *matHeaderCellDef  mat-sort-header>Address</mat-header-cell>
-                <mat-cell *matCellDef="let element">{{element.shipping.address}}<br>{{element.shipping.city}}<br>{{ element.shipping.state }}</mat-cell>
-              </ng-container>
-
-              <ng-container matColumnDef="shipping.zip">
-                <mat-header-cell *matHeaderCellDef  mat-sort-header>Zip Code</mat-header-cell>
-                <mat-cell *matCellDef="let element">{{element.shipping.zip}}</mat-cell>
+                <mat-cell *matCellDef="let element">{{element.shipping.address}}<br>{{element.shipping.city}}<br>{{ element.shipping.state }}<br>{{element.shipping.zip}}</mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="datePlaced">
@@ -69,11 +64,11 @@
       
               <ng-container matColumnDef="totalprice">
                 <mat-header-cell *matHeaderCellDef  mat-sort-header>Total Price</mat-header-cell>
-                <mat-cell *matCellDef="let element">${{element.totalprice}}</mat-cell>      
+                <mat-cell *matCellDef="let element">${{element.total}}</mat-cell>      
               </ng-container>
 
               <ng-container  matColumnDef="Quantities">
-                <mat-header-cell *matHeaderCellDef  mat-sort-header>Quantities</mat-header-cell>  
+                <mat-header-cell *matHeaderCellDef  mat-sort-header>Quantity x Price</mat-header-cell>  
                 <mat-cell *matCellDef="let element" > 
                     <ng-container *ngFor = "let key of objectKeys(element.items)">
                         *{{element.items[key].quantity}} x ${{ element.items[key].product.price}}<br><br>            

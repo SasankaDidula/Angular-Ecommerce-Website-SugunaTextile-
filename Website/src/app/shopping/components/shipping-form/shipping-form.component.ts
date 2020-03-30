@@ -15,7 +15,7 @@ import { OrderService } from 'src/app/shared/services/order.service';
 export class ShippingFormComponent implements OnInit, OnDestroy {
   @Input('cart') cart: ShoppingCart;
   shipping: any = {};
-  payment: any = {};
+  total: number;
   userSubscription: Subscription;
   userId: string;
   mobNumberPattern = "^((\\+94-?)|0)?[0-9]{9}$"; 
@@ -34,7 +34,8 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
   }
 
   async placeOrder(){
-    let order = new Order(this.userId, this.shipping, this.cart, this.payment);
+    this.total = this.cart.totalPrice;
+    let order = new Order(this.userId, this.shipping, this.cart, this.total);
     let result = await this.orderService.placeOrder(order);
     this.router.navigate(['/order-success/', result.key]);
   }

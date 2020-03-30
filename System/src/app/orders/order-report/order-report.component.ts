@@ -26,7 +26,7 @@ searchKey: string;
     this.orders$ = service.getOrders();
   }
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] =[`Order ID`,`shipping.name`, 'shipping.mobNumber', 'shipping.email',`shipping.address`, 'shipping.zip',`datePlaced`,`totalprice`,`Quantities`,`Titles`,'actions'];
+  displayedColumns: string[] =[`Order ID`,`shipping.name`, 'shipping.mobNumber', 'shipping.email',`shipping.address`,`datePlaced`,`totalprice`,`Quantities`,`Titles`,'actions'];
   
   
   @ViewChild(MatSort,{static: true}) sort: MatSort;
