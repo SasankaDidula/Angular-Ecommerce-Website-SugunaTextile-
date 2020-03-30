@@ -1,15 +1,19 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { SalaryService } from 'src/app/shared/salary.service';
+import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+
+
+import * as jsPDF from 'jspdf';
+import 'jspdf-autotable';
+
+
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { NotificationService } from 'src/app/shared/notification.service';
 import { EmployeeService } from 'src/app/shared/employee.service';
 import { DepartmentService } from 'src/app/shared/department.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-import { EmployeeComponent } from '../employee/employee.component';
-import * as jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
-
+import * as html2canvas from 'html2canvas';
 
 
 @Component({
