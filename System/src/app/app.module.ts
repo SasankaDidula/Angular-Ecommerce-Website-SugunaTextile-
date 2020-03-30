@@ -23,13 +23,6 @@ import { DatePipe } from '@angular/common';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { DepartmentService } from './shared/department.service';
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
-import { SalaryComponent } from './salaryemployee/salary/salary.component';
-import { SalaryemployeeComponent } from './salaryemployee/salaryemployee.component';
-import { SalaryslipComponent } from './salaryemployee/salaryslip/salaryslip.component';
-import { SalaryService } from './shared/salary.service';
-import { OrdersComponent } from './orders/orders.component';
-import { OrderReportComponent } from './orders/order-report/order-report.component';
-import { OrderService } from './shared/order.service';
 
 import { SuppliesComponent } from './suppliers/supplies/supplies.component';
 import { SuppliesService } from "./shared/supplies.service";
@@ -37,58 +30,50 @@ import { SuppliesService } from "./shared/supplies.service";
 import { SupplyComponent } from './suppliers/supplies/supply/supply.component';
 import { MatSliderModule } from '@angular/material/slider';
 import {  MatDialogModule } from '@angular/material/dialog';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
+import {  MatProgressBarModule } from '@angular/material/progress-bar';
+
 import {MatExpansionModule} from '@angular/material/expansion';
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    SuppliersComponent,
-    SupplierComponent,
-    SupplierListComponent,
-    EmployeeListComponent,
-    EmployeesComponent,
-    EmployeeComponent,
-    MatConfirmDialogComponent,
-    SalaryComponent,
-    SalaryemployeeComponent,
-    SalaryslipComponent,
-    OrdersComponent,
-    OrderReportComponent
 
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatProgressSpinnerModule,
-    MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatSliderModule,
-    MatDialogModule,
-    MatProgressBarModule,
-    AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    MatExpansionModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
-  ],
-  providers: [
-    SuppliersService,
-    DepartmentService,
-    EmployeeService,
-    NotificationService,
-    SalaryService,
-    DatePipe,
-    SuppliersService,
-    OrderTypesService,
-    OrderService, {
-    provide: MatDialogRef,
-    useValue: {}
-  }],
-  bootstrap: [AppComponent],
-  entryComponents: [ SupplierComponent,MatConfirmDialogComponent]
+@NgModule({
+   declarations: [
+      AppComponent,
+      SuppliersComponent,
+      SupplierComponent,
+    
+      
+      SupplierListComponent,
+      EmployeesComponent,
+      EmployeeComponent,
+      EmployeeListComponent,
+   
+      MatConfirmDialogComponent,
+     
+      SuppliesComponent,
+    
+      SupplyComponent,
+     
+   ],
+   imports: [
+      BrowserModule,
+      MatSliderModule,
+      AppRoutingModule,
+      MatProgressSpinnerModule,
+      MatProgressBarModule,
+      MaterialModule,
+      FormsModule,
+      MatDialogModule,
+      ReactiveFormsModule,
+      BrowserAnimationsModule,
+      AngularFireDatabaseModule,
+      AngularFireModule.initializeApp(environment.firebaseConfig),
+      MatExpansionModule,
+      AngularFireModule.initializeApp(environment.firebaseConfig)
+   ],
+   providers: [
+      SuppliersService,
+      OrderTypesService,
 
       DatePipe,
     

@@ -1,36 +1,35 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { SalaryService } from 'src/app/shared/salary.service';
+import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+
+
+import * as jsPDF from 'jspdf';
+import 'jspdf-autotable';
+import *as html2canvas from 'html2canvas';
+
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { NotificationService } from 'src/app/shared/notification.service';
-import { EmployeeService } from 'src/app/shared/employee.service';
-import { DepartmentService } from 'src/app/shared/department.service';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-import { EmployeeComponent } from '../employee/employee.component';
-import * as jsPDF from 'jspdf';
-import 'jspdf-autotable';
-import * as html2canvas from 'html2canvas';
-
-
-
 
 
 @Component({
-  selector: 'app-employee-list',
-  templateUrl: './employee-list.component.html',
-  styleUrls: ['./employee-list.component.css']
+  selector: 'app-salaryslip',
+  templateUrl: './salaryslip.component.html',
+  styleUrls: ['./salaryslip.component.css']
 })
-export class EmployeeListComponent implements OnInit {
+export class SalaryslipComponent implements OnInit {
 
+  
   dialogService: any;
 
-  constructor(private service: EmployeeService,
-    private departmentService: DepartmentService,
+  constructor(private service: SalaryService,
     private notificationService : NotificationService,
     private dialog: MatDialog) { } 
 
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['$key','empID','empName', 'email', 'mobile','department','actions'];
+  displayedColumns: string[] = ['$key','empName','bankAcc','isIssued','actions'];
  
   @ViewChild (MatSort,{static:true}) sort: MatSort;
   @ViewChild (MatPaginator,{static:true}) paginator: MatPaginator;
@@ -40,13 +39,13 @@ export class EmployeeListComponent implements OnInit {
 
 
   ngOnInit() {
-    this.service.getEmployees().subscribe(
+    this.service.getSalary().subscribe(
       list => {
         let array = list.map(item => {
-          let department = this.departmentService.getDepartment(item.payload.val()['department']);
+          //let department = this.departmentService.getDepartment(item.payload.val()['department']);
           return {
             $key: item.key,
-            department,
+           // department,
             ...item.payload.val()
           };
         });
@@ -67,7 +66,7 @@ export class EmployeeListComponent implements OnInit {
     applyFilter(){
       this.listData.filter = this.searchKey.trim().toLowerCase();
     }
-    onCreate(){
+   /* onCreate(){
       this.service.initializeFormGroup();
       const dialogConfig = new MatDialogConfig();
       dialogConfig.disableClose = true;
@@ -76,16 +75,6 @@ export class EmployeeListComponent implements OnInit {
     
       this.dialog.open(EmployeeComponent,dialogConfig);  
     }
-    
-    onSubmit(){
-      if(this.service.form.valid){
-        this.service.insertEmployee(this.service.form.value)
-        this.service.form.reset();
-        this.service.initializeFormGroup();
-        this.notificationService.success(':: Submitted Succesfully' );
-      }
-  
-    }
 
     onEdit(row){
       this.service.populateForm(row); 
@@ -93,21 +82,17 @@ export class EmployeeListComponent implements OnInit {
       dialogConfig.disableClose = true;
       dialogConfig.autoFocus = true;
       dialogConfig.width = "60%";
-      this.dialog.open(EmployeeComponent,dialogConfig); 
-
-      
+      this.dialog.open(EmployeeComponent,dialogConfig);    
     }
-
+*/
 
     onDelete($key){
-          this.service.deleteEmployee($key);
+          this.service.deleteSalary($key);
           this.notificationService.success(':: Deleted successfully');
          
     }
 
-    
-
-
+ 
     
     downloadPDF(){
       var data = document.getElementById("report");  
@@ -120,13 +105,12 @@ export class EmployeeListComponent implements OnInit {
     
         const contentDataURL = canvas.toDataURL('image/png')  
         let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF  
-        pdf.text('Employee LIst of Sugunas Company', 10, 10);
+        pdf.text('Employee SalarySliip LIst of Mufaza Company', 10, 10);
         var position = 0;  
 
         pdf.addImage(contentDataURL, 'PNG',0, position, imgWidth, imgHeight)  
-        pdf.save('employee.pdf'); // Generated PDF  
+        pdf.save('salarylist.pdf'); // Generated PDF  
         this.notificationService.success('Report Printed Succesfully!' ); 
       });  
     }
-
-}
+  }
