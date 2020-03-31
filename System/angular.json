@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
+  "version": 1, 
   "newProjectRoot": "projects",
   "projects": {
     "SugunaSystem": {
@@ -119,10 +119,6 @@
           }
         }
       }
-    }
-  },
-  "defaultProject": "SugunaSystem",
-  "cli": {
-    "analytics": "100b77dd-498d-4925-8bec-5ec131a96123"
-  }
+    }},
+  "defaultProject": "SugunaSystem"
 }

@@ -12,8 +12,6 @@ import { ShoppingCartComponent } from './shopping/components/shopping-cart/shopp
 import { ChechOutComponent } from './shopping/components/chech-out/chech-out.component';
 import { OrderSuccessComponent } from './shopping/components/order-success/order-success.component';
 import { MyOrdersComponent } from './shopping/components/my-orders/my-orders.component';
-import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
-import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './core/components/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -24,14 +22,15 @@ import { AuthService } from './shared/services/auth.service';
 import { AuthGuardService as AuthGuard } from './shared/services/auth-guard.service';
 import { UserService } from './shared/services/user.service';
 import { AdminAuthGuardService as AdminAuthGuard } from './shared/services/admin-auth-guard.service';
-import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { CategoryService } from './shared/services/category.service';
 import { ShoppingCartService } from './shared/services/shopping-cart.service';
 import { ProductQuantityComponent } from './shared/components/product-quantity/product-quantity.component';
-
-import { OrderService } from './order.service';
 import { ShoppingCartSummaryComponent } from './shopping/components/shopping-cart-summary/shopping-cart-summary.component';
 import { ShippingFormComponent } from './shopping/components/shipping-form/shipping-form.component';
+import { AdminProductsComponent } from './admin/components/admin-products/admin-products.component';
+import { AdminOrdersComponent } from './admin/components/admin-orders/admin-orders.component';
+import { ProductFormComponent } from './admin/components/product-form/product-form.component';
+import { OrderService } from './shared/services/order.service';
 
 @NgModule({
   declarations: [
