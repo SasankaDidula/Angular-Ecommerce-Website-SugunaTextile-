@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-
 import { ProductService } from 'src/app/shared/product.service';
 import { OrderTypesService } from "src/app/shared/order-types.service";
-import { NotifcationService } from "src/app/shared/notification.service";
-
+import { NotificationService } from "src/app/shared/notification.service";
 import { SizesService } from "src/app/shared/sizes.service";
 import { DatePipe } from '@angular/common';
+import { ProductsComponent } from '../products.component';
+import { SuppliersService } from "src/app/shared/suppliers.service";
 
 @Component({
   selector: 'app-product',
@@ -16,13 +16,12 @@ import { DatePipe } from '@angular/common';
 export class ProductComponent implements OnInit {
 
 
-  constructor(private service: ProductService,
-    private ordType : OrderTypesService,
-    private sizes : SizesService,
-    private datePipe: DatePipe,
-    private notificationService : NotifcationService,
-    public dialogRef: MatDialogRef <ProductComponent> ) {}
-
+  constructor(public service: ProductService,
+    public ordType : OrderTypesService,
+    public sizes : SizesService,
+    public datePipe: DatePipe,
+    public notificationService : NotificationService,
+    public dialogRef:MatDialogRef<ProductsComponent>) {}
 
 
     ngOnInit() {
@@ -39,6 +38,7 @@ export class ProductComponent implements OnInit {
       if(this.service.form.valid){
         if (!this.service.form.get('$key').value)
         this.service.insertProduct(this.service.form.value)
+        
         else
         this.service.updateProduct(this.service.form.value);
         this.service.form.reset();

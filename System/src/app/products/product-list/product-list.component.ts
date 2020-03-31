@@ -2,14 +2,15 @@ import { Component, OnInit,ViewChild } from '@angular/core';
 import { ProductComponent } from "./../product/product.component";
 import { ProductService } from 'src/app/shared/product.service';
 import { StockService } from 'src/app/shared/stock.service';
-import { NotifcationService } from "src/app/shared/notification.service";
-import { MatTableDataSource,MatSort,MatPaginator } from "@angular/material/dialog";
+import { NotificationService } from "src/app/shared/notification.service";
+import { MatTableDataSource} from "@angular/material/table";
+import { MatSort } from "@angular/material/sort";
+import { MatPaginator } from "@angular/material/paginator";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ProductStockComponent } from '../product-stock/product-stock.component';
 import { ProductStockListComponent } from '../product-stock-list/product-stock-list.component';
-import html2canvas from 'html2canvas';
-//import as * jsPDF from 'jspdf';
+import *as html2canvas from 'html2canvas';
 import *as  jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
@@ -28,18 +29,23 @@ import 'jspdf-autotable';
 
 export class ProductListComponent implements OnInit {
 
+  expandedElement = 0;
+
   constructor(private service : ProductService,
     private stockService : StockService,
-    private notificationService : NotifcationService,
+    private notificationService : NotificationService,
     private dialog: MatDialog,) { }
 
     listData: MatTableDataSource<any>;
 
-    displayedColumns: string[] =[`index`,`title`,`price`,'category','sizes','date','actions'];
+    displayedColumns: string[] =['index','title','price','category','sizes','date','actions'];
 
     @ViewChild(MatSort,{static: true}) sort: MatSort;
-      @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
+   @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
       searchKey: string;
+      
+      
+      
       ngOnInit() {
         this.service.getProducts().subscribe(
           list => {

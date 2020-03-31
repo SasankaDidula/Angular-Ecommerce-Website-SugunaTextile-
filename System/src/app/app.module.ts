@@ -16,20 +16,20 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import {MatExpansionModule} from '@angular/material/expansion';
 import { environment } from "../environments/environment";
-
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeComponent } from './employees/employee/employee.component';
 import { DepartmentService } from './shared/department.service';
 import { EmployeeService } from './shared/employee.service';
 import { NotificationService } from './shared/notification.service';
+import { StockService } from 'src/app/shared/stock.service';
 import { DatePipe } from '@angular/common';
 import { SupplierListComponent } from './suppliers/supplier-list/supplier-list.component';
-
+import {ProductService } from './shared/product.service';
 import {MatDialogRef} from '@angular/material/dialog';
 import { OrderTypesService } from "./shared/order-types.service";
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
-import { ProductComponent } from './product/product.component';
+import { ProductComponent } from 'src/app/products/product/product.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductStockComponent } from './products/product-stock/product-stock.component';
@@ -65,16 +65,19 @@ import { ProductStockListComponent } from './products/product-stock-list/product
     MatDialogModule,
     MatProgressBarModule,
     AngularFireDatabaseModule,
+    MatDialogModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MatExpansionModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [
+    ProductService,
     SuppliersService,
     DepartmentService,
     EmployeeService,
     NotificationService,
     DatePipe,
+    StockService,
     SuppliersService,
     OrderTypesService, {
     provide: MatDialogRef,

@@ -8,23 +8,7 @@ import { DatePipe } from '@angular/common';
 })
 export class ProductService {
 
-  // departmentList:AngularFireList<any>;
-  // array=[];
-  
-  
-
-  constructor(private firebase :AngularFireDatabase, private datePipe: DatePipe) {
-    // this.departmentList = this.firebase.list('products');
-    // this.departmentList.snapshotChanges().subscribe(
-    //   list => {
-    //     this.array = list.map(item =>{
-    //       return {
-    //         $key: item.key,
-    //         ...item.payload.val()
-    //       };
-    //     });
-    //   });
-   }
+  constructor(private firebase :AngularFireDatabase, private datePipe: DatePipe) {  }
 
   productList : AngularFireList<any>;
 
@@ -41,6 +25,7 @@ export class ProductService {
 
 initializeFormGroup() {
     this.form.setValue({
+
       $key: null,
       title: '',
       price: '',
@@ -73,7 +58,7 @@ initializeFormGroup() {
   updateProduct(product){
     this.productList.update(product.$key,
       {
-        title: product.title,
+      title: product.title,
       price: product.price,
       category: product.category,
       sizes: product.sizes,

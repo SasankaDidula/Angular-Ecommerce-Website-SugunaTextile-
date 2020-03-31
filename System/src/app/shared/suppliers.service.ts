@@ -19,7 +19,7 @@ export class SuppliersService {
     email : new FormControl('',Validators.email),
     mobile : new FormControl('',[Validators.required,Validators.pattern('[6-8]\\d{8}')]),
     address : new FormControl(''),
-    oType : new FormControl(0),
+    ordType : new FormControl(0),
 
   });
 
@@ -33,7 +33,7 @@ export class SuppliersService {
       email:'',
       mobile:'',
       address:'',
-      oType:0,
+      ordType:0,
     
     })
   }
@@ -52,7 +52,7 @@ export class SuppliersService {
       email: supplier.email,
       mobile: supplier.mobile,
       address: supplier.address,
-      oType: supplier.oType,
+      ordType: supplier.ordType,
       count: 0
      
     });
@@ -68,7 +68,7 @@ export class SuppliersService {
         email: supplier.email,
         mobile: supplier.mobile,
         address: supplier.address,
-        oType: supplier.oType,
+        ordType: supplier.ordType,
        
       } );
   }

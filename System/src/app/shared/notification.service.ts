@@ -7,7 +7,8 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 })
 export class NotificationService {
 
-  constructor(private snackBar : MatSnackBar) { }
+  constructor(private snackBar : MatSnackBar,
+    private service : NotificationService) { }
   config: MatSnackBarConfig = {
     duration: 3000,
     horizontalPosition : 'right',
@@ -18,7 +19,7 @@ export class NotificationService {
   
   
   success(msg){
-    this.config['panelClass']  = ['notifcation', 'success'];
+    this.config['panelClass']  = ['notification', 'success'];
     this.snackBar.open(msg,'',this.config);
   }
   
