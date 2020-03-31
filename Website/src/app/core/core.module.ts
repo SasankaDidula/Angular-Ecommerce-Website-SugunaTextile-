@@ -10,6 +10,7 @@ import { ProfileNavbarComponent } from './components/profile-navbar/profile-navb
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
     SignInComponent,
     SignUpComponent,
     MyProfileComponent,
+    ForgotPasswordComponent,
   ],
   exports: [
     BsNavbarComponent,
