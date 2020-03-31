@@ -19,32 +19,31 @@
 
 
         <mat-form-field>
-            <input formControlName="empID" matInput placeholder="Employee ID">
+            <input formControlName="eID" matInput placeholder="Employee ID">
+            <mat-error>This field is mandatory</mat-error>
+          </mat-form-field>
+
+          
+
+          <mat-form-field>
+            <input formControlName="eName" matInput placeholder="Employee Name">
             <mat-error>This field is mandatory</mat-error>
           </mat-form-field>
 
 
-
-
           <mat-form-field>
-            <input formControlName="empName" matInput placeholder="Employee Name">
-            <mat-error>This field is mandatory</mat-error>
-          </mat-form-field>
-
-
-          <mat-form-field>
-                <input formControlName="designation" matInput placeholder="Designation">
+                <input formControlName="eDesignation" matInput placeholder="Designation">
           </mat-form-field>
 
           <mat-form-field>
-                <input formControlName="email" matInput placeholder="Email">
+                <input formControlName="eEmail" matInput placeholder="Email">
                 <mat-error>Invalid Email</mat-error>
           </mat-form-field>
 
           <mat-form-field>
-                <input formControlName="mobile" matInput placeholder="Mobile" type="number">
-                <mat-error *ngIf="service.form.controls['mobile'].errors?.required">This field is mandatory.</mat-error>
-                <mat-error *ngIf="service.form.controls['mobile'].errors?.pattern">10 characters required</mat-error>
+                <input formControlName="eMobile" matInput placeholder="Mobile" type="number">
+                <mat-error *ngIf="service.form.controls['eMobile'].errors?.required">This field is mandatory.</mat-error>
+                <mat-error *ngIf="service.form.controls['eMobile'].errors?.pattern">10 characters required</mat-error>
           </mat-form-field>
 
               </div>
@@ -53,7 +52,7 @@
             <mat-grid-tile>
               <div class="controles-container">
                 <mat-form-field>
-                <mat-select formControlName="department" placeholder="Department">
+                <mat-select formControlName="eDepartment" placeholder="Department">
                   <mat-option>Department List</mat-option>
                   <ng-container *ngFor="let department of departmentService.array">
                     <mat-option value="{{department.$key}}">{{department.$key}}</mat-option>
@@ -63,20 +62,20 @@
 
             
           <mat-form-field>
-              <input formControlName="address" matInput placeholder="Address">
+              <input formControlName="eAddress" matInput placeholder="Address">
            </mat-form-field>
 
             <mat-form-field>
-                    <input formControlName="joined" matInput [matDatepicker]="picker" placeholder="Joined Date">
+                    <input formControlName="eJoinedDate" matInput [matDatepicker]="picker" placeholder="Joined Date">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
             <mat-form-field>
-                    <input formControlName="salary" matInput placeholder="Salary" type="number"  class="example-right-align">
+                    <input formControlName="eSalary" matInput placeholder="Salary" type="number"  class="example-right-align">
                     <span matPrefix>RS&nbsp;</span>
                     <span matSuffix>.00</span>
-                    <mat-error *ngIf="service.form.controls['salary'].errors?.min">Salary cannot be a negative value</mat-error> 
+                    <mat-error *ngIf="service.form.controls['eSalary'].errors?.min">Salary cannot be a negative value</mat-error> 
             </mat-form-field>
             <div class="add-bottom-padding">
                 <mat-checkbox formControlName="isPermanent">Permanent Employee</mat-checkbox>
