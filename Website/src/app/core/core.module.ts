@@ -11,6 +11,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     SignUpComponent,
     MyProfileComponent,
     ForgotPasswordComponent,
+    VerifyEmailComponent,
   ],
   exports: [
     BsNavbarComponent,
