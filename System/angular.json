@@ -123,6 +123,10 @@
   },
   "defaultProject": "SugunaSystem",
   "cli": {
+<<<<<<< HEAD
     "analytics": false
+=======
+    "analytics": "af78122f-9c95-4a43-bddd-69fd2da8ed88"
+>>>>>>> 5a307ccb4b4470b3756e9a99ca9b006a1f3a501c
   }
 }
