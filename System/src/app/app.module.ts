@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule  } from "@angular/platform-browser/animations";
@@ -36,7 +36,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
+
 @NgModule({
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
    declarations: [
       AppComponent,
       SuppliersComponent,
@@ -53,7 +55,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
       SuppliesComponent,
     
       SupplyComponent,
-     
+    
    ],
    imports: [
       BrowserModule,
@@ -76,7 +78,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
       OrderTypesService,
 
       DatePipe,
-    
+      DepartmentService,
       SuppliesService,
     
       

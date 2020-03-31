@@ -12,7 +12,8 @@ import { UploadComponent } from '../supplies/supply/upload/upload.component';
 import * as _ from "lodash";
 import 'firebase/storage';
 import * as jsPDF from 'jspdf'; 
-import * as html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas';
+
 
 @Component({
   selector: 'app-supplies',
