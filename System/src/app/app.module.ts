@@ -33,6 +33,9 @@ import {  MatDialogModule } from '@angular/material/dialog';
 import {  MatProgressBarModule } from '@angular/material/progress-bar';
 
 import {MatExpansionModule} from '@angular/material/expansion';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderService } from './shared/order.service';
+import { OrderReportComponent } from './orders/order-report/order-report.component';
 
 
 
@@ -43,7 +46,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
       AppComponent,
       SuppliersComponent,
       SupplierComponent,
-    
+      OrdersComponent,
+      OrderReportComponent,
       
       SupplierListComponent,
       EmployeesComponent,
@@ -92,7 +96,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
       EmployeeComponent,
     
       MatConfirmDialogComponent,
-    
+      OrderService,
       SupplyComponent,
      
    ]
