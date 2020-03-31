@@ -31,6 +31,7 @@ import { AdminProductsComponent } from './admin/components/admin-products/admin-
 import { AdminOrdersComponent } from './admin/components/admin-orders/admin-orders.component';
 import { ProductFormComponent } from './admin/components/product-form/product-form.component';
 import { OrderService } from './shared/services/order.service';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { OrderService } from './shared/services/order.service';
     ProductQuantityComponent,
     ShoppingCartSummaryComponent,
     ShippingFormComponent,
+    SignInComponent,
   ],
   
   imports: [

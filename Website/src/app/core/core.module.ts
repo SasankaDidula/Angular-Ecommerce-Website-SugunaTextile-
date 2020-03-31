@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { DeleteAccountComponent } from './components/delete-account/delete-account.component';
 import { ProfileNavbarComponent } from './components/profile-navbar/profile-navbar.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { ProfileNavbarComponent } from './components/profile-navbar/profile-navb
     ChangePasswordComponent,
     DeleteAccountComponent,
     ProfileNavbarComponent,
+    SignInComponent,
   ],
   exports: [
     BsNavbarComponent,
