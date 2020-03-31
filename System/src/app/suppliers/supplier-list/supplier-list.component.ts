@@ -7,6 +7,8 @@ import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { MatSort } from "@angular/material/sort";
 import { MatPaginator } from "@angular/material/paginator";
 import { DialogService } from '../../shared/dialog.service';
+import { SuppliesService } from "../../shared/supplies.service";
+
 @Component({
   selector: 'app-supplier-list',
   templateUrl: './supplier-list.component.html',
@@ -17,6 +19,7 @@ export class SupplierListComponent implements OnInit {
   constructor(public service : SuppliersService,
      private dialog: MatDialog,
      private NotificationService :NotificationService,
+     private serv : SuppliesService,
      private dialogService :DialogService)  { }
 
   listData: MatTableDataSource<any>;
@@ -109,6 +112,13 @@ onDelete($key){
 
 getkey() : string {
   return this.key;
+}
+
+
+navigate($key){
+  this.serv.getSupplys($key);
+  this.serv.navigate();
+  // this.router.navigateByUrl('supplies');
 }
 
 }

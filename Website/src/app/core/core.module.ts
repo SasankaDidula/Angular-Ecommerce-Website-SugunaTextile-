@@ -7,6 +7,11 @@ import { CommonModule } from '@angular/common';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { DeleteAccountComponent } from './components/delete-account/delete-account.component';
 import { ProfileNavbarComponent } from './components/profile-navbar/profile-navbar.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 
 @NgModule({
   imports: [
@@ -19,6 +24,11 @@ import { ProfileNavbarComponent } from './components/profile-navbar/profile-navb
     ChangePasswordComponent,
     DeleteAccountComponent,
     ProfileNavbarComponent,
+    SignInComponent,
+    SignUpComponent,
+    MyProfileComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
   ],
   exports: [
     BsNavbarComponent,
