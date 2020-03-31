@@ -8,6 +8,7 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { DeleteAccountComponent } from './components/delete-account/delete-account.component';
 import { ProfileNavbarComponent } from './components/profile-navbar/profile-navbar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
     DeleteAccountComponent,
     ProfileNavbarComponent,
     SignInComponent,
+    SignUpComponent,
   ],
   exports: [
     BsNavbarComponent,
