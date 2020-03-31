@@ -1,3 +1,4 @@
+import { SignInComponent } from './core/components/sign-in/sign-in.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -32,6 +33,7 @@ import { AdminOrdersComponent } from './admin/components/admin-orders/admin-orde
 import { ProductFormComponent } from './admin/components/product-form/product-form.component';
 import { OrderService } from './shared/services/order.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +51,7 @@ import { OrderService } from './shared/services/order.service';
     ProductQuantityComponent,
     ShoppingCartSummaryComponent,
     ShippingFormComponent,
+    SignInComponent,
   ],
   
   imports: [

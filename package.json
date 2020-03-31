@@ -1,0 +1,27 @@
+{
+  "name": "sugunatextile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "angularfire2": "^5.4.2",
+    "firebase": "^7.13.1",
+    "fsevents": "^2.1.2",
+    "html2canvas": "^1.0.0-rc.5",
+    "jspdf": "^1.5.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SasankaDidula/SugunaTextile.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SasankaDidula/SugunaTextile/issues"
+  },
+  "homepage": "https://github.com/SasankaDidula/SugunaTextile#readme"
+}

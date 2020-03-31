@@ -8,11 +8,13 @@ import { MatTableDataSource } from '@angular/material/table';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import html2canvas from 'html2canvas';
 
 
 @Component({
   selector: 'app-order-report',
   templateUrl: './order-report.component.html',
+  styleUrls: ['./order-report.component.css'],
 })
 export class OrderReportComponent implements OnInit {
 orders$;
@@ -24,7 +26,7 @@ searchKey: string;
     this.orders$ = service.getOrders();
   }
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] =[`Order ID`,`shipping.name`,`shipping.phone`,`shipping.addressLine1`,`datePlaced`,`totalprice`,`newprice`,`Quantities`,`Titles`,'actions'];
+  displayedColumns: string[] =[`Order ID`,`shipping.name`, 'shipping.mobNumber', 'shipping.email',`shipping.address`,`datePlaced`,`totalprice`,`Quantities`,`Titles`,'actions'];
   
   
   @ViewChild(MatSort,{static: true}) sort: MatSort;
@@ -84,16 +86,15 @@ searchKey: string;
 
   print(){
     var data = document.getElementById("report");  
-    html2canvas(data).then(canvas => {  
+    html2canvas(data).then(canvas => { 
       // Few necessary setting options  
       var imgWidth = 208;   
       var pageHeight = 295;    
       var imgHeight = canvas.height * imgWidth / canvas.width;  
       var heightLeft = imgHeight;  
-  
       const contentDataURL = canvas.toDataURL('image/png')  
       let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF  
-      var position = 0;  
+      var position = 0; 
       pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)  
       pdf.save('orders.pdf'); // Generated PDF  
       this.notificationService.success('Report Printed Succesfully!' ); 
