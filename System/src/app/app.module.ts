@@ -45,6 +45,10 @@ import { OrderReportComponent } from './orders/order-report/order-report.compone
 
 
 
+import { TailoringsComponent } from './tailorings/tailorings.component';
+import { TailoringComponent } from './tailorings/tailoring/tailoring.component';
+import { TailoringListComponent } from './tailorings/tailoring-list/tailoring-list.component';
+
 
 
 @NgModule({
@@ -61,7 +65,12 @@ import { OrderReportComponent } from './orders/order-report/order-report.compone
     ProductsComponent,
     ProductListComponent,
     ProductStockComponent,
-    ProductStockListComponent
+    ProductStockListComponent,
+    TailoringsComponent,
+    TailoringComponent,
+    TailoringListComponent,
+    OrdersComponent,
+    OrderReportComponent
     
   ],
   imports: [
@@ -91,6 +100,7 @@ import { OrderReportComponent } from './orders/order-report/order-report.compone
     DatePipe,
     StockService,
     SuppliersService,
+    OrderService,
     OrderTypesService, {
     provide: MatDialogRef,
     useValue: {}
