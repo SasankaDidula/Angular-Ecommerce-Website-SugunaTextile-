@@ -34,6 +34,9 @@ import { ProductsComponent } from './products/products.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductStockComponent } from './products/product-stock/product-stock.component';
 import { ProductStockListComponent } from './products/product-stock-list/product-stock-list.component';
+import { TailoringsComponent } from './tailorings/tailorings.component';
+import { TailoringComponent } from './tailorings/tailoring/tailoring.component';
+import { TailoringListComponent } from './tailorings/tailoring-list/tailoring-list.component';
 
 
 @NgModule({
@@ -50,7 +53,10 @@ import { ProductStockListComponent } from './products/product-stock-list/product
     ProductsComponent,
     ProductListComponent,
     ProductStockComponent,
-    ProductStockListComponent
+    ProductStockListComponent,
+    TailoringsComponent,
+    TailoringComponent,
+    TailoringListComponent
     
   ],
   imports: [
