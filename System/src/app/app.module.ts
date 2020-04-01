@@ -37,6 +37,9 @@ import { ProductStockListComponent } from './products/product-stock-list/product
 import { TailoringsComponent } from './tailorings/tailorings.component';
 import { TailoringComponent } from './tailorings/tailoring/tailoring.component';
 import { TailoringListComponent } from './tailorings/tailoring-list/tailoring-list.component';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderService } from './shared/order.service';
+import { OrderReportComponent } from './orders/order-report/order-report.component';
 
 
 @NgModule({
@@ -56,7 +59,9 @@ import { TailoringListComponent } from './tailorings/tailoring-list/tailoring-li
     ProductStockListComponent,
     TailoringsComponent,
     TailoringComponent,
-    TailoringListComponent
+    TailoringListComponent,
+    OrdersComponent,
+    OrderReportComponent
     
   ],
   imports: [
@@ -85,6 +90,7 @@ import { TailoringListComponent } from './tailorings/tailoring-list/tailoring-li
     DatePipe,
     StockService,
     SuppliersService,
+    OrderService,
     OrderTypesService, {
     provide: MatDialogRef,
     useValue: {}
