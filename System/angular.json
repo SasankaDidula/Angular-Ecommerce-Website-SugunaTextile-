@@ -121,6 +121,8 @@
       }
     }
   },
-  "defaultProject": "SugunaSystem"
-
+  "defaultProject": "SugunaSystem",
+  "cli": {
+    "analytics": false
   }
+}
