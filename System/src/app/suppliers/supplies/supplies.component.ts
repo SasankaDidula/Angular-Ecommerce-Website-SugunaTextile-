@@ -1,16 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SuppliesService } from "../../shared/supplies.service";
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { MatSort,MatPaginator } from "@angular/material";
-import { MatDialog, MatDialogConfig } from "@angular/material";
+import { MatSort } from "@angular/material/sort";
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { SupplyComponent } from "../supplies/supply/supply.component";
 import { Upload } from '../../shared/upload';
 import { UploadComponent } from '../supplies/supply/upload/upload.component';
 import * as _ from "lodash";
 import 'firebase/storage';
 import * as jsPDF from 'jspdf'; 
-import html2canvas from 'html2canvas';
+import { MatPaginator } from '@angular/material/paginator';
+import *as html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-supplies',

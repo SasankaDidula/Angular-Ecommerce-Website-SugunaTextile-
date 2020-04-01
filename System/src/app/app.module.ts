@@ -34,7 +34,7 @@ import { ProductComponent } from './products/product/product.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 
 import { SupplyComponent } from './suppliers/supplies/supply/supply.component';
-import { MatSliderModule, MatDialogModule, MatProgressBarModule } from '@angular/material';
+import { MatSliderModule } from '@angular/material/slider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ProductStockComponent } from './products/product-stock/product-stock.component';
 import { ProductStockListComponent } from './products/product-stock-list/product-stock-list.component';
@@ -46,6 +46,8 @@ import { UploadComponent } from './suppliers/supplies/supply/upload/upload.compo
 import { TailoringListComponent } from './tailorings/tailoring-list/tailoring-list.component'
 
 import { OrderReportComponent } from './orders/order-report/order-report.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({

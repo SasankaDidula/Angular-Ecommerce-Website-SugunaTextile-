@@ -1,9 +1,11 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { TailoringService } from 'src/app/shared/tailoring.service';
-import { MatTableDataSource,MatSort,MatPaginator } from '@angular/material';
-import { MatDialog, MatDialogConfig } from "@angular/material";
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { TailoringComponent } from '../tailoring/tailoring.component';
 import { NotificationService } from 'src/app/shared/notification.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-tailoring-list',
@@ -72,5 +74,9 @@ export class TailoringListComponent implements OnInit {
     this.service.deleteTailoring($key);
     this.notificationService.warn('! Deleted Successfully');
     }
+  }
+
+  navigate(row){
+    
   }
 }

@@ -2,14 +2,16 @@ import { Component, OnInit,ViewChild } from '@angular/core';
 import { ProductComponent } from "./../product/product.component";
 import { ProductService } from '../../shared/product.service';
 import { StockService } from '../../shared/stock.service';
-import { MatTableDataSource,MatSort,MatPaginator } from "@angular/material";
-import { MatDialog, MatDialogConfig } from "@angular/material";
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ProductStockComponent } from '../product-stock/product-stock.component';
 import { ProductStockListComponent } from '../product-stock-list/product-stock-list.component';
-import html2canvas from 'html2canvas';
+import *as html2canvas from 'html2canvas';
 //import as * jsPDF from 'jspdf';
 import *as  jsPDF from 'jspdf';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-product-list',
@@ -29,6 +31,8 @@ export class ProductListComponent implements OnInit {
   constructor(private service : ProductService,
     private stockService : StockService,
     private dialog: MatDialog,) { }
+
+    expandedElement = 0;
 
     listData: MatTableDataSource<any>;
 

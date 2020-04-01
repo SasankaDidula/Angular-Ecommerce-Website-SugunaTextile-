@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 import { StockService } from '../../shared/stock.service';
 import { SuppliersService } from "../../shared/suppliers.service";
 
@@ -10,8 +10,8 @@ import { SuppliersService } from "../../shared/suppliers.service";
 })
 export class ProductStockComponent implements OnInit {
 
-  constructor(private service: StockService,
-    private suppro : SuppliersService,
+  constructor(public service: StockService,
+    public suppro : SuppliersService,
     public dialogRef: MatDialogRef <ProductStockComponent> ) { }
 
   ngOnInit() {

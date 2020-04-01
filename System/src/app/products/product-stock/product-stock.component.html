@@ -13,9 +13,9 @@
 
 
               <mat-form-field>
-                    <mat-select [(ngModel)]="supplier" formControlName="supplier" placeholder="Supplier">
+                    <mat-select [(ngModel)]="suppro" formControlName="supplier" placeholder="Supplier">
                       <mat-option>None</mat-option>
-                        <ng-container *ngFor="let supplier of suppro.array">
+                        <ng-container *ngFor="let supplier of suppro.supplierList">
                            <mat-option value="{{supplier.compName}}">{{supplier.compName}}</mat-option>
                         </ng-container>
                     </mat-select>
@@ -24,7 +24,7 @@
 
 
               <mat-form-field >
-                  <input [(ngModel)]="quantity" formControlName="quantity" matInput placeholder="Quantity" type="number">
+                  <input [(ngModel)]="service.qty" formControlName="quantity" matInput placeholder="Quantity" type="number">
                   <mat-error *ngIf="service.form.controls['quantity'].errors?.required">This field is mandatory.</mat-error>
                 <mat-error *ngIf="service.form.controls['quantity'].errors?.min">Quantity cannot be a negative value</mat-error>
               </mat-form-field>

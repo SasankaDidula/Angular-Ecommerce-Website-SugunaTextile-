@@ -1,9 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog, MatTableDataSource, MatSort, MatPaginator, MatProgressSpinnerModule } from '@angular/material';
 import { OrderService } from 'src/app/shared/order.service';
-import html2canvas from 'html2canvas';
+import *as html2canvas from 'html2canvas';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import jsPDF from 'jspdf';
+import *as jsPDF from 'jspdf';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogService } from 'src/app/shared/dialog.service';
+import { NotificationService } from 'src/app/shared/notification.service';
 
 
 @Component({
@@ -16,11 +21,11 @@ progress;
 showSpinner = true;
 searchKey: string;
 
-  constructor(private service: OrderService,private dialog: MatDialog,  ){
+  constructor(public service: OrderService,public dialog: MatDialog,  public dialogService: DialogService, public notificationService:NotificationService){
     this.orders$ = service.getOrders();
   }
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] =[`Order ID`,`shipping.name`,`shipping.phone`,`shipping.addressLine1`,`datePlaced`,`totalprice`,`newprice`,`Quantities`,`Titles`,'actions'];
+  displayedColumns: string[] =[`Order ID`,`shipping.name`,`shipping.mobNumber`,`shipping.address`,`datePlaced`,`totalprice`,`Quantities`,`Titles`,'actions'];
   
   
   @ViewChild(MatSort,{static: true}) sort: MatSort;
@@ -53,6 +58,24 @@ searchKey: string;
   applyfilter(){
 
     this.listData.filter = this.searchKey.trim().toLowerCase();
+
+  }
+
+  ondelete($key){
+    this.dialogService.openConfirmDialog("Are you sure you want to delete this record?")
+    .afterClosed().subscribe(res =>{
+      if(res){
+
+        this.service.delete($key);
+     this.service.form.reset();
+      this.service.initializeFormGroup(); 
+    this.notificationService.warn('::Order Successfully Deleted!');
+      }
+
+
+
+    });
+  
 
   }
  

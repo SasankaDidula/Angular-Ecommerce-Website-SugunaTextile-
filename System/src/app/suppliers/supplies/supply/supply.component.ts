@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SuppliesService } from "../../../shared/supplies.service";
 import { OrderTypesService } from "../../../shared/order-types.service";
 import { NotificationService } from "../../../shared/notification.service";
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 import { DatePipe } from '@angular/common';
 
 
@@ -13,9 +13,9 @@ import { DatePipe } from '@angular/common';
 })
 export class SupplyComponent implements OnInit {
 
-  constructor(private service: SuppliesService,
-    private ordType : OrderTypesService,
-    private notificationService : NotificationService,
+  constructor(public service: SuppliesService,
+    public ordType : OrderTypesService,
+    public notificationService : NotificationService,
     public dialogRef: MatDialogRef <SupplyComponent> ) { }
 
 

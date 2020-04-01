@@ -8,7 +8,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { EmployeeComponent } from '../employee/employee.component';
 import * as jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
+import *as html2canvas from 'html2canvas';
 
 
 

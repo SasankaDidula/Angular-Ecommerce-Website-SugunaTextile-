@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 
 import { ProductService } from '../../shared/product.service';
 import { OrderTypesService } from "../../shared/order-types.service";
@@ -15,10 +15,10 @@ import { DatePipe } from '@angular/common';
 export class ProductComponent implements OnInit {
 
 
-  constructor(private service: ProductService,
-    private ordType : OrderTypesService,
-    private sizes : SizesService,
-    private datePipe: DatePipe,
+  constructor(public service: ProductService,
+    public ordType : OrderTypesService,
+    public sizes : SizesService,
+    public datePipe: DatePipe,
     public dialogRef: MatDialogRef <ProductComponent> ) {}
 
 

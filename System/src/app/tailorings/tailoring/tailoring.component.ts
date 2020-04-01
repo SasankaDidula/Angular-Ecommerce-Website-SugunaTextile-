@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TailoringService } from '../../shared/tailoring.service';
 import { NotificationService } from '../../shared/notification.service';
-import { MatDialogRef } from '@angular/material';
+
 import { from } from 'rxjs';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-tailoring',
@@ -11,8 +12,8 @@ import { from } from 'rxjs';
 })
 export class TailoringComponent implements OnInit {
 
-  constructor(private service: TailoringService,
-    private notificationService : NotificationService,
+  constructor(public service: TailoringService,
+    public notificationService : NotificationService,
     public dialogRef: MatDialogRef<TailoringComponent>) {
       
     }
