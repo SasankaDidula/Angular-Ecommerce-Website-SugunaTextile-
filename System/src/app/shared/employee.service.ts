@@ -8,7 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class EmployeeService {
 
-  constructor(private firebase :AngularFireDatabase, private datePipe: DatePipe) { }
+  constructor(private db :AngularFireDatabase, private datePipe: DatePipe) { }
 
   
   employeeList : AngularFireList<any>;
@@ -16,15 +16,15 @@ export class EmployeeService {
   form : FormGroup = new FormGroup({
 
     $key : new FormControl(null),
-    empID:new FormControl('',Validators.required),
-    empName : new FormControl('',Validators.required),
-    designation : new FormControl(''),
-    email : new FormControl('',Validators.email),
-    address : new FormControl(''),
-    mobile : new FormControl('',[Validators.required,Validators.pattern('[6-8]\\d{8}')]),
-    department: new FormControl(0),
-    joined : new FormControl(''),
-    salary : new FormControl('',[Validators.required, Validators.min(0)]),
+    eID:new FormControl('',Validators.required),
+    eName : new FormControl('',Validators.required),
+    eDesignation : new FormControl(''),
+    eEmail : new FormControl('',Validators.email),
+    eAddress : new FormControl(''),
+    eMobile : new FormControl('',[Validators.required,Validators.pattern('[6-8]\\d{8}')]),
+    eDepartment: new FormControl(0),
+    eJoinedDate : new FormControl(''),
+    eSalary : new FormControl('',[Validators.required, Validators.min(0)]),
     isPermanent: new FormControl(false)
   
 
@@ -36,22 +36,22 @@ export class EmployeeService {
     this.form.setValue({
 
       $key:null,
-      empID:'',
-      empName:'',
-      designation:'',
-      email:'',
-      address:'',
-      mobile:'',
-      department:0,
-      joined:'',
-      salary:'',
+      eID:'',
+      eName:'',
+      eDesignation:'',
+      eEmail:'',
+      eAddress:'',
+      eMobile:'',
+      eDepartment:0,
+      eJoinedDate:'',
+      eSalary:'',
       isPermanent: false
 
     });
   }
 
     getEmployees(){
-      this.employeeList =this.firebase.list('employees');
+      this.employeeList =this.db.list('employees');
     
       return this.employeeList.snapshotChanges(); 
     }
@@ -60,15 +60,15 @@ export class EmployeeService {
 //employee object contains details automatically creted the primary key
     insertEmployee(employee){
       this.employeeList.push({
-      empID: employee.empID,
-      empName: employee.empName,
-      designation: employee.designation,
-      email: employee.email,
-      address: employee.address,
-      mobile: employee.mobile,
-      department: employee.department,
-      joined: employee.joined  == "" ? "" : this.datePipe.transform(employee.joined, 'yyyy-MM-dd'),
-      salary: employee.salary,
+      eID: employee.eID,
+      eName: employee.eName,
+      eDesignation: employee.eDesignation,
+      eEmail: employee.eEmail,
+      eAddress: employee.eAddress,
+      eMobile: employee.eMobile,
+      eDepartment: employee.eDepartment,
+      eJoinedDate: employee.eJoinedDate  == "" ? "" : this.datePipe.transform(employee.eJoinedDate, 'yyyy-MM-dd'),
+      eSalary: employee.eSalary,
       isPermanent: false
       });
     }
@@ -77,15 +77,15 @@ export class EmployeeService {
     updateEmployee(employee){
       this.employeeList.update(employee.$key,
         {
-          empID: employee.empID,
-          empName: employee.empName,
-          designation: employee.designation,
-          email: employee.email,
-          address: employee.address,
-          mobile: employee.mobile,
-          department: employee.department,
-          joined: employee.joined  == "" ? "" : this.datePipe.transform(employee.joined, 'yyyy-MM-dd'),
-          salary: employee.salary,
+          eID: employee.eID,
+          eName: employee.eName,
+          eDesignation: employee.eDesignation,
+          eEmail: employee.eEmail,
+          eAddress: employee.eAddress,
+          eMobile: employee.eMobile,
+          eDepartment: employee.eDepartment,
+          eJoinedDate: employee.eJoinedDate  == "" ? "" : this.datePipe.transform(employee.eJoinedDate, 'yyyy-MM-dd'),
+          eSalary: employee.eSalary,
           isPermanent: employee.isPermanent
 
         } );

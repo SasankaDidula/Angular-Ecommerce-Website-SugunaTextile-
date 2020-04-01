@@ -1,10 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { StockService } from 'src/app/shared/stock.service';
-import { MatSort} from '@angular/material/sort';
-import {  MatPaginator } from '@angular/material/paginator';
-import { MatDialogRef } from '@angular/material/dialog';
-import { MatTableDataSource } from '@angular/material/table';
-import { ProductsComponent } from '../products.component';
+import { MatTableDataSource, MatSort, MatPaginator, MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-product-stock-list',
@@ -18,7 +14,7 @@ export class ProductStockListComponent implements OnInit {
 
   listData: MatTableDataSource<any>;
 
-  displayedColumns: string[] =['index','supplier','quantity','date'];
+  displayedColumns: string[] =[`index`,`supplier`,`quantity`,'date'];
 
   @ViewChild(MatSort,{static: true}) sort: MatSort;
       @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;

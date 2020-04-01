@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
-import { StockService } from 'src/app/shared/stock.service';
-import { NotificationService } from "src/app/shared/notification.service";
-import { SuppliersService } from "src/app/shared/suppliers.service";
-import { ProductsComponent } from '../products.component';
+import { MatDialogRef } from '@angular/material';
+import { StockService } from '../../shared/stock.service';
+import { SuppliersService } from "../../shared/suppliers.service";
 
 @Component({
   selector: 'app-product-stock',
@@ -12,9 +10,8 @@ import { ProductsComponent } from '../products.component';
 })
 export class ProductStockComponent implements OnInit {
 
-  constructor(public service: StockService,
-    public supplier : SuppliersService,
-    private notificationService : NotificationService,
+  constructor(private service: StockService,
+    private suppro : SuppliersService,
     public dialogRef: MatDialogRef <ProductStockComponent> ) { }
 
   ngOnInit() {
@@ -33,7 +30,6 @@ export class ProductStockComponent implements OnInit {
       this.service.insertStock(this.service.form.value)
       this.service.form.reset();
       this.service.initializeFormGroup();
-      this.notificationService.success(':: Submitted Succesfully' );
       this.onClose();
     }
 

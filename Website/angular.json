@@ -125,6 +125,10 @@
   },
   "defaultProject": "SugunaTextile",
   "cli": {
+<<<<<<< HEAD
     "analytics": "447c661e-b97a-47ea-a1c8-b25c39707226"
+=======
+    "analytics": "3d35aebd-43aa-41db-835c-c61eb920307e"
+>>>>>>> parent of 6d9cbcf... Merge branch 'master' of https://github.com/SasankaDidula/SugunaTextile
   }
 }
