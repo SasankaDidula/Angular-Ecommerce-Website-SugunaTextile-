@@ -123,8 +123,5 @@
       }
     }
   },
-  "defaultProject": "SugunaTextile",
-  "cli": {
-    "analytics": "3d35aebd-43aa-41db-835c-c61eb920307e"
-  }
+  "defaultProject": "SugunaTextile"
 }
