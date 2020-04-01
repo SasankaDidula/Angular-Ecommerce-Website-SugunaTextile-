@@ -8,7 +8,9 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { EmployeeComponent } from '../employee/employee.component';
 import * as jsPDF from 'jspdf';
-import 'jspdf-autotable';
+import *as html2canvas from 'html2canvas';
+
+
 
 
 
@@ -28,7 +30,7 @@ export class EmployeeListComponent implements OnInit {
     private dialog: MatDialog) { } 
 
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['$key','empID','empName', 'email', 'mobile','department','actions'];
+  displayedColumns: string[] = ['$key','eID','eName', 'eEmail', 'eMobile','eDepartment','actions'];
  
   @ViewChild (MatSort,{static:true}) sort: MatSort;
   @ViewChild (MatPaginator,{static:true}) paginator: MatPaginator;
@@ -41,10 +43,10 @@ export class EmployeeListComponent implements OnInit {
     this.service.getEmployees().subscribe(
       list => {
         let array = list.map(item => {
-          let department = this.departmentService.getDepartment(item.payload.val()['department']);
+          let eDepartment = this.departmentService.getDepartment(item.payload.val()['eDepartment']);
           return {
             $key: item.key,
-            department,
+            eDepartment,
             ...item.payload.val()
           };
         });
@@ -86,7 +88,9 @@ export class EmployeeListComponent implements OnInit {
     }
 
     onEdit(row){
+      
       this.service.populateForm(row); 
+      console.log('ss');
       const dialogConfig = new MatDialogConfig();
       dialogConfig.disableClose = true;
       dialogConfig.autoFocus = true;
@@ -118,12 +122,12 @@ export class EmployeeListComponent implements OnInit {
     
         const contentDataURL = canvas.toDataURL('image/png')  
         let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF  
-        pdf.text('Employee LIst of Mufaza Company', 10, 10);
+        pdf.text('Employee LIst of Suguna Texttile', 10, 10);
         var position = 0;  
 
         pdf.addImage(contentDataURL, 'PNG',0, position, imgWidth, imgHeight)  
-        pdf.save('employee.pdf'); // Generated PDF  
-        this.notificationService.success('Report Printed Succesfully!' ); 
+        pdf.save('employee.pdf'); // Generate PDF  
+        this.notificationService.success('Printed Succesfully!' ); 
       });  
     }
 

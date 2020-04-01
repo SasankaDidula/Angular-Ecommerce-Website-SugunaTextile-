@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { ProductService } from 'src/app/shared/product.service';
-import { OrderTypesService } from "src/app/shared/order-types.service";
-import { NotificationService } from "src/app/shared/notification.service";
-import { SizesService } from "src/app/shared/sizes.service";
+
+import { ProductService } from '../../shared/product.service';
+import { OrderTypesService } from "../../shared/order-types.service";
+
+import { SizesService } from "../../shared/sizes.service";
 import { DatePipe } from '@angular/common';
-import { ProductsComponent } from '../products.component';
-import { SuppliersService } from "src/app/shared/suppliers.service";
 
 @Component({
   selector: 'app-product',
@@ -20,8 +19,8 @@ export class ProductComponent implements OnInit {
     public ordType : OrderTypesService,
     public sizes : SizesService,
     public datePipe: DatePipe,
-    public notificationService : NotificationService,
-    public dialogRef:MatDialogRef<ProductsComponent>) {}
+    public dialogRef: MatDialogRef <ProductComponent> ) {}
+
 
 
     ngOnInit() {
@@ -38,12 +37,10 @@ export class ProductComponent implements OnInit {
       if(this.service.form.valid){
         if (!this.service.form.get('$key').value)
         this.service.insertProduct(this.service.form.value)
-        
         else
         this.service.updateProduct(this.service.form.value);
         this.service.form.reset();
         this.service.initializeFormGroup();
-        this.notificationService.success(':: Submitted Succesfully' );
         this.onClose();
       }
   
