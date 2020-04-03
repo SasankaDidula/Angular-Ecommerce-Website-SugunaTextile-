@@ -1,9 +1,9 @@
+
 <mat-toolbar>
     <span>{{service.form.controls['$key'].value?"Modify Product":"New Product"}}</span>
     <span class="fill-remaining-space"></span>
     <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
 </mat-toolbar>
-
 
 
 <form [formGroup]="service.form" class="normal-form" (submit)= "onSubmit()" style="padding-left : 5%">
@@ -15,9 +15,9 @@
       <div class="controles-container2">
 
          <input type="hidden" formControlName="$key">
-
-
-            <mat-form-field>
+          
+         
+           <mat-form-field>
                 <input formControlName="title" matInput placeholder="Title*">
                 <mat-error>This field is mandatory.</mat-error>
             </mat-form-field>
@@ -30,23 +30,23 @@
                 <mat-error *ngIf="service.form.controls['price'].errors?.required">This field is mandatory.</mat-error>
                 <mat-error *ngIf="service.form.controls['price'].errors?.min">Price cannot be a negative value</mat-error>
             </mat-form-field>
-                            
+                          
 
             <mat-form-field>
-              <mat-select formControlName="category" placeholder="Category">
-                <mat-option>None</mat-option>
+              <mat-select formControlName="category" matInput placeholder="Category">
+                <mat-option>Product List</mat-option>
                   <ng-container *ngFor="let oType of ordType.array">
-                     <mat-option value="{{oType.name}}">{{oType.name}}</mat-option>
+                     <mat-option value="{{oType.title}}">{{oType.title}}</mat-option>
                   </ng-container>
               </mat-select>
             </mat-form-field>
 
 
             <mat-form-field>
-              <mat-select formControlName="sizes" placeholder="Size" multiple>
+              <mat-select formControlName="sizes" matInput placeholder="Size" multiple>
                 <mat-option>None</mat-option>
                   <ng-container *ngFor="let size of sizes.array">
-                     <mat-option value="{{size.name}}">{{size.name}}</mat-option>
+                     <mat-option value="{{size.title}}">{{size.title}}</mat-option>
                   </ng-container>
               </mat-select>
             </mat-form-field>
@@ -82,28 +82,6 @@
         </div>  
 
       </mat-grid-tile>
-  
-      <!-- <mat-grid-tile>
-
-        <div class="controles-container">
-
-          <div class="card" style="width: 290px; height:400px"> -->
-
-              <!-- <span class="border border-primary"> -->
-
-              <!-- <img [src] = "imageUrl" width="280px" height="300px" style="padding : 5px 5px 5px 5px;" class="card-img-top" class="rounded"> -->
-                
-              <!-- <div class="card-body">
-                  <h3 class="card-title"><b>{{title}} </b> </h3>
-                  <h4 class="card-text"> {{price | currency : 'LKR ' : 'code'}}</h4>
-              </div> -->
-              <!-- </span> -->
-          <!-- </div>
-
-        </div>
-
-      </mat-grid-tile> -->
-
 
     </mat-grid-list> 
 
