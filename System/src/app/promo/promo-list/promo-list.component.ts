@@ -1,13 +1,13 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { MatTableDataSource,MatSort,MatPaginator } from "@angular/material";
-import { MatDialog, MatDialogConfig } from "@angular/material";
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PromoService } from 'src/app/shared/promo.service';
 import { PromocodeComponent } from '../promocode/promocode.component';
-import { NotifcationService } from 'src/app/shared/notifcation.service';
+import { NotifcationService } from '/src/app/shared/notifcation.service';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import html2canvas from 'html2canvas';
+import *as html2canvas from 'html2canvas';
 import * as jsPDF from 'jspdf';
-import { DialogService } from 'src/app/shared/dailog.service';
+import { DialogService } from 'src/app/shared/dialog.service';
 
 
 @Component({
