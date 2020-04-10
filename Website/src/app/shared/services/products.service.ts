@@ -13,11 +13,11 @@ export class ProductsService {
   }  
   
   create(product: Products) {
-    return this.db.list('/products').push(product);
+    return this.db.list('/productslist').push(product);
   }
   
   getAll() {
-    return this.db.list('/products').snapshotChanges().pipe(
+    return this.db.list('/productslist').snapshotChanges().pipe(
       map(actions => actions.map(a => {   
         const data = a.payload.val() as Products;
         const key = a.key;
