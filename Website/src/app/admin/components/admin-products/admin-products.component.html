@@ -6,20 +6,31 @@
         <tr>
             <th>Title</th>
             <th>Price</th>
-            <th></th>
-            <th></th>
+            <th>Date</th>
+            <th>Quantity</th>
+            <th>Category</th>
+            <th>Size</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let p of products$ | async">
             <td>{{ p.title }}</td>
             <td>{{ p.price }}</td>
+            <td>{{ p.date }}</td>
+            <td>{{ p.quantity }}</td>
+            <td>{{ p.category }}</td>
+            <td>{{ p.sizes }}</td>
+           
+
             <td>
-                <a [routerLink]="['/admin/products/', p.name]">Edit</a>
+                <a [routerLink]="['/admin/products/new']">Edit</a>
             </td>
+            
+            <div class = "bttn">
             <td>
-                <button (click)="addToCart(p)" class="btn btn-primary">Add to cart</button>
+                <button mat-raised-button color="warn" (click)="onClear(p.key)">Clear</button>
             </td>
+            </div>
         </tr>
     </tbody>
 </table>

@@ -37,7 +37,7 @@ export class ProductsComponent implements OnInit {
       return this.route.queryParamMap;
     }))
     .subscribe(params => {
-      this.category = params.get('category');
+      this.category = params.get('categories');
       this.applyFilter();
       
     })

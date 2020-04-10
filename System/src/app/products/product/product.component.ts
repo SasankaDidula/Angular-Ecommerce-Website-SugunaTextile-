@@ -17,6 +17,9 @@ export class ProductComponent implements OnInit {
 
 
   constructor(public service: ProductService,
+    public ordType : OrderTypesService,
+    public sizes : SizesService,
+    public datePipe: DatePipe,
     public notificationService : NotificationService,
     public dialogRef:MatDialogRef<ProductsComponent>) {}
 

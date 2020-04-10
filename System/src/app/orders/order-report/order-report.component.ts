@@ -8,7 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-import html2canvas from 'html2canvas';
+import * as html2canvas from 'html2canvas';
 
 
 @Component({

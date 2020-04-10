@@ -7,6 +7,7 @@ import { Products } from '../models/products';
   providedIn: 'root'
 })
 export class ProductsService {
+  form;
   
   constructor(private db: AngularFireDatabase) { 
     
@@ -24,6 +25,22 @@ export class ProductsService {
         return { key, ...data };
       }))
     );
+  }
+
+  delete(itemKey){
+    this.db.object('/products/' + itemKey).remove();
+  }
+  
+ initializeFormGroup() {
+    this.form.setValue({
+
+      $key: null,
+      title: '',
+      price: '',
+      category: '0',
+      imageUrl: '',
+      date: ''
+    });
   }
   
 }

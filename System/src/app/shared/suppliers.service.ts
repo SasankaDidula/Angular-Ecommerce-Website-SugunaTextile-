@@ -33,7 +33,7 @@ export class SuppliersService {
       email:'',
       mobile:'',
       address:'',
-      ordType:0,
+      oType:0,
     
     })
   }
@@ -52,7 +52,7 @@ export class SuppliersService {
       email: supplier.email,
       mobile: supplier.mobile,
       address: supplier.address,
-      ordType: supplier.ordType,
+      oType: supplier.oType,
       count: 0
      
     });
@@ -68,7 +68,7 @@ export class SuppliersService {
         email: supplier.email,
         mobile: supplier.mobile,
         address: supplier.address,
-        ordType: supplier.ordType,
+        oType: supplier.oType,
        
       } );
   }

@@ -35,8 +35,8 @@
             <mat-form-field>
               <mat-select formControlName="category" matInput placeholder="Category">
                 <mat-option>Product List</mat-option>
-                  <ng-container *ngFor="let oType of ordType.array">
-                     <mat-option value="{{oType.title}}">{{oType.title}}</mat-option>
+                  <ng-container *ngFor="let orderType of ordType.array">
+                     <mat-option value="{{orderType.title}}">{{orderType.title}}</mat-option>
                   </ng-container>
               </mat-select>
             </mat-form-field>

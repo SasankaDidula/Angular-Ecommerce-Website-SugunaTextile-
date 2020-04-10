@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@types/jest": "^25.1.4",
+    "@types/mocha": "^7.0.2",
     "angularfire2": "^5.4.2",
     "firebase": "^7.13.1",
     "fsevents": "^2.1.2",

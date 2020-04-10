@@ -32,6 +32,7 @@ import { AdminProductsComponent } from './admin/components/admin-products/admin-
 import { AdminOrdersComponent } from './admin/components/admin-orders/admin-orders.component';
 import { ProductFormComponent } from './admin/components/product-form/product-form.component';
 import { OrderService } from './shared/services/order.service';
+import { ProductsService } from './shared/services/products.service';
 
 
 @NgModule({
@@ -65,7 +66,7 @@ import { OrderService } from './shared/services/order.service';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([
-      {path: '', component: HomeComponent},
+      {path: '', component: ProductsComponent},
       {path: 'products', component: ProductsComponent},
       {path: 'shopping-cart', component: ShoppingCartComponent},
       {path: 'login', component: LoginComponent},
@@ -78,7 +79,8 @@ import { OrderService } from './shared/services/order.service';
       {path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuard, AdminAuthGuard]},
-
+      //{path: 'admin/components/product-form', component: ProductFormComponent, canActivate: [AuthGuard, AdminAuthGuard]}
+      
     ]),
     BrowserAnimationsModule
   ],
@@ -88,6 +90,7 @@ import { OrderService } from './shared/services/order.service';
               UserService,
               AdminAuthGuard,
               CategoryService,
+              ProductsService,
               ShoppingCartService,
               OrderService
   ],

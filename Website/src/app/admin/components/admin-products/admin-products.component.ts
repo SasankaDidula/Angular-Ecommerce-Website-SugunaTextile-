@@ -3,6 +3,8 @@ import { ProductsService } from 'src/app/shared/services/products.service';
 import { Observable } from 'rxjs';
 import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.service';
 import { Products } from 'src/app/shared/models/products';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-products',
@@ -22,5 +24,19 @@ export class AdminProductsComponent implements OnInit {
 
   addToCart(product: Products){
     this.cartService.addToCart(product);
+  }
+
+  form: FormGroup = new FormGroup({
+    $key: new FormControl(null),
+    title: new FormControl('', Validators.required),
+    price: new FormControl('', [Validators.required, Validators.min(0)]),
+    category: new FormControl('0'),
+    imageUrl: new FormControl(''),
+    date: new FormControl('')
+  });
+
+  onClear(key) {
+    this.productService.delete(key);
+
   }
 }

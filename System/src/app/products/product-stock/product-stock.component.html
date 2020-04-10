@@ -16,10 +16,10 @@
                 <mat-select [(ngModel)]="supplier" formControlName="supplier" placeholder="Supplier">
                   <mat-option>None</mat-option>
                     <ng-container *ngFor="let supplier of supplier.supplierList">
-                       <mat-option value="{{supplier.compName}}">{{supplier.compName}}</mat-option>
+                       <mat-option value="{{supplier.supplier}}">{{supplier.supplier}}</mat-option>
                     </ng-container>
                 </mat-select>
-              </mat-form-field>
+              </mat-form-field>`
     
 
 
