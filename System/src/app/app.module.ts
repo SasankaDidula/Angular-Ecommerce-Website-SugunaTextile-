@@ -9,33 +9,13 @@ import { SuppliersService } from './shared/suppliers.service';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule  } from "@angular/platform-browser/animations";
 import { MatSliderModule } from '@angular/material/slider';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import {MatExpansionModule} from '@angular/material/expansion';
 import { environment } from "../environments/environment";
-<<<<<<< HEAD
-import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
-import { EmployeesComponent } from './employees/employees.component';
-import { EmployeeComponent } from './employees/employee/employee.component';
-import { DepartmentService } from './shared/department.service';
-import { EmployeeService } from './shared/employee.service';
-import { NotificationService } from './shared/notification.service';
-import { StockService } from 'src/app/shared/stock.service';
-import { DatePipe } from '@angular/common';
-import { SupplierListComponent } from './suppliers/supplier-list/supplier-list.component';
-import {ProductService } from './shared/product.service';
-import {MatDialogRef} from '@angular/material/dialog';
-import { OrderTypesService } from "./shared/order-types.service";
-import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
-import { ProductComponent } from 'src/app/products/product/product.component';
-import { ProductsComponent } from './products/products.component';
-import { ProductListComponent } from './products/product-list/product-list.component';
-import { ProductStockComponent } from './products/product-stock/product-stock.component';
-import { ProductStockListComponent } from './products/product-stock-list/product-stock-list.component'
-=======
 import { OrderTypesService } from "./shared/order-types.service";
 
 import { SupplierListComponent } from './suppliers/supplier-list/supplier-list.component';
@@ -48,7 +28,6 @@ import { EmployeeListComponent } from './employees/employee-list/employee-list.c
 import { DepartmentService } from './shared/department.service';
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
 
->>>>>>> 90235aa8a0954906b5c76448c8eb15099666cdb2
 import { SuppliesComponent } from './suppliers/supplies/supplies.component';
 import { SuppliesService } from "./shared/supplies.service";
 import { SupplyComponent } from './suppliers/supplies/supply/supply.component';
@@ -56,8 +35,18 @@ import { OrdersComponent } from './orders/orders.component';
 import { OrderReportComponent } from './orders/order-report/order-report.component';
 import { OrderService } from './shared/order.service';
 
+import {ProductComponent} from './products/product/product.component';
+import {ProductListComponent} from './products/product-list/product-list.component';
+import {ProductStockComponent} from './products/product-stock/product-stock.component';
+import {ProductStockListComponent} from './products/product-stock-list/product-stock-list.component';
+import { NotificationService } from './shared/notification.service';
+import { EmployeeService } from './shared/employee.service';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
+import { ProductService } from './shared/product.service';
+import { StockService } from './shared/stock.service';
 
-<<<<<<< HEAD
+
+
 @NgModule({
  
   declarations: [
@@ -70,7 +59,6 @@ import { OrderService } from './shared/order.service';
     EmployeeComponent,
     MatConfirmDialogComponent,
     ProductComponent,
-    ProductsComponent,
     ProductListComponent,
     ProductStockComponent,
     ProductStockListComponent
@@ -114,11 +102,10 @@ import { OrderService } from './shared/order.service';
     SupplierComponent,
     MatConfirmDialogComponent,
     OrderService,
-    SupplyComponent,
+    SupplyComponent
   ]
-=======
 
-
+/*
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
    declarations: [
@@ -176,7 +163,7 @@ import { OrderService } from './shared/order.service';
       MatConfirmDialogComponent,
     
       SupplyComponent,
->>>>>>> 90235aa8a0954906b5c76448c8eb15099666cdb2
-     
+  
+      */
 })
 export class AppModule { }
