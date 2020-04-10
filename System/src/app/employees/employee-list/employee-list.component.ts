@@ -9,8 +9,12 @@ import { MatPaginator } from '@angular/material/paginator';
 import { EmployeeComponent } from '../employee/employee.component';
 import * as jsPDF from 'jspdf';
 import 'jspdf-autotable';
+<<<<<<< HEAD
 import * as html2canvas from 'html2canvas';
+=======
+>>>>>>> 83e166032258ff15e48180dd149389b602e63cd2
 
+import  html2canvas from 'html2canvas';
 
 
 

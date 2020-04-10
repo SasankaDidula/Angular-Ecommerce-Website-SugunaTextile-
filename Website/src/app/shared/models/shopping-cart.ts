@@ -15,7 +15,7 @@ export class ShoppingCart{
     }
   
     getQuantity(product: Products) {
-      let item = this.itemsMap[product.key];
+      let item = this.itemsMap[product.key || product.$key];
       return item ? item.quantity : 0;
     }
     
