@@ -32,6 +32,8 @@ import { AdminOrdersComponent } from './admin/components/admin-orders/admin-orde
 import { ProductFormComponent } from './admin/components/product-form/product-form.component';
 import { OrderService } from './shared/services/order.service';
 import { ProductsService } from './shared/services/products.service';
+import { ProductFilterComponent } from './shopping/components/products/product-filter/product-filter.component';
+import { ProductCardComponent } from './shared/components/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { ProductsService } from './shared/services/products.service';
     ProductQuantityComponent,
     ShoppingCartSummaryComponent,
     ShippingFormComponent,
+    ProductFilterComponent,
+    ProductCardComponent,
   ],
   
   imports: [
@@ -76,7 +80,7 @@ import { ProductsService } from './shared/services/products.service';
       {path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuard, AdminAuthGuard]},
-      //{path: 'admin/components/product-form', component: ProductFormComponent, canActivate: [AuthGuard, AdminAuthGuard]}
+      {path: 'admin/components/product-form', component: ProductFormComponent, canActivate: [AuthGuard, AdminAuthGuard]}
       
     ]),
     BrowserAnimationsModule
