@@ -1,9 +1,26 @@
 <div *ngIf="products?.length > 0;else noItems">
-    <ul *ngFor="let product of products" class="Collection">
-        <li class="Collection-item">
-            <strong>{{ product.title}}: </strong> {{ product.description }}
-        </li>
-    </ul>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of products">
+                <td>
+                    <div [style.backgroundImage]="'url(' + p.imageUrl + ')'" class="thumbnail"></div>
+                </td>
+                <td>{{ p.title }}</td>
+                <td>{{ p.price }}</td>
+                <td>
+                    <button (click)="addToCart(p)" class="btn btn-primary">Add to cart</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 <ng-template #noItems>

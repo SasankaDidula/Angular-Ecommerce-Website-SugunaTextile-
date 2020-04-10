@@ -18,6 +18,7 @@ export class SupplyComponent implements OnInit {
     private notificationService : NotificationService,
     public dialogRef: MatDialogRef <SupplyComponent> ) { }
 
+    someMaxDateFromComponen;
 
     ngOnInit() {
       this.service.getSupply();
@@ -66,6 +67,7 @@ export class SupplyComponent implements OnInit {
         BrandName : 'Adidas',
         oDate:'',
         payment:20000,
+        
       })
     }
   
