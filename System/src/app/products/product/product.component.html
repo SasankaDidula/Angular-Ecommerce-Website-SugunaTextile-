@@ -35,8 +35,8 @@
             <mat-form-field>
               <mat-select formControlName="category" matInput placeholder="Category">
                 <mat-option>Product List</mat-option>
-                  <ng-container *ngFor="let orderType of ordType.array">
-                     <mat-option value="{{orderType.title}}">{{orderType.title}}</mat-option>
+                  <ng-container *ngFor="let categoryType of catType.array">
+                     <mat-option value="{{categoryType.$key}}">{{categoryType.name}}</mat-option>
                   </ng-container>
               </mat-select>
             </mat-form-field>
@@ -45,8 +45,8 @@
             <mat-form-field>
               <mat-select formControlName="sizes" matInput placeholder="Size" multiple>
                 <mat-option>None</mat-option>
-                  <ng-container *ngFor="let size of sizes.array">
-                     <mat-option value="{{size.title}}">{{size.title}}</mat-option>
+                  <ng-container *ngFor="let size of sizesService.array">
+                     <mat-option value="{{size.$key}}">{{size.sf}}-{{size.name}}</mat-option>
                   </ng-container>
               </mat-select>
             </mat-form-field>
