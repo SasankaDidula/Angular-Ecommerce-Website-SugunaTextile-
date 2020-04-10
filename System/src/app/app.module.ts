@@ -9,7 +9,7 @@ import { SuppliersService } from './shared/suppliers.service';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule  } from "@angular/platform-browser/animations";
 import { MatSliderModule } from '@angular/material/slider';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { AngularFireModule } from "angularfire2";
@@ -34,6 +34,17 @@ import { SupplyComponent } from './suppliers/supplies/supply/supply.component';
 import { OrdersComponent } from './orders/orders.component';
 import { OrderReportComponent } from './orders/order-report/order-report.component';
 import { OrderService } from './shared/order.service';
+
+import {ProductComponent} from './products/product/product.component';
+import {ProductListComponent} from './products/product-list/product-list.component';
+import {ProductStockComponent} from './products/product-stock/product-stock.component';
+import {ProductStockListComponent} from './products/product-stock-list/product-stock-list.component';
+import { NotificationService } from './shared/notification.service';
+import { EmployeeService } from './shared/employee.service';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
+import { ProductService } from './shared/product.service';
+import { StockService } from './shared/stock.service';
+
 
 
 

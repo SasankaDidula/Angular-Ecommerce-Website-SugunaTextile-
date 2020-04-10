@@ -13,10 +13,10 @@
 
 
           <mat-form-field>
-                <mat-select [(ngModel)]="supplier" formControlName="supplier" placeholder="Supplier">
+                <mat-select formControlName="supplier" matInput placeholder="Supplier" multiple>
                   <mat-option>None</mat-option>
-                    <ng-container *ngFor="let supplier of supplier.supplierList">
-                       <mat-option value="{{supplier.supplier}}">{{supplier.supplier}}</mat-option>
+                    <ng-container *ngFor="let supplier of supplierService.array">
+                       <mat-option value="{{supplier.$key}}">{{supplier.compName}}</mat-option>
                     </ng-container>
                 </mat-select>
               </mat-form-field>`

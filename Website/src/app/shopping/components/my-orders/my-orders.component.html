@@ -4,16 +4,19 @@
   <thead>
     <tr>
       <th>Customer</th>
+      <th>Contact Nuber</th>
+      <th>Address</th>
       <th>Date</th>
-      <th></th>
+      <th>Total Price</th>
     </tr>
   </thead> 
   <tbody>
     <tr *ngFor="let order of orders">
       <td>{{ order.shipping.name }}</td>
+      <td>{{ order.shipping.mobNumber}}</td>
+      <td>{{ order.shipping.address }}, {{ order.shipping.city }}, {{ order.shipping.state }}</td>
       <td>{{ order.datePlaced | date}}</td>
-      <td>
-        <a href="#">View</a>
+      <td> {{ order.total}}
       </td>
     </tr>
   </tbody> 
