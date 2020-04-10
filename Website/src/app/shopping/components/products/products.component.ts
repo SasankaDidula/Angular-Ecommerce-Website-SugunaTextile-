@@ -15,7 +15,7 @@ import { ShoppingCart } from 'src/app/shared/models/shopping-cart';
 export class ProductsComponent implements OnInit {
   products: Products[] = [];
   filteredProducts: Products[] = [];
-  category: string;
+  category ="";
   cart$: Observable<ShoppingCart>;
 
   constructor(
@@ -37,7 +37,7 @@ export class ProductsComponent implements OnInit {
       return this.route.queryParamMap;
     }))
     .subscribe(params => {
-      this.category = params.get('category');
+      this.category = params.get('categories');
       this.applyFilter();
       
     })
@@ -45,8 +45,7 @@ export class ProductsComponent implements OnInit {
 
   private applyFilter(){
     this.filteredProducts = (this.category) ?
-      this.products.filter(p => p.category === this.category): 
-      this.products;
+      this.products = this.products.filter(p => p.category === this.category): this.products;
   }
 
 }

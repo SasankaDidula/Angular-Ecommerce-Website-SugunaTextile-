@@ -104,3 +104,16 @@ span.price {
 .table {
     overflow-x:auto;
 }
+
+.bttn {
+    color: white;
+    border-color: bisque;
+    border-style: outset;
+    width: 60%;
+    cursor: pointer;
+    font-size: 15px;
+
+}
+.bttn:hover, .buttonClass:hover {
+    background-color: rgb(129, 127, 127);
+}

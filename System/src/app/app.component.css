@@ -102,30 +102,13 @@
   color: #fff;
   background: none;
 }
-/* 
-#main_icon
-{
-    float:right;
-   padding-right: 65px;
-   padding-top:20px;
-} */
+
 .sub_icon
 {
     float:right;
    padding-right: 65px;
    padding-top:10px;
 }
-/* .content-header {
-  height: 65px;
-  line-height: 65px;
-}
-
-.content-header h1 {
-  margin: 0;
-  margin-left: 20px;
-  line-height: 65px;
-  display: inline-block;
-} */
 
 @media (max-width:767px) {
 #wrapper {

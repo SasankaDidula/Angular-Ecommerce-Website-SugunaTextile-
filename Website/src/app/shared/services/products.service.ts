@@ -7,23 +7,40 @@ import { Products } from '../models/products';
   providedIn: 'root'
 })
 export class ProductsService {
+  form;
   
   constructor(private db: AngularFireDatabase) { 
     
   }  
   
   create(product: Products) {
-    return this.db.list('/productslist').push(product);
+    return this.db.list('/products').push(product);
   }
   
   getAll() {
-    return this.db.list('/productslist').snapshotChanges().pipe(
+    return this.db.list('/products').snapshotChanges().pipe(
       map(actions => actions.map(a => {   
         const data = a.payload.val() as Products;
         const key = a.key;
         return { key, ...data };
       }))
     );
+  }
+
+  delete(itemKey){
+    this.db.object('/products/' + itemKey).remove();
+  }
+  
+ initializeFormGroup() {
+    this.form.setValue({
+
+      $key: null,
+      title: '',
+      price: '',
+      category: '0',
+      imageUrl: '',
+      date: ''
+    });
   }
   
 }

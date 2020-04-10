@@ -9,7 +9,7 @@
         <label for="price">Price</label>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">$</span>
+              <span class="input-group-text" id="basic-addon1">LKR</span>
             </div>
             <input ngModel name="price" id="price" type="number" class="form-control">
         </div>
@@ -23,6 +23,26 @@
                 {{ c.name }}
             </option>    
         </select>
+     </div>
+
+     <div class="form-group">
+        <label for="size">Size</label>
+        <select ngModel name="sizes" id="sizes" class="form-control">
+            <option value=""></option>
+            <option *ngFor="let s of sizes$ | async" [value]="s.name">
+                {{ s.name }}
+            </option>    
+        </select>
+     </div>
+
+     <div class="form-group">
+        <label for="Date">Date</label>
+            <input ngModel name="date" id="date" type="date" class="form-control">
+     </div>
+
+     <div class="form-group">
+        <label for="quantity">Quantity</label>
+            <input ngModel name="quantity" id="quantity" type="number" class="form-control">
      </div>
 
     <div class="form-group">

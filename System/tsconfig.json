@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
-    "types": ["node"],
+    "types": ["jest","node"],
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
