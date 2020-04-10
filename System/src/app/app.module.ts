@@ -31,12 +31,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductStockComponent } from './products/product-stock/product-stock.component';
 import { ProductStockListComponent } from './products/product-stock-list/product-stock-list.component';
-=======
-import { OrderTypesService } from "./shared/order-types.service";
 
-import { SupplierListComponent } from './suppliers/supplier-list/supplier-list.component';
-import { EmployeesComponent } from './employees/employees.component';
-import { EmployeeComponent } from './employees/employee/employee.component';
 
 
 import { DatePipe } from '@angular/common';
@@ -48,11 +43,6 @@ import { SuppliesComponent } from './suppliers/supplies/supplies.component';
 import { SuppliesService } from "./shared/supplies.service";
 
 import { SupplyComponent } from './suppliers/supplies/supply/supply.component';
-import { MatSliderModule } from '@angular/material/slider';
-import {  MatDialogModule } from '@angular/material/dialog';
-import {  MatProgressBarModule } from '@angular/material/progress-bar';
-
-import {MatExpansionModule} from '@angular/material/expansion';
 import { OrdersComponent } from './orders/orders.component';
 import { OrderService } from './shared/order.service';
 import { OrderReportComponent } from './orders/order-report/order-report.component';
@@ -156,7 +146,6 @@ import { OrderReportComponent } from './orders/order-report/order-report.compone
       OrderService,
       SupplyComponent,
      
-   ]
 })
 export class AppModule { }
   
