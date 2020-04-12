@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductService } from '../shared/product.service';
 import { OrderTypesService } from '../shared/order-types.service';
-import { NotifcationService } from '../shared/notifcation.service';
-import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import { NotificationService } from '../shared/notification.service';
+
 
 @Component({
   selector: 'app-delivery',
@@ -11,7 +14,7 @@ import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 })
 export class DeliveryComponent implements OnInit {
 
-  constructor(private service: ProductService, private ordType : OrderTypesService, private notificationService : NotifcationService) { }
+  constructor(public service: ProductService, public ordType : OrderTypesService, public notificationService : NotificationService) { }
 
   listData: MatTableDataSource<any>;
   

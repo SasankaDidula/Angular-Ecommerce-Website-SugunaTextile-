@@ -41,9 +41,17 @@ import {ProductStockComponent} from './products/product-stock/product-stock.comp
 import {ProductStockListComponent} from './products/product-stock-list/product-stock-list.component';
 import { NotificationService } from './shared/notification.service';
 import { EmployeeService } from './shared/employee.service';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { ProductService } from './shared/product.service';
 import { StockService } from './shared/stock.service';
+import { DeliveryAddRiderComponent } from './delivery/delivery-add-rider/delivery-add-rider.component';
+import { DeliveryAllocateRiderComponent } from './delivery/delivery-allocate-rider/delivery-allocate-rider.component';
+import { DeliveryComponent } from './delivery/delivery.component';
+import { DeliveryReportComponent } from './delivery/delivery-report/delivery-report.component';
+import { DeliveryRiderListComponent } from './delivery/delivery-rider-list/delivery-rider-list.component';
+import { DeliveryAddService } from './shared/delivery-add.service';
+import { DeliveryService } from './shared/delivery.service';
+import { ProductsComponent } from './products/products.component';
+import { UploadComponent } from './suppliers/supplies/supply/upload/upload.component';
 
 
 
@@ -54,6 +62,9 @@ import { StockService } from './shared/stock.service';
    declarations: [
       AppComponent,
       SuppliersComponent,
+      ProductListComponent,
+      ProductStockComponent,
+      ProductStockListComponent,
       SupplierComponent,
       OrdersComponent,
       OrderReportComponent,
@@ -61,6 +72,14 @@ import { StockService } from './shared/stock.service';
       EmployeesComponent,
       EmployeeComponent,
       EmployeeListComponent,
+      DeliveryAddRiderComponent,
+      DeliveryAllocateRiderComponent,
+      DeliveryComponent,
+      DeliveryReportComponent,
+      DeliveryRiderListComponent,
+      ProductComponent,
+      ProductsComponent,
+      UploadComponent,
    
       MatConfirmDialogComponent,
      
@@ -92,7 +111,12 @@ import { StockService } from './shared/stock.service';
       DatePipe,
       DepartmentService,
       SuppliesService,
-    
+      DeliveryAddService,
+      DeliveryService,
+      NotificationService,
+      EmployeeService,
+      ProductService,
+      StockService
       
    ],
    bootstrap: [
@@ -106,7 +130,9 @@ import { StockService } from './shared/stock.service';
       MatConfirmDialogComponent,
     
       SupplyComponent,
-   ]
+   ],
+
+
      
 })
 export class AppModule { }

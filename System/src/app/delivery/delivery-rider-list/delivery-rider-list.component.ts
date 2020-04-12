@@ -1,10 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { DeliveryService } from '../../shared/delivery.service';
-import { MatTableDataSource,MatSort,MatPaginator, MatDialogConfig, MatDialog } from "@angular/material";
 import { DeliveryAddRiderComponent } from './../delivery-add-rider/delivery-add-rider.component';
-import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import html2canvas from 'html2canvas'
+import { MatTableDataSource } from '@angular/material/table';
+import { DeliveryService } from 'src/app/shared/delivery.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-delivery-rider-list',
@@ -61,7 +64,7 @@ export class DeliveryRiderListComponent implements OnInit {
   }
 
 
-  onEdit(row){
+  onEdit(row: any){
     this.service.populateForm(row);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;

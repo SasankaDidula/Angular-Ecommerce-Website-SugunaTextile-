@@ -1,10 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource, MatDialogConfig, MatDialog } from '@angular/material';
 import { DeliveryAddService } from 'src/app/shared/delivery-add.service';
 import { DeliveryAllocateRiderComponent } from '../delivery-allocate-rider/delivery-allocate-rider.component';
 import * as jsPDF from 'jspdf';
 import 'jspdf-autotable';
-import html2canvas from 'html2canvas'
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import html2canvas from 'html2canvas';
 
 
 @Component({
@@ -14,8 +17,8 @@ import html2canvas from 'html2canvas'
 })
 export class DeliveryReportComponent implements OnInit {
 
-  constructor(private service : DeliveryAddService,
-    private dialog: MatDialog,) { }
+  constructor(public service : DeliveryAddService,
+    public dialog: MatDialog,) { }
  
   listData: MatTableDataSource<any>;
   

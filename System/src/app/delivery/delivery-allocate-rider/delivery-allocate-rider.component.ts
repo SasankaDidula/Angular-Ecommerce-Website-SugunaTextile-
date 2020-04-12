@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DeliveryAddService } from "../../shared/delivery-add.service";
-import { NotifcationService } from "../../shared/notifcation.service";
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
+import { NotificationService } from 'src/app/shared/notification.service';
+
 
 @Component({
   selector: 'app-delivery-allocate-rider',
@@ -10,8 +11,8 @@ import { MatDialogRef } from '@angular/material';
 })
 export class DeliveryAllocateRiderComponent implements OnInit {
 
-  constructor(private service: DeliveryAddService,
-    private notificationService : NotifcationService,
+  constructor(public service: DeliveryAddService,
+    public notificationService : NotificationService,
     public dialogRef: MatDialogRef <DeliveryAllocateRiderComponent>) { }
 
     ngOnInit() {

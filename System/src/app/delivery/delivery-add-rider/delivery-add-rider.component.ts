@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DeliveryService } from "../../shared/delivery.service";
-import { NotifcationService } from "../../shared/notifcation.service";
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
+import { NotificationService } from 'src/app/shared/notification.service';
+
 
 
 @Component({
@@ -11,8 +12,8 @@ import { MatDialogRef } from '@angular/material';
 })
 export class DeliveryAddRiderComponent implements OnInit {
 
-  constructor(private service: DeliveryService,
-    private notificationService : NotifcationService,
+  constructor(public service: DeliveryService,
+    public notificationService : NotificationService,
     public dialogRef: MatDialogRef <DeliveryAddRiderComponent>) { }
 
   
