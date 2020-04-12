@@ -16,8 +16,8 @@ import * as jsPDF from 'jspdf';
 })
 export class DeliveryRiderListComponent implements OnInit {
 
-  constructor(private service : DeliveryService,
-    private dialog: MatDialog,) { }
+  constructor(public service : DeliveryService,
+    public dialog: MatDialog,) { }
  
   listDataa: MatTableDataSource<any>;
   

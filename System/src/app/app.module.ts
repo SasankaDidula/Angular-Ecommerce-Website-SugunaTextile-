@@ -43,7 +43,6 @@ import { NotificationService } from './shared/notification.service';
 import { EmployeeService } from './shared/employee.service';
 import { ProductService } from './shared/product.service';
 import { StockService } from './shared/stock.service';
-import { DeliveryAddRiderComponent } from './delivery/delivery-add-rider/delivery-add-rider.component';
 import { DeliveryAllocateRiderComponent } from './delivery/delivery-allocate-rider/delivery-allocate-rider.component';
 import { DeliveryComponent } from './delivery/delivery.component';
 import { DeliveryReportComponent } from './delivery/delivery-report/delivery-report.component';
@@ -52,6 +51,7 @@ import { DeliveryAddService } from './shared/delivery-add.service';
 import { DeliveryService } from './shared/delivery.service';
 import { ProductsComponent } from './products/products.component';
 import { UploadComponent } from './suppliers/supplies/supply/upload/upload.component';
+import { DeliveryAddRiderComponent } from './delivery/delivery-add-rider/delivery-add-rider.component';
 
 
 
@@ -124,6 +124,10 @@ import { UploadComponent } from './suppliers/supplies/supply/upload/upload.compo
    ],
    entryComponents: [
       SupplierComponent,
+
+      DeliveryAddRiderComponent,
+
+      DeliveryAllocateRiderComponent,
    
       EmployeeComponent,
     
