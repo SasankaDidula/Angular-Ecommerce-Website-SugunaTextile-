@@ -22,13 +22,13 @@ export class BsNavbarComponent implements OnInit{
    }
 
    async ngOnInit(){
-    this.auth.appUsers$.subscribe(appUser => this.appUser = appUser);
+    this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
 
     this.cart$ = (await this.shoppingcartService.getCart());
    }
 
    logout() {
-    this.auth.logout();
+    this.auth.SignOut();
     window.location.reload()
   }
 

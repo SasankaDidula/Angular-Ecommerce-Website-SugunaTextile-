@@ -14,15 +14,15 @@ import {Customer} from "../models/customer";
 //import { AngularFireAuth } from "@angular/fire/auth";
 //import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
-import {AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { from } from 'rxjs/observable/from';
+import { AngularFireDatabase} from "angularfire2/database"; 
 //import {AngularFireDatabase} from '@angular/fire/database'
 
 
 @Injectable()
 export class AuthService {
   user$: Observable<firebase.User>;
-  duser : FirebaseListObservable<any>
+  //user : FirebaseListObservable<any>
 
 
   constructor(
@@ -50,7 +50,7 @@ export class AuthService {
 
   
 
-  get appUser$() : Observable<AppUser> {
+  get appUser$() : Observable<Appuser> {
     return this.user$
       .switchMap(user => {
         if (this.isLoggedIn) return this.userService.get(user.uid);

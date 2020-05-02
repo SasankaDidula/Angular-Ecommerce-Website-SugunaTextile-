@@ -19,7 +19,7 @@ import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestor
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './core/components/home/home.component';
 import { AuthService } from './shared/services/auth.service';
-import { AuthGuardService as AuthGuard } from './shared/services/auth-guard.service';
+import { AuthGuard } from './shared/services/auth-guard.service';
 import { UserService } from './shared/services/user.service';
 import { AdminAuthGuardService as AdminAuthGuard } from './shared/services/admin-auth-guard.service';
 import { CategoryService } from './shared/services/category.service';
@@ -93,7 +93,8 @@ import { ProductCardComponent } from './shared/components/product-card/product-c
               CategoryService,
               ProductsService,
               ShoppingCartService,
-              OrderService
+              OrderService,
+              AuthService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
