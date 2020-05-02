@@ -3,7 +3,7 @@ import { TailoringService } from 'src/app/shared/tailoring.service';
 import { TailoringComponent } from '../tailoring/tailoring.component';
 import { NotificationService } from 'src/app/shared/notification.service';
 import * as jsPDF from 'jspdf'; 
-import *as html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas';
 import { MatPaginator } from "@angular/material/paginator";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { MatSort } from "@angular/material/sort";

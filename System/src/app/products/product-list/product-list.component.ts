@@ -11,7 +11,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { ProductStockComponent } from '../product-stock/product-stock.component';
 import { ProductStockListComponent } from '../product-stock-list/product-stock-list.component';
 import *as  jsPDF from 'jspdf';
-import * as html2canvas from 'html2canvas';
+import  html2canvas from 'html2canvas';
 import 'jspdf-autotable';
 
 @Component({

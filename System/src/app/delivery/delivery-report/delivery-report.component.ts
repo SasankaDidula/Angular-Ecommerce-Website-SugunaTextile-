@@ -7,7 +7,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-import * as html2canvas from 'html2canvas';
+import  html2canvas from 'html2canvas';
 
 
 @Component({

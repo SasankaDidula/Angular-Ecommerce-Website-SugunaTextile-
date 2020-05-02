@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CustomerService } from 'src/app/shared/customer.service';
 import { NotificationService} from '../../shared/notification.service';
-import *as html2canvas from 'html2canvas';
+import  html2canvas from 'html2canvas';
 import * as jsPDF from 'jspdf'; 
 import { MatPaginator } from "@angular/material/paginator";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
