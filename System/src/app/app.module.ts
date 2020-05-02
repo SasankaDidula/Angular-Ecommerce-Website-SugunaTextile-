@@ -21,7 +21,8 @@ import { OrderTypesService } from "./shared/order-types.service";
 import { SupplierListComponent } from './suppliers/supplier-list/supplier-list.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeComponent } from './employees/employee/employee.component';
-
+import { TailoringsComponent } from './tailorings/tailorings.component';
+import { TailoringComponent } from './tailorings/tailoring/tailoring.component';
 
 import { DatePipe } from '@angular/common';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
@@ -52,8 +53,11 @@ import { DeliveryService } from './shared/delivery.service';
 import { ProductsComponent } from './products/products.component';
 import { UploadComponent } from './suppliers/supplies/supply/upload/upload.component';
 import { DeliveryAddRiderComponent } from './delivery/delivery-add-rider/delivery-add-rider.component';
-
-
+import { TailoringService } from "./shared/tailoring.service";
+import { CustomerComponent } from './customer/customer.component';
+import { CustomerListComponent } from './customer/customer-list/customer-list.component';
+import { CustomerService } from './shared/customer.service';
+import { TailoringListComponent } from './tailorings/tailoring-list/tailoring-list.component'
 
 
 
@@ -80,6 +84,11 @@ import { DeliveryAddRiderComponent } from './delivery/delivery-add-rider/deliver
       ProductComponent,
       ProductsComponent,
       UploadComponent,
+      TailoringsComponent,
+      TailoringComponent,
+      CustomerComponent,
+      CustomerListComponent,
+      TailoringListComponent,
    
       MatConfirmDialogComponent,
      
@@ -116,8 +125,10 @@ import { DeliveryAddRiderComponent } from './delivery/delivery-add-rider/deliver
       NotificationService,
       EmployeeService,
       ProductService,
-      StockService
-      
+      StockService,
+      TailoringService,
+      CustomerService
+
    ],
    bootstrap: [
       AppComponent

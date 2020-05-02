@@ -1,23 +1,22 @@
-import { Injectable } from '@angular/core';
-import { CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
-import { map } from 'rxjs/operators';
+import { CanActivate, RouterStateSnapshot } from '@angular/router';
+import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/map'; 
 
-@Injectable({
-  providedIn: 'root'
-})
-export class AuthGuardService implements CanActivate {
+@Injectable()
+export class AuthGuard implements CanActivate {
 
   constructor(private auth: AuthService, private router: Router) { }
+  
+  canActivate(route, state: RouterStateSnapshot) {
+    return this.auth.user$.map(user => {
+      if (this.auth.isLoggedIn) return true; 
 
-  canActivate(route, state: RouterStateSnapshot){
-    return this.auth.user$.pipe(map(user => {
-      if(user) return true;
-
-      this.router.navigate(['/login'], { queryParams: {
-        returnUrl: state.url
-      }});
+      this.router.navigate(['/signin'], { queryParams: { returnUrl: state.url }});
+      window.alert('You have to sign in first')
       return false;
-    }));
+    });
   }
+
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TailoringService } from '../../shared/tailoring.service';
 import { NotificationService } from '../../shared/notification.service';
-//import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 import { from } from 'rxjs';
 
 @Component({
@@ -11,11 +11,9 @@ import { from } from 'rxjs';
 })
 export class TailoringComponent implements OnInit {
 
-  constructor(private service: TailoringService,
+  constructor(public service: TailoringService,
     private notificationService : NotificationService,
-    //public dialogRef: MatDialogRef<TailoringComponent>
-    ) 
-    {
+    public dialogRef: MatDialogRef<TailoringComponent>) {
       
     }
 
@@ -82,7 +80,7 @@ export class TailoringComponent implements OnInit {
   onClose(){
     this.service.form.reset();
     this.service.initializeFormGroup();
-   // this.dialogRef.close();
+    this.dialogRef.close();
   }
 
 

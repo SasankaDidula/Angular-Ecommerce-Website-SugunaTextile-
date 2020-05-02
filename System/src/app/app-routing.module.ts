@@ -6,13 +6,14 @@ import { SuppliersComponent } from './suppliers/suppliers.component';
 import { SuppliesComponent } from "./suppliers/supplies/supplies.component";
 import { OrdersComponent } from './orders/orders.component';
 import { DeliveryComponent } from './delivery/delivery.component';
-
-
+import { TailoringsComponent } from "./tailorings/tailorings.component";
+import { CustomerComponent } from './customer/customer.component';
 
 const routes: Routes = [
   {path: 'employees', component: EmployeesComponent},
   {path: 'suppliers', component: SuppliersComponent},
-
+  {path: 'customers', component: CustomerComponent},
+  {path: 'tailoring', component: TailoringsComponent},
   //{path: 'products', component: ProductsComponent},
 
   {path: 'supplies', component: SuppliesComponent},
