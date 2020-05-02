@@ -51,15 +51,17 @@ export class TailoringListComponent implements OnInit {
   applyFilter(){
     this.listData.filter = this.searchKey.trim().toLowerCase();
   }
-
-  onCreate(){
+  
+  onCreate() {
     this.service.initializeFormGroup();
-    const diologConfig = new MatDialogConfig();
-    diologConfig.disableClose = true;
-    diologConfig.autoFocus = true;
-    diologConfig.width = "60%";
-    this.dialog.open(TailoringComponent,diologConfig);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    dialogConfig.height = "95%";
+    this.dialog.open(TailoringComponent,dialogConfig);
   }
+  
 
   onEdit(row){
     this.service.populateForm(row);
