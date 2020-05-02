@@ -143,8 +143,8 @@ import { TailoringListComponent } from './tailorings/tailoring-list/tailoring-li
       EmployeeComponent,
     
       MatConfirmDialogComponent,
-    
-      SupplyComponent,
+      TailoringComponent,
+      SupplyComponent
    ],
 
 
