@@ -15,14 +15,15 @@ import {Customer} from "../models/customer";
 //import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
 import { from } from 'rxjs/observable/from';
-import { AngularFireDatabase} from "angularfire2/database"; 
+import { AngularFireDatabase, AngularFireObject} from "angularfire2/database"; 
+import { switchMap } from 'rxjs/operators/switchMap';
+import { of } from 'rxjs/internal/observable/of';
 //import {AngularFireDatabase} from '@angular/fire/database'
 
 
 @Injectable()
 export class AuthService {
   user$: Observable<firebase.User>;
-  //user : FirebaseListObservable<any>
 
 
   constructor(
@@ -50,15 +51,16 @@ export class AuthService {
 
   
 
-  get appUser$() : Observable<Appuser> {
-    return this.user$
-      .switchMap(user => {
-        if (this.isLoggedIn) return this.userService.get(user.uid);
-
-        return Observable.of(null);
-      });    
+  get appUser$(): Observable<Appuser> {
+    return this.user$.pipe(
+      switchMap(user => {
+        if (user)
+          return this.userService.get(user.uid);
+        else 
+            return of(null);
+      })
+    );
   }
-
   
    userData: any; // Save logged in user data
 
