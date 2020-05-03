@@ -16,7 +16,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './core/components/home/home.component';
 import { AuthService } from './shared/services/auth.service';
 import { AuthGuard } from './shared/services/auth-guard.service';
 import { UserService } from './shared/services/user.service';
@@ -40,12 +39,12 @@ import { ProfileNavbarComponent } from './core/components/profile-navbar/profile
 import { ChangePasswordComponent } from './core/components/change-password/change-password.component';
 import { DeleteAccountComponent } from './core/components/delete-account/delete-account.component';
 import { VerifyEmailComponent } from './core/components/verify-email/verify-email.component';
+import { ForgotPasswordComponent } from './core/components/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BsNavbarComponent,
-    HomeComponent,
     ProductsComponent,
     ShoppingCartComponent,
     ChechOutComponent,
@@ -86,6 +85,7 @@ import { VerifyEmailComponent } from './core/components/verify-email/verify-emai
       {path: 'updateinfo', component: ChangePasswordComponent},
       {path: 'deleteaccount', component: DeleteAccountComponent},
       {path: 'verifyemail', component: VerifyEmailComponent},
+      {path: 'forgotpassword', component: ForgotPasswordComponent},
       
 
 
