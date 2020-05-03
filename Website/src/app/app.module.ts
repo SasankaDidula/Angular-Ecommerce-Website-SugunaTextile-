@@ -35,6 +35,10 @@ import { ProductFilterComponent } from './shopping/components/products/product-f
 import { ProductCardComponent } from './shared/components/product-card/product-card.component';
 import { SignInComponent } from './core/components/sign-in/sign-in.component';
 import { SignUpComponent } from './core/components/sign-up/sign-up.component';
+import { MyProfileComponent } from './core/components/my-profile/my-profile.component';
+import { ProfileNavbarComponent } from './core/components/profile-navbar/profile-navbar.component';
+import { ChangePasswordComponent } from './core/components/change-password/change-password.component';
+import { DeleteAccountComponent } from './core/components/delete-account/delete-account.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +58,11 @@ import { SignUpComponent } from './core/components/sign-up/sign-up.component';
     ShippingFormComponent,
     ProductFilterComponent,
     ProductCardComponent,
+    ProfileNavbarComponent,
+    MyProfileComponent,
+    ProfileNavbarComponent,
+    ChangePasswordComponent,
+    DeleteAccountComponent
   ],
   
   imports: [
@@ -72,6 +81,10 @@ import { SignUpComponent } from './core/components/sign-up/sign-up.component';
       {path: 'shopping-cart', component: ShoppingCartComponent},
       {path: 'signin', component: SignInComponent},
       {path: 'signup', component: SignUpComponent},
+      {path: 'dashboard', component: MyProfileComponent},
+      {path: 'updateinfo', component: ChangePasswordComponent},
+      {path: 'deleteaccount', component: DeleteAccountComponent},
+      
 
 
       {path: 'check-out', component: ChechOutComponent, canActivate: [AuthGuard]},
