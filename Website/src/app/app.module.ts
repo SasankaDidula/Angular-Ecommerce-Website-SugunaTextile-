@@ -39,6 +39,7 @@ import { MyProfileComponent } from './core/components/my-profile/my-profile.comp
 import { ProfileNavbarComponent } from './core/components/profile-navbar/profile-navbar.component';
 import { ChangePasswordComponent } from './core/components/change-password/change-password.component';
 import { DeleteAccountComponent } from './core/components/delete-account/delete-account.component';
+import { VerifyEmailComponent } from './core/components/verify-email/verify-email.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { DeleteAccountComponent } from './core/components/delete-account/delete-
       {path: 'dashboard', component: MyProfileComponent},
       {path: 'updateinfo', component: ChangePasswordComponent},
       {path: 'deleteaccount', component: DeleteAccountComponent},
+      {path: 'verifyemail', component: VerifyEmailComponent},
       
 
 

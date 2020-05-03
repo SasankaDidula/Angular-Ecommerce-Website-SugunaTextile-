@@ -10,7 +10,6 @@ import * as firebase from 'firebase';
 import { Injectable, NgZone } from '@angular/core';
 import { User } from "../models/user";
 import { auth } from 'firebase/app';
-import {Customer} from "../models/customer";
 //import { AngularFireAuth } from "@angular/fire/auth";
 //import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
@@ -18,12 +17,14 @@ import { from } from 'rxjs/observable/from';
 import { AngularFireDatabase, AngularFireObject} from "angularfire2/database"; 
 import { switchMap } from 'rxjs/operators/switchMap';
 import { of } from 'rxjs/internal/observable/of';
+import { environment } from 'src/environments/environment';
 //import {AngularFireDatabase} from '@angular/fire/database'
 
 
 @Injectable()
 export class AuthService {
   user$: Observable<firebase.User>;
+  user: AngularFireObject<any>;
 
 
   constructor(
@@ -34,6 +35,7 @@ export class AuthService {
     public router: Router,  
     public ngZone: NgZone // NgZone service to remove outside scope warning
     ) { 
+      firebase.initializeApp(environment.firebase);
     this.user$ = afAuth.authState;    
     /* Saving user data in localstorage when 
      logged in and setting up null when logged out */
@@ -54,10 +56,10 @@ export class AuthService {
   get appUser$(): Observable<Appuser> {
     return this.user$.pipe(
       switchMap(user => {
-        if (user)
+        if (this.isLoggedIn)
           return this.userService.get(user.uid);
         else 
-            return of(null);
+            return Observable.of(null);
       })
     );
   }
@@ -141,7 +143,7 @@ export class AuthService {
  //set user data in database
    SetUserData(user) {
  
-    this.db.object('/customers/'+ user.uid).update({
+    this.db.object('/users/'+ user.uid).update({
      uid: user.uid,
      email: user.email,
      displayName: user.displayName,
@@ -165,10 +167,11 @@ export class AuthService {
 
    //to delete account
    DeleteAccount(){
-    firebase.auth().currentUser.delete().then(() => {
+    console.log(firebase.auth().currentUser)
+    this.afAuth.auth.currentUser.delete().then(() => {
       //window.alert("Successfully deleted your account")
       window.alert("Successfully deleted the account")
-      this.db.object('/customers/' + this.userData.uid).remove();
+      this.db.object('/users/' + this.userData.uid).remove();
       this.SignOut().catch((error) => {
         window.alert(error)
       })
@@ -181,7 +184,7 @@ export class AuthService {
   
 //to Update Password
   UpdatePassword(newPassword){
-    firebase.auth().currentUser.updatePassword(newPassword).then(()=>{
+    this.afAuth.auth.currentUser.updatePassword(newPassword).then(()=>{
       window.alert("Successfully updated password")
     }).catch((error)=>{
       window.alert(error)
@@ -190,7 +193,7 @@ export class AuthService {
  
   //to Update display name
   Updatename(name){
-    firebase.auth().currentUser.updateProfile({
+    this.afAuth.auth.currentUser.updateProfile({
       displayName:name,
       photoURL:this.userData.photoURL
     }).then(()=>{
