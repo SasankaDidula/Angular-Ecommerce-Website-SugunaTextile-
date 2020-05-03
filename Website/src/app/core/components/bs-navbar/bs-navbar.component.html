@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
     <div class="container">
       <a class="navbar-brand" routerLink="/">
@@ -11,7 +12,7 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" routerLink="/shopping-cart">
-              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              <i class="fa fa-shopping-cart fa-2x"></i>
               <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
                 {{ cart.totalItemsCount }}
               </span>

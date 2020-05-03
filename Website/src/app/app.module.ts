@@ -70,7 +70,7 @@ import { SignUpComponent } from './core/components/sign-up/sign-up.component';
       {path: '', component: ProductsComponent},
       {path: 'products', component: ProductsComponent},
       {path: 'shopping-cart', component: ShoppingCartComponent},
-      {path: 'login', component: SignInComponent},
+      {path: 'signin', component: SignInComponent},
       {path: 'signup', component: SignUpComponent},
 
 
