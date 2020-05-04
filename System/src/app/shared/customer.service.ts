@@ -19,8 +19,8 @@ export class CustomerService {
    }
    customerList:AngularFireList<any>
 
-   getCustomers(){
-    this.customerList = this.firebase.list('customers');
+   getUsers(){
+    this.customerList = this.firebase.list('users');
     return this.customerList.snapshotChanges();
   }
     

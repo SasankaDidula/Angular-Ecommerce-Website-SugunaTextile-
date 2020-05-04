@@ -26,7 +26,7 @@ export class CustomerListComponent implements OnInit {
   searchKey: string;
   
   ngOnInit() {
-    this.service.getCustomers().subscribe(
+    this.service.getUsers().subscribe(
       list => {
         let array = list.map(item =>{
           return {
