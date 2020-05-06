@@ -1,8 +1,8 @@
-import { OrderTypesService } from './../../shared/order-types.service';
 import { Component, OnInit } from '@angular/core';
 import { SuppliersService } from "../../shared/suppliers.service";
+import { OrderTypesService } from "../../shared/order-types.service";
+import { NotificationService } from "src/app/shared/notification.service";
 import { MatDialogRef } from '@angular/material/dialog';
-import { NotificationService } from 'src/app/shared/notification.service';
 
 @Component({
   selector: 'app-supplier',
@@ -11,26 +11,27 @@ import { NotificationService } from 'src/app/shared/notification.service';
 })
 export class SupplierComponent implements OnInit {
 
-  constructor(public service: SuppliersService,public ordType : OrderTypesService,     private notificationService : NotificationService,
-    public dialogRef: MatDialogRef <SupplierComponent>) { }
+  constructor(public service: SuppliersService,
+    public ordType : OrderTypesService,
+    public notificationService : NotificationService,
+    public dialogRef: MatDialogRef <SupplierComponent> ) { }
+
+  ngOnInit() {
+    this.service.getSuppliers();
+  }
 
 
-
-ngOnInit() {
-  this.service.getSuppliers();
-}
 
   onClear() {
     this.service.form.reset();
     this.service.initializeFormGroup();
-
 
   }
 
   onSubmit(){
     if(this.service.form.valid){
       if (!this.service.form.get('$key').value)
-      this.service.insertSupplier(this.service.form.value) // insert new employee to firebase DB collection
+      this.service.insertSupplier(this.service.form.value)
       else
       this.service.updateSupplier(this.service.form.value);
       this.service.form.reset();
@@ -48,19 +49,22 @@ ngOnInit() {
 
   }
 
-  demo(){
 
-    this.service.form.setValue({
+
+
+
+demo(){
+
+  this.service.form.setValue({
+
+    $key:null,
+      supName:'Abilash',
+      compName:'AbiTeck',
+      email:'abilash2027@gmail.com',
+      mobile:'0771120622',
+      address:'57,Thelangapatha Rd, Wattala',
+      oType:0,
   
-      $key:null,
-        supName:'Shadini',
-        compName:'ShaFashion',
-        email:'shadinikalansooriya98@gmail.com',
-        mobile:'0763792769',
-        address:'Diloma, Aththalapitiya Road Bandarawela',
-        oType:0,
-    
-    })
-  }
-
+  })
+}
 }

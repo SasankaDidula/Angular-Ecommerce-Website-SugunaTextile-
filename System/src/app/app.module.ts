@@ -57,8 +57,13 @@ import { TailoringService } from "./shared/tailoring.service";
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerListComponent } from './customer/customer-list/customer-list.component';
 import { CustomerService } from './shared/customer.service';
-import { TailoringListComponent } from './tailorings/tailoring-list/tailoring-list.component'
+import { TailoringListComponent } from './tailorings/tailoring-list/tailoring-list.component';
+// import { ReportComponent } from './suppliers/report/report.component';
+// import { PaymentReportComponent } from './suppliers/report/payment-report/payment-report.component';
 
+import { ReportComponent } from './suppliers/report/report.component';
+import { PaymentReportComponent } from './suppliers/report/payment-report/payment-report.component';
+import { QuantityReportComponent } from './suppliers/report/quantity-report/quantity-report.component';
 
 
 @NgModule({
@@ -95,6 +100,12 @@ import { TailoringListComponent } from './tailorings/tailoring-list/tailoring-li
       SuppliesComponent,
     
       SupplyComponent,
+    
+      ReportComponent,
+    
+      PaymentReportComponent,
+    
+      QuantityReportComponent,
     
    ],
    imports: [
