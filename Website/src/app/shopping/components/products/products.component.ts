@@ -6,6 +6,7 @@ import { ProductsService } from 'src/app/shared/services/products.service';
 import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.service';
 import { switchMap } from 'rxjs/operators';
 import { ShoppingCart } from 'src/app/shared/models/shopping-cart';
+import { CategoryService } from 'src/app/shared/services/category.service';
 
 @Component({
   selector: 'app-products',
@@ -17,12 +18,25 @@ export class ProductsComponent implements OnInit {
   filteredProducts: Products[] = [];
   category ="";
   cart$: Observable<ShoppingCart>;
+  categories$;
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductsService,
-    private shoppingCartService: ShoppingCartService
-  ) { }
+    private shoppingCartService: ShoppingCartService,
+    private categoryService: CategoryService) {
+      productService.getAll().subscribe(products => this.products = this.products);
+
+      this.categories$ = categoryService.getCategories();
+
+      route.queryParamMap.subscribe(params => {
+        this.category = params.get('category');
+
+        this.filteredProducts = (this.category) ?
+        this.products.filter(p => p.category === this.category): 
+        this.products;
+      });
+   }
 
   async ngOnInit() {
     this.cart$ = (await this.shoppingCartService.getCart());

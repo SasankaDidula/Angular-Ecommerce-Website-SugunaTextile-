@@ -5,7 +5,8 @@
       <p class="card-text">{{ product.price | currency:'LKR':"symbol-narrow" }}</p>
     </div>
     <div *ngIf="showActions && shoppingCart" class="card-footer">
-      <button 
+      
+      <button
         *ngIf="shoppingCart.getQuantity(product) === 0; else updateQuantity"
         (click)="addToCart()"
         class="btn btn-secondary btn-block">Add to Cart</button>
@@ -14,5 +15,6 @@
         </quantity>
       </ng-template>
     </div>
-  </div>    
+  </div>  
+
   

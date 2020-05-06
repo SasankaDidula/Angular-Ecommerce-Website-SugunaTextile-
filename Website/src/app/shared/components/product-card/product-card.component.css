@@ -1,10 +1,14 @@
 
 .card { 
     margin-bottom: 30px;
+    width: 300px;
+    align-content: center;
   }
   
   .card-img-top { 
-    height: 150px;
+    height: 250px;
+    width: 250px;
+    align-content: center;
   }
   
   .card-footer {
@@ -16,3 +20,6 @@
     cursor: pointer;
     text-transform: uppercase;
   }
+
+
+ 

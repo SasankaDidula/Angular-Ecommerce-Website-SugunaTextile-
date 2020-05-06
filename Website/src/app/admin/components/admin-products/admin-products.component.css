@@ -107,13 +107,13 @@ span.price {
 
 .bttn {
     color: white;
-    border-color: bisque;
-    border-style: outset;
-    width: 60%;
+    border-color: cornflowerblue;
+    border-style:none;
+    width: 70%;
     cursor: pointer;
     font-size: 15px;
 
 }
 .bttn:hover, .buttonClass:hover {
-    background-color: rgb(129, 127, 127);
+    background-color: cornflowerblue;
 }

@@ -11,7 +11,9 @@ export class CategoryService {
   constructor(private db: AngularFireDatabase) { }
 
   getCategories(){
-    //return this.db.list('/categories/').valueChanges();
+
+  //return this.db.list('/categories/').valueChanges();
+ 
     return this.db.list('/categories').snapshotChanges().pipe(
       map(actions => actions.map(a => {   
         const data = a.payload.val() as Products;
@@ -21,3 +23,19 @@ export class CategoryService {
     );
   }
 }
+
+  // getCategories(){
+  //   return this.db.list('/categories',ref => ref.orderByChild('name')).valueChanges();
+      
+  //   };
+  // }
+//   { 
+  
+
+//     return this.db.list('/categories', ref => {
+//       return ref.orderByChild(name)
+//       }
+//     );
+//   }
+// }
+
