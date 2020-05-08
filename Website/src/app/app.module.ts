@@ -85,7 +85,7 @@ import { ForgotPasswordComponent } from './core/components/forgot-password/forgo
       {path: 'updateinfo', component: ChangePasswordComponent},
       {path: 'deleteaccount', component: DeleteAccountComponent},
       {path: 'verifyemail', component: VerifyEmailComponent},
-      {path: 'forgotpassword', component: ForgotPasswordComponent},
+      {path: 'forgot-password', component: ForgotPasswordComponent},
       
 
 
