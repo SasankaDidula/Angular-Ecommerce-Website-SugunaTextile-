@@ -42,6 +42,10 @@ export class ProductsService {
       date: ''
     });
   }
+
+  populateForm(itemKey) {
+    this.form.patchValue(itemKey);
+  }
   
 }
 
