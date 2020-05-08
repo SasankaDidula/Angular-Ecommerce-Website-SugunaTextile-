@@ -1,10 +1,13 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { TailoringService } from 'src/app/shared/tailoring.service';
-import { MatTableDataSource,MatSort,MatPaginator } from '@angular/material';
-import { MatDialog, MatDialogConfig } from "@angular/material";
 import { TailoringComponent } from '../tailoring/tailoring.component';
 import { NotificationService } from 'src/app/shared/notification.service';
-
+import * as jsPDF from 'jspdf'; 
+import html2canvas from 'html2canvas';
+import { MatPaginator } from "@angular/material/paginator";
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { MatSort } from "@angular/material/sort";
+import { MatTableDataSource} from "@angular/material/table";
 @Component({
   selector: 'app-tailoring-list',
   templateUrl: './tailoring-list.component.html',
@@ -48,15 +51,17 @@ export class TailoringListComponent implements OnInit {
   applyFilter(){
     this.listData.filter = this.searchKey.trim().toLowerCase();
   }
-
-  onCreate(){
+  
+  onCreate() {
     this.service.initializeFormGroup();
-    const diologConfig = new MatDialogConfig();
-    diologConfig.disableClose = true;
-    diologConfig.autoFocus = true;
-    diologConfig.width = "60%";
-    this.dialog.open(TailoringComponent,diologConfig);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    dialogConfig.height = "95%";
+    this.dialog.open(TailoringComponent,dialogConfig);
   }
+  
 
   onEdit(row){
     this.service.populateForm(row);
@@ -72,5 +77,24 @@ export class TailoringListComponent implements OnInit {
     this.service.deleteTailoring($key);
     this.notificationService.warn('! Deleted Successfully');
     }
+  }
+
+
+  
+  print(){
+    var data = document.getElementById("report");  
+    html2canvas(data).then(canvas => {  
+      // Few necessary setting options  
+      var imgWidth = 208;   
+      var pageHeight = 295;    
+      var imgHeight = canvas.height * imgWidth / canvas.width;  
+      var heightLeft = imgHeight;  
+  
+      const contentDataURL = canvas.toDataURL('image/png')  
+      let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF  
+      var position = 0;  
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)  
+      pdf.save('Tailoring.pdf'); // Generated PDF   
+    });  
   }
 }

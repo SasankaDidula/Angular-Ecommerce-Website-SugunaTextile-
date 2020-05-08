@@ -21,7 +21,8 @@ import { OrderTypesService } from "./shared/order-types.service";
 import { SupplierListComponent } from './suppliers/supplier-list/supplier-list.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeComponent } from './employees/employee/employee.component';
-
+import { TailoringsComponent } from './tailorings/tailorings.component';
+import { TailoringComponent } from './tailorings/tailoring/tailoring.component';
 
 import { DatePipe } from '@angular/common';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
@@ -41,76 +42,38 @@ import {ProductStockComponent} from './products/product-stock/product-stock.comp
 import {ProductStockListComponent} from './products/product-stock-list/product-stock-list.component';
 import { NotificationService } from './shared/notification.service';
 import { EmployeeService } from './shared/employee.service';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { ProductService } from './shared/product.service';
 import { StockService } from './shared/stock.service';
+import { DeliveryAllocateRiderComponent } from './delivery/delivery-allocate-rider/delivery-allocate-rider.component';
+import { DeliveryComponent } from './delivery/delivery.component';
+import { DeliveryReportComponent } from './delivery/delivery-report/delivery-report.component';
+import { DeliveryRiderListComponent } from './delivery/delivery-rider-list/delivery-rider-list.component';
+import { DeliveryAddService } from './shared/delivery-add.service';
+import { DeliveryService } from './shared/delivery.service';
+import { ProductsComponent } from './products/products.component';
+import { UploadComponent } from './suppliers/supplies/supply/upload/upload.component';
+import { DeliveryAddRiderComponent } from './delivery/delivery-add-rider/delivery-add-rider.component';
+import { TailoringService } from "./shared/tailoring.service";
+import { CustomerComponent } from './customer/customer.component';
+import { CustomerListComponent } from './customer/customer-list/customer-list.component';
+import { CustomerService } from './shared/customer.service';
+import { TailoringListComponent } from './tailorings/tailoring-list/tailoring-list.component';
+// import { ReportComponent } from './suppliers/report/report.component';
+// import { PaymentReportComponent } from './suppliers/report/payment-report/payment-report.component';
 
+import { ReportComponent } from './suppliers/report/report.component';
+import { PaymentReportComponent } from './suppliers/report/payment-report/payment-report.component';
+import { QuantityReportComponent } from './suppliers/report/quantity-report/quantity-report.component';
 
 
 @NgModule({
  
-  declarations: [
-    AppComponent,
-    SuppliersComponent,
-    SupplierComponent,
-    SupplierListComponent,
-    EmployeeListComponent,
-    EmployeesComponent,
-    EmployeeComponent,
-    MatConfirmDialogComponent,
-    ProductComponent,
-    ProductListComponent,
-    ProductStockComponent,
-    ProductStockListComponent
-    
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatProgressSpinnerModule,
-    MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatSliderModule,
-    MatDialogModule,
-    MatProgressBarModule,
-    AngularFireDatabaseModule,
-    MatDialogModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    MatExpansionModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
-  ],
-  providers: [
-    ProductService,
-    SuppliersService,
-    OrderTypesService,
-    DepartmentService,
-    EmployeeService,
-    NotificationService,
-    DatePipe,
-    StockService,
-    SuppliersService,
-    OrderTypesService, {
-    provide: MatDialogRef,
-    useValue: {}
-  }],
-  bootstrap: [AppComponent],
-  
-  entryComponents: [ 
-
-    SupplierComponent,
-    MatConfirmDialogComponent,
-    OrderService,
-    SupplyComponent
-  ]
-
-/*
-@NgModule({
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
    declarations: [
       AppComponent,
       SuppliersComponent,
+      ProductListComponent,
+      ProductStockComponent,
+      ProductStockListComponent,
       SupplierComponent,
       OrdersComponent,
       OrderReportComponent,
@@ -118,12 +81,31 @@ import { StockService } from './shared/stock.service';
       EmployeesComponent,
       EmployeeComponent,
       EmployeeListComponent,
+      DeliveryAddRiderComponent,
+      DeliveryAllocateRiderComponent,
+      DeliveryComponent,
+      DeliveryReportComponent,
+      DeliveryRiderListComponent,
+      ProductComponent,
+      ProductsComponent,
+      UploadComponent,
+      TailoringsComponent,
+      TailoringComponent,
+      CustomerComponent,
+      CustomerListComponent,
+      TailoringListComponent,
    
       MatConfirmDialogComponent,
      
       SuppliesComponent,
     
       SupplyComponent,
+    
+      ReportComponent,
+    
+      PaymentReportComponent,
+    
+      QuantityReportComponent,
     
    ],
    imports: [
@@ -149,21 +131,34 @@ import { StockService } from './shared/stock.service';
       DatePipe,
       DepartmentService,
       SuppliesService,
-    
-      
+      DeliveryAddService,
+      DeliveryService,
+      NotificationService,
+      EmployeeService,
+      ProductService,
+      StockService,
+      TailoringService,
+      CustomerService
+
    ],
    bootstrap: [
       AppComponent
    ],
    entryComponents: [
       SupplierComponent,
+
+      DeliveryAddRiderComponent,
+
+      DeliveryAllocateRiderComponent,
    
       EmployeeComponent,
     
       MatConfirmDialogComponent,
-    
-      SupplyComponent,
-  
-      */
+      TailoringComponent,
+      SupplyComponent
+   ],
+
+
+     
 })
 export class AppModule { }

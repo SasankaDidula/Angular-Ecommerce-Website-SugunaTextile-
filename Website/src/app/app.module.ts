@@ -12,14 +12,12 @@ import { ShoppingCartComponent } from './shopping/components/shopping-cart/shopp
 import { ChechOutComponent } from './shopping/components/chech-out/chech-out.component';
 import { OrderSuccessComponent } from './shopping/components/order-success/order-success.component';
 import { MyOrdersComponent } from './shopping/components/my-orders/my-orders.component';
-import { LoginComponent } from './core/components/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './core/components/home/home.component';
 import { AuthService } from './shared/services/auth.service';
-import { AuthGuardService as AuthGuard } from './shared/services/auth-guard.service';
+import { AuthGuard } from './shared/services/auth-guard.service';
 import { UserService } from './shared/services/user.service';
 import { AdminAuthGuardService as AdminAuthGuard } from './shared/services/admin-auth-guard.service';
 import { CategoryService } from './shared/services/category.service';
@@ -34,12 +32,19 @@ import { OrderService } from './shared/services/order.service';
 import { ProductsService } from './shared/services/products.service';
 import { ProductFilterComponent } from './shopping/components/products/product-filter/product-filter.component';
 import { ProductCardComponent } from './shared/components/product-card/product-card.component';
+import { SignInComponent } from './core/components/sign-in/sign-in.component';
+import { SignUpComponent } from './core/components/sign-up/sign-up.component';
+import { MyProfileComponent } from './core/components/my-profile/my-profile.component';
+import { ProfileNavbarComponent } from './core/components/profile-navbar/profile-navbar.component';
+import { ChangePasswordComponent } from './core/components/change-password/change-password.component';
+import { DeleteAccountComponent } from './core/components/delete-account/delete-account.component';
+import { VerifyEmailComponent } from './core/components/verify-email/verify-email.component';
+import { ForgotPasswordComponent } from './core/components/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BsNavbarComponent,
-    HomeComponent,
     ProductsComponent,
     ShoppingCartComponent,
     ChechOutComponent,
@@ -47,13 +52,17 @@ import { ProductCardComponent } from './shared/components/product-card/product-c
     MyOrdersComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    LoginComponent,
     ProductFormComponent,
     ProductQuantityComponent,
     ShoppingCartSummaryComponent,
     ShippingFormComponent,
     ProductFilterComponent,
     ProductCardComponent,
+    ProfileNavbarComponent,
+    MyProfileComponent,
+    ProfileNavbarComponent,
+    ChangePasswordComponent,
+    DeleteAccountComponent
   ],
   
   imports: [
@@ -70,7 +79,14 @@ import { ProductCardComponent } from './shared/components/product-card/product-c
       {path: '', component: ProductsComponent},
       {path: 'products', component: ProductsComponent},
       {path: 'shopping-cart', component: ShoppingCartComponent},
-      {path: 'login', component: LoginComponent},
+      {path: 'signin', component: SignInComponent},
+      {path: 'signup', component: SignUpComponent},
+      {path: 'dashboard', component: MyProfileComponent},
+      {path: 'updateinfo', component: ChangePasswordComponent},
+      {path: 'deleteaccount', component: DeleteAccountComponent},
+      {path: 'verifyemail', component: VerifyEmailComponent},
+      {path: 'forgotpassword', component: ForgotPasswordComponent},
+      
 
 
       {path: 'check-out', component: ChechOutComponent, canActivate: [AuthGuard]},
@@ -93,7 +109,8 @@ import { ProductCardComponent } from './shared/components/product-card/product-c
               CategoryService,
               ProductsService,
               ShoppingCartService,
-              OrderService
+              OrderService,
+              AuthService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

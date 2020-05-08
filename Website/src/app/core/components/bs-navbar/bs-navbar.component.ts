@@ -3,9 +3,9 @@ import { AuthService } from '../../../shared/services/auth.service';
 import { Appuser } from '../../../shared/models/app-user';
 import { Router } from '@angular/router';
 import { ShoppingCartService } from '../../../shared/services/shopping-cart.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Observable } from 'rxjs';
 import { ShoppingCart } from '../../../shared/models/shopping-cart';
+import {MatIconModule} from '@angular/material/icon'
 
 @Component({
   selector: 'bs-navbar',
@@ -22,13 +22,13 @@ export class BsNavbarComponent implements OnInit{
    }
 
    async ngOnInit(){
-    this.auth.appUsers$.subscribe(appUser => this.appUser = appUser);
+    this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
 
     this.cart$ = (await this.shoppingcartService.getCart());
    }
 
    logout() {
-    this.auth.logout();
+    this.auth.SignOut();
     window.location.reload()
   }
 
