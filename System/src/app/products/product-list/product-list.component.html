@@ -46,9 +46,9 @@
         </ng-container>
 
 
-        <ng-container matColumnDef="id">
+        <ng-container matColumnDef="id" >
   
-          <mat-header-cell *matHeaderCellDef  mat-sort-header>Product_ID</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Product_ID</mat-header-cell>
     
           <mat-cell *matCellDef="let element">{{element.$key}}</mat-cell>
     
@@ -142,7 +142,7 @@
                                     <span *ngIf="50 > element.quantity"><h4 class="card-text" style="color: red">In Stock : {{element.quantity}}</h4></span>
                                     <span *ngIf="element.quantity > 50"><h4 class="card-text" style="color: green">In Stock : {{element.quantity}}</h4></span>
   
-                                    <button mat-button color="primary" mat-raised-button (click)="onAddStock(element.$key, element.quantity)">
+                                    <!-- <button mat-button color="primary" mat-raised-button (click)="onAddStock(element.$key, element.quantity)">
                                         <mat-icon>add</mat-icon> Add Stock
                                     </button>
   
@@ -152,7 +152,7 @@
   
                                     <button mat-button color="basic" mat-raised-button (click)="onStockInfo(element.$key)">
                                         <mat-icon>info</mat-icon> Info
-                                    </button>
+                                    </button> -->
   
                                   </div>
                                 </div> 

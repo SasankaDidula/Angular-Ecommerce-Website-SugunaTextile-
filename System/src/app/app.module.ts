@@ -36,6 +36,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { OrderReportComponent } from './orders/order-report/order-report.component';
 import { OrderService } from './shared/order.service';
 
+import { SizesService } from './shared/sizes.service';
 import {ProductComponent} from './products/product/product.component';
 import {ProductListComponent} from './products/product-list/product-list.component';
 import {ProductStockComponent} from './products/product-stock/product-stock.component';
@@ -138,6 +139,7 @@ import { QuantityReportComponent } from './suppliers/report/quantity-report/quan
       ProductService,
       StockService,
       TailoringService,
+      SizesService,
       CustomerService
 
    ],
@@ -152,6 +154,10 @@ import { QuantityReportComponent } from './suppliers/report/quantity-report/quan
       DeliveryAllocateRiderComponent,
    
       EmployeeComponent,
+
+      ProductStockComponent,
+      ProductStockListComponent,
+      ProductComponent,
     
       MatConfirmDialogComponent,
       TailoringComponent,
