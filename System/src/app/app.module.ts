@@ -110,6 +110,7 @@ import { TrendingReportComponent } from './trending/trending-report/trending-rep
       PaymentReportComponent,
     
       QuantityReportComponent,
+      ReportComponent,
     
    ],
    imports: [
@@ -159,7 +160,11 @@ import { TrendingReportComponent } from './trending/trending-report/trending-rep
     
       MatConfirmDialogComponent,
       TailoringComponent,
-      SupplyComponent
+      SupplyComponent,
+      UploadComponent,
+      ReportComponent,
+      PaymentReportComponent,
+      QuantityReportComponent,
    ],
 
 
