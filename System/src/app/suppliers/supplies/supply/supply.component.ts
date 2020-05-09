@@ -58,14 +58,14 @@ export class SupplyComponent implements OnInit {
         $key:null,
 
         XS :'',
-        S : 30,
-        M :20,
-        L : 30,
-        XL : 40,
+        S : 10,
+        M :10,
+        L : 20,
+        XL : 50,
         XXL : 20,
-        BrandName : 'Nike Shoes',
+        BrandName : 'Adidas Shoes',
         oDate:'',
-        payment:20000,
+        payment:30000,
       })
     }
   

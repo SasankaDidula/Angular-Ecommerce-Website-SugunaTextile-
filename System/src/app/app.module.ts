@@ -106,6 +106,7 @@ import { QuantityReportComponent } from './suppliers/report/quantity-report/quan
       PaymentReportComponent,
     
       QuantityReportComponent,
+      ReportComponent,
     
    ],
    imports: [
@@ -155,7 +156,11 @@ import { QuantityReportComponent } from './suppliers/report/quantity-report/quan
     
       MatConfirmDialogComponent,
       TailoringComponent,
-      SupplyComponent
+      SupplyComponent,
+      UploadComponent,
+      ReportComponent,
+      PaymentReportComponent,
+      QuantityReportComponent,
    ],
 
 
