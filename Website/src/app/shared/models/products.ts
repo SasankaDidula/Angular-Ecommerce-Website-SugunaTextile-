@@ -6,5 +6,6 @@ export interface Products{
     price:number;
     category:string;
     imageUrl:string;
+    sizes:string[];
     
   }

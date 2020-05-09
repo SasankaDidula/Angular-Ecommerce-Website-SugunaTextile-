@@ -20,7 +20,8 @@ export class ProductCardComponent {
   constructor(private cartService: ShoppingCartService,) {
    }
 
-  addToCart() {
-    this.cartService.addToCart(this.product);
+  addToCart(size) {
+    console.log(size);
+    this.cartService.addToCart(this.product, size);
   }
 }

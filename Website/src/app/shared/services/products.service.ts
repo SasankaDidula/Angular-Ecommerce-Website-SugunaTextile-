@@ -39,7 +39,8 @@ export class ProductsService {
       price: '',
       category: '0',
       imageUrl: '',
-      date: ''
+      date: '',
+      size:''
     });
   }
 
