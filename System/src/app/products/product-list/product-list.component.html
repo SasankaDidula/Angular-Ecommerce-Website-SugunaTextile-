@@ -1,6 +1,8 @@
 <div class="search-div">
 
-   
+  <button mat-raised-button color="accent" (click)="print()">
+    Print Report
+  </button>
   
     &nbsp;
   
@@ -9,7 +11,6 @@
     </button>
   
     &nbsp;
-  
 
   
     <mat-form-field class="search-form-field" floatLabel="never">
@@ -39,14 +40,22 @@
             <mat-header-cell *matHeaderCellDef  mat-sort-header>#</mat-header-cell>
       
             <mat-cell *matCellDef="let row; let i = dataIndex;">{{i + 1}}
-                <span *ngIf="50 > row.quantity"><p style="font-size:xx-large; color:red">*</p></span>
+                <!-- <span *ngIf="50 > row.quantity"><p style="font-size:xx-large; color:red">*</p></span> -->
             </mat-cell>
       
         </ng-container>
+
+
+        <ng-container matColumnDef="id">
+  
+          <mat-header-cell *matHeaderCellDef  mat-sort-header>Product_ID</mat-header-cell>
+    
+          <mat-cell *matCellDef="let element">{{element.$key}}</mat-cell>
+    
+       </ng-container>
   
   
-  
-            
+   
         <ng-container matColumnDef="title">
     
           <mat-header-cell *matHeaderCellDef  mat-sort-header>Title</mat-header-cell>

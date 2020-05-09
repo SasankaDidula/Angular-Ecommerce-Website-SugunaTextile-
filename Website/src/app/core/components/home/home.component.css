@@ -1,6 +1,6 @@
 body {
     font-family: Arial;
-    font-size: 30px;
+    font-size: 17px;
     padding: 20px 200px 15px 200px
 }
 
@@ -105,3 +105,9 @@ span.price {
     overflow-x:auto;
 }
 
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background-size: cover;
+}
