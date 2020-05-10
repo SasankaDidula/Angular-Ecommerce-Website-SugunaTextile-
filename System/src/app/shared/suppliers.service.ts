@@ -45,8 +45,9 @@ export class SuppliersService {
 
 //inserts a new supplier to the firebase database
 //primary key or the $ key will be automatically created
-  insertSupplier(supplier){
+  insertSupplier(supplier,id){
     this.supplierList.push({
+      supid:id,
       supName: supplier.supName,
       compName: supplier.compName,
       email: supplier.email,

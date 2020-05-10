@@ -12,7 +12,7 @@ import { ProductStockComponent } from '../product-stock/product-stock.component'
 import { ProductStockListComponent } from '../product-stock-list/product-stock-list.component';
 import *as  jsPDF from 'jspdf';
 import  html2canvas from 'html2canvas';
-import 'jspdf-autotable';
+//import 'jspdf-autotable';
 
 @Component({
   selector: 'app-product-list',

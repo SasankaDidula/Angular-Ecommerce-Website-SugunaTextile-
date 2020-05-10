@@ -31,6 +31,15 @@
 <div class="mat-elevation-z8 table">
 
     <mat-table DataPreview [dataSource]="listData" multiTemplateDataRows  matSort width = "100%">
+
+
+      <ng-container matColumnDef="supid">
+  
+        <mat-header-cell *matHeaderCellDef  mat-sort-header>Supplier ID</mat-header-cell>
+  
+        <mat-cell *matCellDef="let element">{{element.supid}}</mat-cell>
+  
+      </ng-container>
   
       <ng-container matColumnDef="supName">
   
