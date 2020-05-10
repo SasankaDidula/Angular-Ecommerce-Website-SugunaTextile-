@@ -11,6 +11,10 @@ import * as jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
 import  html2canvas from 'html2canvas';
+import { SalaryComponent } from 'src/app/salaryemployee/salary/salary.component';
+import { SalaryService } from 'src/app/shared/salary.service';
+import { Key } from 'protractor';
+import { SalaryemployeeComponent } from 'src/app/salaryemployee/salaryemployee.component';
 
 
 
@@ -24,14 +28,15 @@ import  html2canvas from 'html2canvas';
 export class EmployeeListComponent implements OnInit {
 
   dialogService: any;
+  dialogRef: any;
 
-  constructor(private service: EmployeeService,
+  constructor(private service: EmployeeService,private salaryService: SalaryService,
     private departmentService: DepartmentService,
     private notificationService : NotificationService,
     private dialog: MatDialog) { } 
 
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['$key','empID','empName', 'email', 'mobile','department','actions'];
+  displayedColumns: string[] = ['empID','empName', 'email', 'mobile','department','actions'];
  
   @ViewChild (MatSort,{static:true}) sort: MatSort;
   @ViewChild (MatPaginator,{static:true}) paginator: MatPaginator;
@@ -98,7 +103,7 @@ export class EmployeeListComponent implements OnInit {
 
       
     }
-
+   
 
     onDelete($key){
           this.service.deleteEmployee($key);
@@ -106,7 +111,15 @@ export class EmployeeListComponent implements OnInit {
          
     }
 
-    
+    onSalary(row){
+      this.salaryService.populateForm(row); 
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.disableClose = true;
+      dialogConfig.autoFocus = true;
+      dialogConfig.width = "80%";
+      dialogConfig.height = "80%"
+      this.dialog.open(SalaryemployeeComponent,dialogConfig); 
+    }
 
 
     

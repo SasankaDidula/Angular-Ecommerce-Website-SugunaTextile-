@@ -53,6 +53,11 @@ import { ProductsComponent } from './products/products.component';
 import { UploadComponent } from './suppliers/supplies/supply/upload/upload.component';
 import { DeliveryAddRiderComponent } from './delivery/delivery-add-rider/delivery-add-rider.component';
 
+import { SalaryComponent } from './salaryemployee/salary/salary.component';
+import { SalaryslipComponent } from './salaryemployee/salaryslip/salaryslip.component';
+import { SalaryemployeeComponent } from './salaryemployee/salaryemployee.component';
+import { SalaryService } from './shared/salary.service';
+
 
 
 
@@ -80,7 +85,9 @@ import { DeliveryAddRiderComponent } from './delivery/delivery-add-rider/deliver
       ProductComponent,
       ProductsComponent,
       UploadComponent,
-   
+      SalaryComponent,
+      SalaryslipComponent,
+      SalaryemployeeComponent,
       MatConfirmDialogComponent,
      
       SuppliesComponent,
@@ -116,7 +123,8 @@ import { DeliveryAddRiderComponent } from './delivery/delivery-add-rider/deliver
       NotificationService,
       EmployeeService,
       ProductService,
-      StockService
+      StockService,
+      SalaryService
       
    ],
    bootstrap: [
@@ -134,6 +142,7 @@ import { DeliveryAddRiderComponent } from './delivery/delivery-add-rider/deliver
       MatConfirmDialogComponent,
     
       SupplyComponent,
+      SalaryComponent,
    ],
 
 
