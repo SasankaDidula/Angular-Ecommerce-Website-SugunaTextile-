@@ -10,8 +10,8 @@ import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ProductStockComponent } from '../product-stock/product-stock.component';
 import { ProductStockListComponent } from '../product-stock-list/product-stock-list.component';
-import html2canvas from 'html2canvas';
 import *as  jsPDF from 'jspdf';
+import  html2canvas from 'html2canvas';
 import 'jspdf-autotable';
 
 @Component({
@@ -38,7 +38,7 @@ export class ProductListComponent implements OnInit {
 
     listData: MatTableDataSource<any>;
 
-    displayedColumns: string[] =['index','title','price','category','sizes','date','actions'];
+    displayedColumns: string[] =['index','id','title','price','category','sizes','date','actions'];
 
     @ViewChild(MatSort,{static: true}) sort: MatSort;
    @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;

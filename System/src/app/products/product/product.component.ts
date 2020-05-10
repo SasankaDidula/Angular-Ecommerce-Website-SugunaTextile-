@@ -9,6 +9,7 @@ import { ProductsComponent } from '../products.component';
 import { SuppliersService } from "src/app/shared/suppliers.service";
 import { CategoryService } from 'src/app/shared/category.service';
 
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',

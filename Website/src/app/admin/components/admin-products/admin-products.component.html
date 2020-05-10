@@ -22,15 +22,16 @@
             <td>{{ p.sizes }}</td>
            
 
+        
             <td>
-                <a [routerLink]="['/admin/products/new']">Edit</a>
+                <button class="btn btn-primary" (click)="onEdit(p.key)">Edit</button>
+                <!-- <a [routerLink]="['/admin/products/new']">Edit</a> -->
             </td>
-            
-            <div class = "bttn">
+        
             <td>
-                <button mat-raised-button color="warn" (click)="onClear(p.key)">Clear</button>
+                <button class="btn btn-primary" (click)="onClear(p.key)">Clear</button>
             </td>
-            </div>
+           
         </tr>
     </tbody>
 </table>

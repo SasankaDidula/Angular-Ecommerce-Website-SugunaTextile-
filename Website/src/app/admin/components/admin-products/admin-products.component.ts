@@ -5,6 +5,8 @@ import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.servi
 import { Products } from 'src/app/shared/models/products';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { ProductFormComponent } from '../product-form/product-form.component';
 
 @Component({
   selector: 'app-admin-products',
@@ -14,6 +16,7 @@ import { Router } from '@angular/router';
 export class AdminProductsComponent implements OnInit {
 
   products$: Observable<any[]>;
+  dialog: any;
 
   constructor(private productService: ProductsService, private cartService: ShoppingCartService) {
     this.products$ = this.productService.getAll();
@@ -39,4 +42,14 @@ export class AdminProductsComponent implements OnInit {
     this.productService.delete(key);
 
   }
+
+  onEdit(product){
+    this.productService.populateForm(product);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.dialog.open(ProductFormComponent,dialogConfig);
+  }
+
 }

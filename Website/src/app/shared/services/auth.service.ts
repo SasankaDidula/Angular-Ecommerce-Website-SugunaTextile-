@@ -1,40 +1,212 @@
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import * as firebase from 'firebase';
-import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
-import { Appuser } from '../models/app-user';
-import { switchMap } from 'rxjs/internal/operators/switchMap';
 import { UserService } from './user.service';
-import { EmptyObservable } from 'rxjs/observable/EmptyObservable';
+import { Appuser } from '../models/app-user';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireAuth } from 'angularfire2/auth';
+//import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/observable/of'; 
+import * as firebase from 'firebase'; 
+import { Injectable, NgZone } from '@angular/core';
+import { User } from "../models/user";
+import { auth } from 'firebase/app';
+//import { AngularFireAuth } from "@angular/fire/auth";
+//import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { Router } from "@angular/router";
+import { from } from 'rxjs/observable/from';
+import { AngularFireDatabase, AngularFireObject} from "angularfire2/database"; 
+import { switchMap } from 'rxjs/operators/switchMap';
+import { of } from 'rxjs/internal/observable/of';
+import { environment } from 'src/environments/environment';
+//import {AngularFireDatabase} from '@angular/fire/database'
 
-@Injectable({
-  providedIn: 'root'
-})
+
+@Injectable()
 export class AuthService {
   user$: Observable<firebase.User>;
+  user: AngularFireObject<any>;
 
-  constructor(private afAuth: AngularFireAuth, private route: ActivatedRoute, private userService: UserService) { 
-    this.user$ = afAuth.authState;
+
+  constructor(
+    private userService: UserService,
+    private afAuth: AngularFireAuth, 
+    private route: ActivatedRoute,
+    public db:AngularFireDatabase,  // Inject Firestore service
+    public router: Router,  
+    public ngZone: NgZone // NgZone service to remove outside scope warning
+    ) { 
+      firebase.initializeApp(environment.firebase);
+    this.user$ = afAuth.authState;    
+    /* Saving user data in localstorage when 
+     logged in and setting up null when logged out */
+     this.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.userData = user;
+        localStorage.setItem('user', JSON.stringify(this.userData));
+        JSON.parse(localStorage.getItem('user'));
+      } else {
+        localStorage.setItem('user', null);
+        JSON.parse(localStorage.getItem('user'));
+      }
+    })
   }
 
-  login() {
-    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
-    localStorage.setItem('returnUrl', returnUrl);
+  
 
-    this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+  get appUser$(): Observable<Appuser> {
+    return this.user$.pipe(
+      switchMap(user => {
+        if (this.isLoggedIn)
+          return this.userService.get(user.uid);
+        else 
+            return Observable.of(null);
+      })
+    );
   }
+  
+   userData: any; // Save logged in user data
 
-  logout() {
-    this.afAuth.auth.signOut();
-  }
+   // Sign in with email/password
+   SignIn(email, password) {
+     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+       .then((result) => {
+         this.ngZone.run(() => {
+          window.alert("Signed in Successfully")
+           this.router.navigate(['/']);
+         });
+        this.SetUserData(result.user);
+       }).catch((error) => {
+         window.alert(error.message)
+       })
+   }
+ 
+   // Sign up with email/password
+   SignUp(email, password) {
+     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+       .then((result) => {
+         /* Call the SendVerificaitonMail() function when new user sign 
+         up and returns promise */
+         window.alert("Check your email account and click on the link to register");
+         this.SendVerificationMail().then();
+         this.SetUserData(result.user);
+       }).catch((error) => {
+         window.alert(error.message)
+       })
+   }
+ 
+   // Send email verrificaiton when new user sign up
+   SendVerificationMail() {
+     return this.afAuth.auth.currentUser.sendEmailVerification()
+     .then(() => {
+       this.router.navigate(['verifyemail']);
+     })
+   }
+ 
+   // Send email for Forgot password
+   ForgotPassword(passwordResetEmail) {
+     return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
+     .then(() => {
+       window.alert('Password reset email sent, check your inbox.');
+     }).catch((error) => {
+       window.alert(error)
+     })
+   }
 
-  get appUsers$(): Observable<Appuser>{
-    return this.user$
-    .pipe(switchMap(user => {
-      if(user) return this.userService.get(user.uid).valueChanges()
+ 
+ 
+   // Returns true when user is looged in and email is verified
+   get isLoggedIn(): boolean {
     
-      return new EmptyObservable<Appuser>();
-    }));
+    const user = JSON.parse(localStorage.getItem('user'));
+    return (user !== null && user.emailVerified !== false) ? true : false;
+   }
+ 
+   // Sign in with Google
+   GoogleAuth() {
+     return this.AuthLogin(new auth.GoogleAuthProvider());
+   }
+ 
+   // Auth login to run auth providers
+   AuthLogin(provider) {
+     return this.afAuth.auth.signInWithPopup(provider)
+     .then((result) => {
+        this.ngZone.run(() => {
+          this.router.navigate(['/']);
+         })
+       this.SetUserData(result.user);
+     }).catch((error) => {
+       window.alert(error)
+     })
+   }
+ 
+   
+ //set user data in database
+   SetUserData(user) {
+ 
+    this.db.object('/users/'+ user.uid).update({
+     uid: user.uid,
+     email: user.email,
+     displayName: user.displayName,
+     photoURL: user.photoURL,
+     emailVerified: user.emailVerified,
+     
+    })
+      
+      
+   } 
+ 
+
+
+   // Sign out 
+   SignOut() {
+     return this.afAuth.auth.signOut().then(() => {
+       localStorage.removeItem('user');
+       this.router.navigate(['/']);
+     })
+   }
+
+   //to delete account
+   DeleteAccount(){
+    console.log(firebase.auth().currentUser)
+    this.afAuth.auth.currentUser.delete().then(() => {
+      //window.alert("Successfully deleted your account")
+      window.alert("Successfully deleted the account")
+      this.db.object('/users/' + this.userData.uid).remove();
+      this.SignOut().catch((error) => {
+        window.alert(error)
+      })
+
+    }).catch((error)=>{
+      window.alert(error)
+    });
+   }
+
+  
+//to Update Password
+  UpdatePassword(newPassword){
+    this.afAuth.auth.currentUser.updatePassword(newPassword).then(()=>{
+      window.alert("Successfully updated password")
+    }).catch((error)=>{
+      window.alert(error)
+    });
   }
+ 
+  //to Update display name
+  Updatename(name){
+    this.afAuth.auth.currentUser.updateProfile({
+      displayName:name,
+      photoURL:this.userData.photoURL
+    }).then(()=>{
+      window.alert("Successfully updated")
+      this.SetUserData(this.userData);
+    }).catch((error)=>{
+      window.alert(error)
+    });
+  }
+   
+  
+   
 }
+
+
+

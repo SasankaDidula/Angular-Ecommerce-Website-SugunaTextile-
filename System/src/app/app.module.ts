@@ -21,7 +21,8 @@ import { OrderTypesService } from "./shared/order-types.service";
 import { SupplierListComponent } from './suppliers/supplier-list/supplier-list.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeComponent } from './employees/employee/employee.component';
-
+import { TailoringsComponent } from './tailorings/tailorings.component';
+import { TailoringComponent } from './tailorings/tailoring/tailoring.component';
 
 import { DatePipe } from '@angular/common';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
@@ -52,6 +53,13 @@ import { DeliveryService } from './shared/delivery.service';
 import { ProductsComponent } from './products/products.component';
 import { UploadComponent } from './suppliers/supplies/supply/upload/upload.component';
 import { DeliveryAddRiderComponent } from './delivery/delivery-add-rider/delivery-add-rider.component';
+import { TailoringService } from "./shared/tailoring.service";
+import { CustomerComponent } from './customer/customer.component';
+import { CustomerListComponent } from './customer/customer-list/customer-list.component';
+import { CustomerService } from './shared/customer.service';
+import { TailoringListComponent } from './tailorings/tailoring-list/tailoring-list.component';
+// import { ReportComponent } from './suppliers/report/report.component';
+// import { PaymentReportComponent } from './suppliers/report/payment-report/payment-report.component';
 
 import { SalaryComponent } from './salaryemployee/salary/salary.component';
 import { SalaryslipComponent } from './salaryemployee/salaryslip/salaryslip.component';
@@ -60,6 +68,11 @@ import { SalaryService } from './shared/salary.service';
 
 
 
+import { ReportComponent } from './suppliers/report/report.component';
+import { PaymentReportComponent } from './suppliers/report/payment-report/payment-report.component';
+import { QuantityReportComponent } from './suppliers/report/quantity-report/quantity-report.component';
+import { TrendingComponent } from './trending/trending.component';
+import { TrendingReportComponent } from './trending/trending-report/trending-report.component';
 
 
 @NgModule({
@@ -88,11 +101,26 @@ import { SalaryService } from './shared/salary.service';
       SalaryComponent,
       SalaryslipComponent,
       SalaryemployeeComponent,
+      TailoringsComponent,
+      TailoringComponent,
+      CustomerComponent,
+      CustomerListComponent,
+      TailoringListComponent,
+      TrendingComponent,
+      TrendingReportComponent,
+   
       MatConfirmDialogComponent,
      
       SuppliesComponent,
     
       SupplyComponent,
+    
+      ReportComponent,
+    
+      PaymentReportComponent,
+    
+      QuantityReportComponent,
+      ReportComponent,
     
    ],
    imports: [
@@ -124,8 +152,11 @@ import { SalaryService } from './shared/salary.service';
       EmployeeService,
       ProductService,
       StockService,
-      SalaryService
+      SalaryService,
       
+      TailoringService,
+      CustomerService
+
    ],
    bootstrap: [
       AppComponent
@@ -140,9 +171,12 @@ import { SalaryService } from './shared/salary.service';
       EmployeeComponent,
     
       MatConfirmDialogComponent,
-    
+      TailoringComponent,
       SupplyComponent,
-      SalaryComponent,
+      UploadComponent,
+      ReportComponent,
+      PaymentReportComponent,
+      QuantityReportComponent,
    ],
 
 

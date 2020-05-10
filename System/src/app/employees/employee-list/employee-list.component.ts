@@ -10,11 +10,8 @@ import { EmployeeComponent } from '../employee/employee.component';
 import * as jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
-import  html2canvas from 'html2canvas';
-import { SalaryComponent } from 'src/app/salaryemployee/salary/salary.component';
+import   html2canvas from 'html2canvas';
 import { SalaryService } from 'src/app/shared/salary.service';
-import { Key } from 'protractor';
-import { SalaryemployeeComponent } from 'src/app/salaryemployee/salaryemployee.component';
 
 
 

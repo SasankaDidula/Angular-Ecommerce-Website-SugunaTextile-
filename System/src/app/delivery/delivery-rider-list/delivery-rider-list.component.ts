@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DeliveryAddRiderComponent } from './../delivery-add-rider/delivery-add-rider.component';
 import 'jspdf-autotable';
-import html2canvas from 'html2canvas'
+import  html2canvas from 'html2canvas'
 import { MatTableDataSource } from '@angular/material/table';
 import { DeliveryService } from 'src/app/shared/delivery.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';

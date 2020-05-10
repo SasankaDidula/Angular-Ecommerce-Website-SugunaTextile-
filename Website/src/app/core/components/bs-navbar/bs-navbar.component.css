@@ -2,3 +2,8 @@
 .dropdown-toggle {
     cursor: pointer;
 }
+
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+ }

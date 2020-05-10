@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SuppliesService } from "../../../shared/supplies.service";
 import { OrderTypesService } from "../../../shared/order-types.service";
-import { NotificationService } from "../../../shared/notification.service";
+import { NotificationService } from "src/app/shared/notification.service";
 import { MatDialogRef } from '@angular/material/dialog';
 import { DatePipe } from '@angular/common';
 
@@ -14,11 +14,10 @@ import { DatePipe } from '@angular/common';
 export class SupplyComponent implements OnInit {
 
   constructor(public service: SuppliesService,
-    private ordType : OrderTypesService,
-    private notificationService : NotificationService,
+    public ordType : OrderTypesService,
+    public notificationService : NotificationService,
     public dialogRef: MatDialogRef <SupplyComponent> ) { }
 
-    someMaxDateFromComponen;
 
     ngOnInit() {
       this.service.getSupply();
@@ -59,15 +58,14 @@ export class SupplyComponent implements OnInit {
         $key:null,
 
         XS :'',
-        S : 30,
-        M :20,
-        L : 30,
-        XL : 40,
+        S : 10,
+        M :10,
+        L : 20,
+        XL : 50,
         XXL : 20,
-        BrandName : 'Adidas',
+        BrandName : 'Adidas Shoes',
         oDate:'',
-        payment:20000,
-        
+        payment:30000,
       })
     }
   
