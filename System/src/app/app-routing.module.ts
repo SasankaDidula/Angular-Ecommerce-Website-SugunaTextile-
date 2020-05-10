@@ -8,6 +8,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { DeliveryComponent } from './delivery/delivery.component';
 import { TailoringsComponent } from "./tailorings/tailorings.component";
 import { CustomerComponent } from './customer/customer.component';
+import { TrendingComponent } from './trending/trending.component';
 
 const routes: Routes = [
   {path: 'employees', component: EmployeesComponent},
@@ -19,8 +20,9 @@ const routes: Routes = [
   {path: 'supplies', component: SuppliesComponent},
   {path: 'orders', component: OrdersComponent},
   {path: 'delivery', component: DeliveryComponent},
+  {path: 'trending', component: TrendingComponent},
 
-
+  
   
 ];
 

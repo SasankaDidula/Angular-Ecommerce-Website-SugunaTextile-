@@ -10,10 +10,10 @@
   
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/shopping-cart">
+          <li class="nav-item" *ngIf="cart$ | async as cart">
+            <a class="nav-link" routerLink="/shopping-cart" [class.disabled]="cart.totalItemsCount == 0 ? true : null">
               <i class="fa fa-shopping-cart fa-2x"></i>
-              <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
+              <span class="badge badge-warning badge-pill">
                 {{ cart.totalItemsCount }}
               </span>
             </a>

@@ -64,6 +64,8 @@ import { TailoringListComponent } from './tailorings/tailoring-list/tailoring-li
 import { ReportComponent } from './suppliers/report/report.component';
 import { PaymentReportComponent } from './suppliers/report/payment-report/payment-report.component';
 import { QuantityReportComponent } from './suppliers/report/quantity-report/quantity-report.component';
+import { TrendingComponent } from './trending/trending.component';
+import { TrendingReportComponent } from './trending/trending-report/trending-report.component';
 
 
 @NgModule({
@@ -94,6 +96,8 @@ import { QuantityReportComponent } from './suppliers/report/quantity-report/quan
       CustomerComponent,
       CustomerListComponent,
       TailoringListComponent,
+      TrendingComponent,
+      TrendingReportComponent,
    
       MatConfirmDialogComponent,
      
