@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { RouterModule } from '@angular/router';
+import { Route,RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
@@ -85,8 +85,9 @@ import { ForgotPasswordComponent } from './core/components/forgot-password/forgo
       {path: 'updateinfo', component: ChangePasswordComponent},
       {path: 'deleteaccount', component: DeleteAccountComponent},
       {path: 'verifyemail', component: VerifyEmailComponent},
-      {path: 'forgot-password', component: ForgotPasswordComponent},
-      
+      {path:'forgotpassword',component:ForgotPasswordComponent},
+
+
 
 
       {path: 'check-out', component: ChechOutComponent, canActivate: [AuthGuard]},
