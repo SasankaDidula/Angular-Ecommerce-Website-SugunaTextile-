@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PromoService } from 'src/app/shared/promo.service';
 import { NotificationService } from 'src/app/shared/notification.service';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-promocode',
