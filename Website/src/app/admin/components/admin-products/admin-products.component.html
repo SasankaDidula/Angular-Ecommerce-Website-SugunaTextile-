@@ -3,7 +3,7 @@
 </P>
 <table class="table">
     <thead>
-        <tr>
+        <tr class = "list-title">
             <th>Title</th>
             <th>Price</th>
             <th>Date</th>
@@ -13,7 +13,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let p of products$ | async">
+        <tr class = "list-text" *ngFor="let p of products$ | async">
             <td>{{ p.title }}</td>
             <td>{{ p.price }}</td>
             <td>{{ p.date }}</td>
@@ -23,14 +23,15 @@
            
 
         
-            <td>
+            <!-- <td>
                 <button class="btn btn-primary" (click)="onEdit(p.key)">Edit</button>
-                <!-- <a [routerLink]="['/admin/products/new']">Edit</a> -->
-            </td>
-        
+                <a [routerLink]="['/admin/products/new']">Edit</a>
+            </td> -->
+            
             <td>
                 <button class="btn btn-primary" (click)="onClear(p.key)">Clear</button>
             </td>
+           
            
         </tr>
     </tbody>

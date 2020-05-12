@@ -105,3 +105,13 @@ span.price {
     overflow-x:auto;
 }
 
+.list-title{
+    font-size: 18px;
+}
+
+.list-text{
+    font-size: 18px;
+    padding: 10px 10%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
