@@ -139,6 +139,7 @@
   
                                     <h3 class="card-title"><b>{{element.title}} </b> </h3>
                                     <h4 class="card-text"> {{element.price | currency : 'LKR ' : 'code'}}</h4>
+                                    <!-- <h4 class="card-text">{{supplier.compName}}</h4> -->
                                     <span *ngIf="50 > element.quantity"><h4 class="card-text" style="color: red">In Stock : {{element.quantity}}</h4></span>
                                     <span *ngIf="element.quantity > 50"><h4 class="card-text" style="color: green">In Stock : {{element.quantity}}</h4></span>
   
