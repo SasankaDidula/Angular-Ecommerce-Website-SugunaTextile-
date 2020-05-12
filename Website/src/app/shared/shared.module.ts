@@ -11,14 +11,15 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { ProductQuantityComponent } from './components/product-quantity/product-quantity.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
+
 import { CategoryService } from './services/category.service';
 import { OrderService } from './services/order.service';
 import { ProductsService } from './services/products.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { UserService } from './services/user.service';
 import { AppComponent } from '../app.component';
-//import{ PromotionService } from './services/promotion.service';
-//import { NewPriceService } from './services/new-price.service';
+import{ PromotionService } from './services/promotion.service';
+import { NewPriceService } from './services/new-price.service';
 
 @NgModule({
   imports: [
@@ -45,7 +46,7 @@ import { AppComponent } from '../app.component';
     DataTableModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    //NgbModule.forRoot().ngModule,
+    NgbModule.forRoot().ngModule,
   ],
   providers: [
     AuthService,
@@ -55,8 +56,8 @@ import { AppComponent } from '../app.component';
     ProductsService,
     ShoppingCartService,
     OrderService,
-    //PromotionService,
-    //NewPriceService,
+    PromotionService,
+    NewPriceService,
     
   ]
 })
