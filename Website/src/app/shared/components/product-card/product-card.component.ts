@@ -5,10 +5,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 
 @Component({
-  // tslint:disable-next-line:component-selector
+  //tslint:disable-next-line:component-selector
   selector: 'product-card',
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.css']
+ 
 })
 export class ProductCardComponent {
 

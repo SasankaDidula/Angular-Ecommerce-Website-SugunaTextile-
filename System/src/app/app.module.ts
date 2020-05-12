@@ -40,6 +40,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { OrderReportComponent } from './orders/order-report/order-report.component';
 import { OrderService } from './shared/order.service';
 
+import { SizesService } from './shared/sizes.service';
 import {ProductComponent} from './products/product/product.component';
 import {ProductListComponent} from './products/product-list/product-list.component';
 import {ProductStockComponent} from './products/product-stock/product-stock.component';
@@ -154,6 +155,7 @@ import { TrendingReportComponent } from './trending/trending-report/trending-rep
 
       StockService,
       TailoringService,
+      SizesService,
       CustomerService
 
    ],
@@ -168,6 +170,10 @@ import { TrendingReportComponent } from './trending/trending-report/trending-rep
       DeliveryAllocateRiderComponent,
    
       EmployeeComponent,
+
+      ProductStockComponent,
+      ProductStockListComponent,
+      ProductComponent,
       PromoComponent,
       PromocodeComponent,
     

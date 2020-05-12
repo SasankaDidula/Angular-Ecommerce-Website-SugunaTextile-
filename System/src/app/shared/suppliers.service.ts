@@ -8,9 +8,10 @@ import * as _ from 'lodash';
 })
 export class SuppliersService {
 
-  constructor(private firebase :AngularFireDatabase) { }
+   constructor(private firebase :AngularFireDatabase) { }
 
   supplierList : AngularFireList<any>;
+  
 
   form: FormGroup = new FormGroup({
     $key : new FormControl(null),
