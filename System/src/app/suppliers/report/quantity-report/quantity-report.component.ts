@@ -4,7 +4,7 @@ import { Chart } from "chart.js";
 import { Location } from '@angular/common';
 import * as jsPDF from 'jspdf';
 
-import 'jspdf-autotable';
+//import 'jspdf-autotable';
 import html2canvas from 'html2canvas';
 
 @Component({

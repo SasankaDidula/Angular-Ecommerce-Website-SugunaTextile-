@@ -11,7 +11,7 @@ import { UploadComponent } from '../supplies/supply/upload/upload.component';
 import * as _ from "lodash";
 import 'firebase/storage';
 import * as jsPDF from 'jspdf'; 
-import 'jspdf-autotable';
+//import 'jspdf-autotable';
 import html2canvas from 'html2canvas';
 
 @Component({

@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { RouterModule } from '@angular/router';
+import { Route,RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
@@ -40,6 +40,8 @@ import { ChangePasswordComponent } from './core/components/change-password/chang
 import { DeleteAccountComponent } from './core/components/delete-account/delete-account.component';
 import { VerifyEmailComponent } from './core/components/verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './core/components/forgot-password/forgot-password.component';
+import { PromotionService } from './shared/services/promotion.service';
+import { NewPriceService } from './shared/services/new-price.service';
 
 @NgModule({
   declarations: [
@@ -85,8 +87,9 @@ import { ForgotPasswordComponent } from './core/components/forgot-password/forgo
       {path: 'updateinfo', component: ChangePasswordComponent},
       {path: 'deleteaccount', component: DeleteAccountComponent},
       {path: 'verifyemail', component: VerifyEmailComponent},
-      {path: 'forgot-password', component: ForgotPasswordComponent},
-      
+      {path:'forgotpassword',component:ForgotPasswordComponent},
+
+
 
 
       {path: 'check-out', component: ChechOutComponent, canActivate: [AuthGuard]},
@@ -110,7 +113,9 @@ import { ForgotPasswordComponent } from './core/components/forgot-password/forgo
               ProductsService,
               ShoppingCartService,
               OrderService,
-              AuthService
+              AuthService,
+              PromotionService,
+              NewPriceService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

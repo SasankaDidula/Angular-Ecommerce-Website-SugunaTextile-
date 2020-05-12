@@ -19,3 +19,18 @@
         </ul>
     </div>
 </div>
+<form class="block-margin card p-2">
+    <div class="input-group">
+      <input type="text"  name="promocode" class="form-control" [(ngModel)]="promocode" placeholder="Promo Code" [disabled]="promo"/>
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-success" [disabled]= "!promocode || promo" (click)="promotion(promocode)">Redeem</button>
+      </div>
+    </div>
+  </form>
+  <div class="alert alert-success" role="alert" *ngIf="promo ===true">
+    Discount Approved
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="error === true">
+    Promocode Not Valid
+  </div>
+  

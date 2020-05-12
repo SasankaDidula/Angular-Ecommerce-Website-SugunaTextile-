@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { OrderService } from 'src/app/shared/order.service';
 import jsPDF from 'jspdf/dist/jspdf.debug';
-import 'jspdf-autotable';
+//import 'jspdf-autotable';
 import { MatDialog } from '@angular/material/dialog';
 import { NotificationService } from 'src/app/shared/notification.service';
 import { MatTableDataSource } from '@angular/material/table';
