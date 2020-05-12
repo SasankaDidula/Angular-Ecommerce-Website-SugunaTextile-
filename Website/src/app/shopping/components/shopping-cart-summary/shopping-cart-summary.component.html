@@ -12,8 +12,11 @@
             </li>
             <li class="list-group-item font-weight-bold">
                 Total
-                <div class="float-right">
+                <div class="float-right" [ngClass]="{'strike':promo === true}">
                     {{ cart.totalPrice |  currency:'LKR':"symbol-narrow"}}
+                </div><br>
+                <div class="float-right" *ngIf="promo === true">
+                  {{ newPrice | currency:'LKR':"symbol-narrow" }}
                 </div>
             </li>
         </ul>
