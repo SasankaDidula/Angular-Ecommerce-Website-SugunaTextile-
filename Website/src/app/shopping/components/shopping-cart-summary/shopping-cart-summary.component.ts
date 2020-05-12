@@ -36,7 +36,8 @@ ngOnInit(){
 }
 
 getPromoByCode(code : string){
-  return this.db.list('/promotions', ref => ref.orderByChild('promocode').equalTo('code'));
+  console.log(code);
+  return this.db.list('/promotions', ref => ref.orderByChild('promocode').equalTo(code));
 }
 
   promotion(promocode2: string){

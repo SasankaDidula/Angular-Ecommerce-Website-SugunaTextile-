@@ -12,7 +12,7 @@ export class PromocodeComponent implements OnInit {
   
   minFromDate= new Date();
   maxToDate = new Date();
-  constructor(private service: PromoService, private notificationService: NotificationService, private dialogRef: MatDialogRef<PromocodeComponent>) { }
+  constructor(public service: PromoService, public notificationService: NotificationService, public dialogRef: MatDialogRef<PromocodeComponent>) { }
 
 
   ngOnInit() {
