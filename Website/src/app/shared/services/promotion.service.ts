@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
+import {AngularFireDatabase, AngularFireObject, AngularFireList} from 'angularfire2/database';
 import { OrderService } from './order.service';
 import { ShoppingCartService } from './shopping-cart.service';
 
 
 @Injectable()
 export class PromotionService {
-    promocode: FirebaseObjectObservable<any>;
+    promocode: AngularFireObject<any>;
 
-  promocodes: FirebaseListObservable<any[]>;
+  promocodes: AngularFireList<any[]>;
 
   constructor( public af: AngularFireDatabase) {
     list => {

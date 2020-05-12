@@ -85,7 +85,7 @@ export class ShoppingCartService {
   }
 
   private async updateProd(product: Products, change: number){
-    let item$ = this.getProd(product.$key);
+    let item$ = this.getProd(product.key);
     item$.valueChanges().pipe(take(1)).subscribe((item:any) =>{
       let quantity = (item.quantity || 0) + change;
       let sales = (item.sales || 0) + (-1 *(change));

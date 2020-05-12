@@ -40,6 +40,8 @@ import { ChangePasswordComponent } from './core/components/change-password/chang
 import { DeleteAccountComponent } from './core/components/delete-account/delete-account.component';
 import { VerifyEmailComponent } from './core/components/verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './core/components/forgot-password/forgot-password.component';
+import { PromotionService } from './shared/services/promotion.service';
+import { NewPriceService } from './shared/services/new-price.service';
 
 @NgModule({
   declarations: [
@@ -111,7 +113,9 @@ import { ForgotPasswordComponent } from './core/components/forgot-password/forgo
               ProductsService,
               ShoppingCartService,
               OrderService,
-              AuthService
+              AuthService,
+              PromotionService,
+              NewPriceService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
