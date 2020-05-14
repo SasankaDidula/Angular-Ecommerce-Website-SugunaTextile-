@@ -6,8 +6,8 @@ import { NotificationService } from "src/app/shared/notification.service";
 import { SizesService } from "src/app/shared/sizes.service";
 import { DatePipe } from '@angular/common';
 import { ProductsComponent } from '../products.component';
-import { SuppliersService } from "src/app/shared/suppliers.service";
 import { CategoryService } from 'src/app/shared/category.service';
+import { SuppliersService } from "src/app/shared/suppliers.service";
 
 
 @Component({
@@ -22,6 +22,7 @@ export class ProductComponent implements OnInit {
     public catType : CategoryService,
     public sizesService : SizesService,
     public datePipe: DatePipe,
+    public supplierService : SuppliersService,
     public notificationService : NotificationService,
     public dialogRef:MatDialogRef<ProductsComponent>) {}
 

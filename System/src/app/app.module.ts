@@ -17,6 +17,10 @@ import { AngularFireDatabaseModule } from "angularfire2/database";
 import {MatExpansionModule} from '@angular/material/expansion';
 import { environment } from "../environments/environment";
 import { OrderTypesService } from "./shared/order-types.service";
+import { PromoComponent } from './promo/promo.component';
+import { PromoListComponent } from './promo/promo-list/promo-list.component';
+import { PromocodeComponent } from './promo/promocode/promocode.component';
+import { PromoService } from './shared/promo.service';
 
 import { SupplierListComponent } from './suppliers/supplier-list/supplier-list.component';
 import { EmployeesComponent } from './employees/employees.component';
@@ -36,6 +40,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { OrderReportComponent } from './orders/order-report/order-report.component';
 import { OrderService } from './shared/order.service';
 
+import { SizesService } from './shared/sizes.service';
 import {ProductComponent} from './products/product/product.component';
 import {ProductListComponent} from './products/product-list/product-list.component';
 import {ProductStockComponent} from './products/product-stock/product-stock.component';
@@ -43,6 +48,8 @@ import {ProductStockListComponent} from './products/product-stock-list/product-s
 import { NotificationService } from './shared/notification.service';
 import { EmployeeService } from './shared/employee.service';
 import { ProductService } from './shared/product.service';
+// import { PromoService } from './shared/promo.service';
+
 import { StockService } from './shared/stock.service';
 import { DeliveryAllocateRiderComponent } from './delivery/delivery-allocate-rider/delivery-allocate-rider.component';
 import { DeliveryComponent } from './delivery/delivery.component';
@@ -97,6 +104,9 @@ import { TrendingReportComponent } from './trending/trending-report/trending-rep
       DeliveryRiderListComponent,
       ProductComponent,
       ProductsComponent,
+      PromoComponent,
+      PromoListComponent,
+      PromocodeComponent,
       UploadComponent,
       SalaryComponent,
       SalaryslipComponent,
@@ -151,10 +161,13 @@ import { TrendingReportComponent } from './trending/trending-report/trending-rep
       NotificationService,
       EmployeeService,
       ProductService,
+      PromoService,
+
       StockService,
       SalaryService,
       
       TailoringService,
+      SizesService,
       CustomerService
 
    ],
@@ -169,6 +182,12 @@ import { TrendingReportComponent } from './trending/trending-report/trending-rep
       DeliveryAllocateRiderComponent,
    
       EmployeeComponent,
+
+      ProductStockComponent,
+      ProductStockListComponent,
+      ProductComponent,
+      PromoComponent,
+      PromocodeComponent,
     
       MatConfirmDialogComponent,
       TailoringComponent,

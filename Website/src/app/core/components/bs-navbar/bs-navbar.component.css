@@ -1,9 +1,22 @@
 
 .dropdown-toggle {
     cursor: pointer;
+    text-decoration: red;
 }
 
 a.disabled {
     pointer-events: none;
     cursor: default;
  }
+
+ .smaller {
+    width: 25%;
+    height: 10%;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+
+  

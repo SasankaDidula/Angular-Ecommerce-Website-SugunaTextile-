@@ -8,9 +8,10 @@ import * as _ from 'lodash';
 })
 export class SuppliersService {
 
-  constructor(private firebase :AngularFireDatabase) { }
+   constructor(private firebase :AngularFireDatabase) { }
 
   supplierList : AngularFireList<any>;
+  
 
   form: FormGroup = new FormGroup({
     $key : new FormControl(null),
@@ -45,8 +46,9 @@ export class SuppliersService {
 
 //inserts a new supplier to the firebase database
 //primary key or the $ key will be automatically created
-  insertSupplier(supplier){
+  insertSupplier(supplier,id){
     this.supplierList.push({
+      supid:id,
       supName: supplier.supName,
       compName: supplier.compName,
       email: supplier.email,

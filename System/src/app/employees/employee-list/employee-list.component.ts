@@ -8,7 +8,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { EmployeeComponent } from '../employee/employee.component';
 import * as jsPDF from 'jspdf';
-import 'jspdf-autotable';
+//import 'jspdf-autotable';
 
 import   html2canvas from 'html2canvas';
 import { SalaryService } from 'src/app/shared/salary.service';

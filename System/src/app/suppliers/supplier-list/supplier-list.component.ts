@@ -17,7 +17,7 @@ import { loadavg } from 'os';
 import { AngularFireDatabase,AngularFireList  } from "angularfire2/database";
 import * as jsPDF from 'jspdf';
 
-import 'jspdf-autotable';
+//import 'jspdf-autotable';
 import html2canvas from 'html2canvas';
 import { ReportComponent } from "../report/report.component";
 
@@ -46,7 +46,7 @@ export class SupplierListComponent implements OnInit {
   
     x:MatTableDataSource<any>;
     supplyList : AngularFireList<any>;
-    displayedColumns: string[] =[`supName`,`compName`,`email`,`mobile`,`address`,`actions`];
+    displayedColumns: string[] =[`supid`,`supName`,`compName`,`email`,`mobile`,`address`,`actions`];
     supplierList :  string[] = [];
     supplysumList : number[] = [] ;
     arr : any[] = [];

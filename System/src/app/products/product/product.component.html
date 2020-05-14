@@ -8,7 +8,7 @@
 
 <form [formGroup]="service.form" class="normal-form" (submit)= "onSubmit()" style="padding-left : 5%">
 
-  <mat-grid-list cols="1" rowHeight="500px" rowWidth="400px">
+  <mat-grid-list cols="1" rowHeight="550px" rowWidth="400px">
 
     <mat-grid-tile>
 
@@ -30,6 +30,7 @@
                 <mat-error *ngIf="service.form.controls['price'].errors?.required">This field is mandatory.</mat-error>
                 <mat-error *ngIf="service.form.controls['price'].errors?.min">Price cannot be a negative value</mat-error>
             </mat-form-field>
+
                           
 
             <mat-form-field>
@@ -61,6 +62,15 @@
 
             <mat-form-field>
               <input formControlName="imageUrl" matInput placeholder="Image URL">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select formControlName="supplier" matInput placeholder="Supplier" multiple>
+                <mat-option>None</mat-option>
+                  <ng-container *ngFor="let supplier of supplierService.array">
+                     <mat-option value="{{supplier.$key}}">{{supplier.compName}}</mat-option>
+                  </ng-container>
+              </mat-select>
             </mat-form-field>
   
 

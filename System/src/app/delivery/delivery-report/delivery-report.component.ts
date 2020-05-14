@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DeliveryAddService } from 'src/app/shared/delivery-add.service';
 import { DeliveryAllocateRiderComponent } from '../delivery-allocate-rider/delivery-allocate-rider.component';
 import * as jsPDF from 'jspdf';
-import 'jspdf-autotable';
+//import 'jspdf-autotable';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
