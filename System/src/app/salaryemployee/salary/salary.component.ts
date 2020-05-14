@@ -36,12 +36,13 @@ export class SalaryComponent implements OnInit {
   pfAcc;
  
 
-
+  // public dialogRef:MatDialogRef<SalaryComponent>
   route: any;
+  dialogRef: any;
 
 constructor(public service: SalaryService,
-  public notificationService : NotificationService, private db: AngularFireDatabase,
-   public dialogRef:MatDialogRef<SalaryemployeeComponent>){}
+  public notificationService : NotificationService, private db: AngularFireDatabase
+   ){}
    
 
 ngOnInit() {

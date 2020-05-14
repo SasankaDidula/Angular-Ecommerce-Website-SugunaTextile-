@@ -165,7 +165,7 @@ import { TrendingReportComponent } from './trending/trending-report/trending-rep
       SupplierComponent,
 
       DeliveryAddRiderComponent,
-
+      SalaryComponent,
       DeliveryAllocateRiderComponent,
    
       EmployeeComponent,

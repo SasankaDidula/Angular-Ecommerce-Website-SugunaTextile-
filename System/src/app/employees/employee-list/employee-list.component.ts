@@ -12,6 +12,8 @@ import 'jspdf-autotable';
 
 import   html2canvas from 'html2canvas';
 import { SalaryService } from 'src/app/shared/salary.service';
+import { SalaryemployeeComponent } from 'src/app/salaryemployee/salaryemployee.component';
+import { SalaryComponent } from 'src/app/salaryemployee/salary/salary.component';
 
 
 
@@ -115,7 +117,7 @@ export class EmployeeListComponent implements OnInit {
       dialogConfig.autoFocus = true;
       dialogConfig.width = "80%";
       dialogConfig.height = "80%"
-      this.dialog.open(SalaryemployeeComponent,dialogConfig); 
+      this.dialog.open(SalaryComponent,dialogConfig); 
     }
 
 

@@ -8,6 +8,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class EmployeeService {
 
+  dltEmployee: any;
+
   constructor(private firebase :AngularFireDatabase, private datePipe: DatePipe) { }
 
   
@@ -101,7 +103,10 @@ export class EmployeeService {
     this.employeeList.remove($key);
   }
 
-
+deletedEmployees($key:string){
+  this.dltEmployee = this.deleteEmployee($key);
+  return this.dltEmployee;
+}
   populateForm(employee){
   this.form.setValue(employee); //department which is to be ommited
 }
