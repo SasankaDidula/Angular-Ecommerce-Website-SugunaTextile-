@@ -11,17 +11,6 @@
         <div class="controles-container2">
 
 
-            <input type="hidden" formControlName="$key">
-
-
-
-            <mat-form-field>
-          <input readonly="$key"
-          matInput placeholder="Employee Code"> 
-          <mat-error>This field is mandatory</mat-error>
-        </mat-form-field>
-
-
         <mat-form-field>
             <input formControlName="empID" matInput placeholder="Employee ID">
             <mat-error>This field is mandatory</mat-error>
@@ -80,7 +69,7 @@
                     <input formControlName="salary" matInput placeholder="Salary" type="number"  class="example-right-align">
                     <span matPrefix>RS&nbsp;</span>
                     <span matSuffix>.00</span>
-                    <mat-error *ngIf="service.form.controls['salary'].errors?.min">Salary cannot be a negative value</mat-error> 
+                    <mat-error *ngIf="service.form.controls['salary'].errors?.min">Salary should be positive value</mat-error> 
             </mat-form-field>
             <div class="add-bottom-padding">
                 <mat-checkbox formControlName="isPermanent">Permanent Employee</mat-checkbox>
