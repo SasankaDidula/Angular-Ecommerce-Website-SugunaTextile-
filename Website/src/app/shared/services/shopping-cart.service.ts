@@ -53,8 +53,7 @@ export class ShoppingCartService {
           title: product.title,
           imageUrl: product.imageUrl,
           price: product.price,
-          quantity: quantity,
-          size: product.sizes
+          quantity: quantity
         });
       }
       else{
@@ -85,8 +84,9 @@ export class ShoppingCartService {
   }
 
   private async updateProd(product: Products, change: number){
-    let item$ = this.getProd(product.key);
+    let item$ = this.getProd(product.$key || product.key);
     item$.valueChanges().pipe(take(1)).subscribe((item:any) =>{
+      if(item != null){
       let quantity = (item.quantity || 0) + change;
       let sales = (item.sales || 0) + (-1 *(change));
       if (quantity === 0) item$.remove();
@@ -94,7 +94,8 @@ export class ShoppingCartService {
         quantity: quantity,
         sales: sales
       });
+      }
     })
   }
-
+   
 }
