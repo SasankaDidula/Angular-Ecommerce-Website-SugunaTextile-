@@ -67,7 +67,7 @@
             <mat-form-field>
               <mat-select formControlName="supplier" matInput placeholder="Supplier" multiple>
                 <mat-option>None</mat-option>
-                  <ng-container *ngFor="let supplier of supplierService.array">
+                  <ng-container *ngFor="let supplier of supplierService.supplierList">
                      <mat-option value="{{supplier.$key}}">{{supplier.compName}}</mat-option>
                   </ng-container>
               </mat-select>
