@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Products } from 'src/app/shared/models/products';
 import { Subscription, Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
@@ -8,6 +8,7 @@ import { switchMap } from 'rxjs/operators';
 import { ShoppingCart } from 'src/app/shared/models/shopping-cart';
 import { CategoryService } from 'src/app/shared/services/category.service';
 
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -16,9 +17,12 @@ import { CategoryService } from 'src/app/shared/services/category.service';
 export class ProductsComponent implements OnInit {
   products: Products[] = [];
   filteredProducts: Products[] = [];
-  category ="";
-  cart$: Observable<ShoppingCart>;
+  //category ="";
+  //cart$: Observable<ShoppingCart>;
   categories$;
+  cart$;
+  @Input('category') category: string;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -31,11 +35,14 @@ export class ProductsComponent implements OnInit {
 
       route.queryParamMap.subscribe(params => {
         this.category = params.get('category');
+        console.log(this.category);
 
         this.filteredProducts = (this.category) ?
         this.products.filter(p => p.category === this.category): 
         this.products;
       });
+      this.cart$ = shoppingCartService.getCart();
+      this.populateProduct();
    }
 
   async ngOnInit() {
@@ -51,7 +58,8 @@ export class ProductsComponent implements OnInit {
       return this.route.queryParamMap;
     }))
     .subscribe(params => {
-      this.category = params.get('categories');
+      // this.category = params.get('categories');
+      this.category = params.get('category');
       this.applyFilter();
       
     })
