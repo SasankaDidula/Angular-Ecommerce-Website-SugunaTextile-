@@ -17,5 +17,25 @@
           {{ c.name }}
         </a>
       </div>
+      <br/>
+
+      <div class="list-group">
+        <a
+        
+          class="list-group-item list-group-item-action"
+          [class.active]="!size"
+          routerLink="/"
+          >All Sizes</a>
+          
+        <a 
+          *ngFor="let s of sizes$ | async" 
+          routerLink="/"
+          [queryParams]="{ size: s.$key }"
+          class="list-group-item list-group-item-action"
+          [class.active]="size === s.$key"
+          >
+          {{ s.name }}
+        </a>
+      </div>
   </div>
   

@@ -42,6 +42,8 @@ import { VerifyEmailComponent } from './core/components/verify-email/verify-emai
 import { ForgotPasswordComponent } from './core/components/forgot-password/forgot-password.component';
 import { PromotionService } from './shared/services/promotion.service';
 import { NewPriceService } from './shared/services/new-price.service';
+import { ConactUsComponent } from './core/components/conact-us/conact-us.component';
+import { AboutUsComponent } from './core/components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import { NewPriceService } from './shared/services/new-price.service';
     MyProfileComponent,
     ProfileNavbarComponent,
     ChangePasswordComponent,
-    DeleteAccountComponent
+    DeleteAccountComponent,
+    ConactUsComponent,
+    AboutUsComponent
   ],
   
   imports: [
@@ -88,6 +92,8 @@ import { NewPriceService } from './shared/services/new-price.service';
       {path: 'deleteaccount', component: DeleteAccountComponent},
       {path: 'verifyemail', component: VerifyEmailComponent},
       {path:'forgotpassword',component:ForgotPasswordComponent},
+      {path:'contactus',component:ConactUsComponent},
+      {path:'aboutus',component:AboutUsComponent},
 
 
 

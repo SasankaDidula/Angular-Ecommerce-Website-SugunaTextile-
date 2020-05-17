@@ -17,8 +17,10 @@ export class ProductsComponent implements OnInit {
   products: Products[] = [];
   filteredProducts: Products[] = [];
   category ="";
+  size="";
   cart$: Observable<ShoppingCart>;
   categories$;
+  sizes$;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,7 +33,7 @@ export class ProductsComponent implements OnInit {
 
       route.queryParamMap.subscribe(params => {
         this.category = params.get('category');
-
+        this.size = params.get('size');
         this.filteredProducts = (this.category) ?
         this.products.filter(p => p.category === this.category): 
         this.products;
