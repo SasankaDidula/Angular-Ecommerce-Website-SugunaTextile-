@@ -14,13 +14,13 @@
     </thead>
     
     <tbody>
-        <tr *ngFor = "let item of cart.items">
+        <tr *ngFor = "let item of cart.items" class="content">
             <td>
                 <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail"></div>
             </td>
 
             <td>
-                <a href="#"> {{ item.title }} </a>
+                <span style="font-weight:bold"> {{ item.title }}</span><span> ({{ item.size }})</span>
             </td>
 
             <td>

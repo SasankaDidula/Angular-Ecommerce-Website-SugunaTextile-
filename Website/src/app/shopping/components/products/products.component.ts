@@ -17,12 +17,12 @@ import { CategoryService } from 'src/app/shared/services/category.service';
 export class ProductsComponent implements OnInit {
   products: Products[] = [];
   filteredProducts: Products[] = [];
-  //category ="";
+  category ="";
+  size="";
   //cart$: Observable<ShoppingCart>;
-  categories$;
   cart$;
-  @Input('category') category: string;
-
+  categories$;
+  sizes$;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,6 +37,7 @@ export class ProductsComponent implements OnInit {
         this.category = params.get('category');
         console.log(this.category);
 
+        this.size = params.get('size');
         this.filteredProducts = (this.category) ?
         this.products.filter(p => p.category === this.category): 
         this.products;

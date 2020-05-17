@@ -68,6 +68,13 @@ import { TailoringListComponent } from './tailorings/tailoring-list/tailoring-li
 // import { ReportComponent } from './suppliers/report/report.component';
 // import { PaymentReportComponent } from './suppliers/report/payment-report/payment-report.component';
 
+import { SalaryComponent } from './salaryemployee/salary/salary.component';
+import { SalaryslipComponent } from './salaryemployee/salaryslip/salaryslip.component';
+import { SalaryemployeeComponent } from './salaryemployee/salaryemployee.component';
+import { SalaryService } from './shared/salary.service';
+
+
+
 import { ReportComponent } from './suppliers/report/report.component';
 import { PaymentReportComponent } from './suppliers/report/payment-report/payment-report.component';
 import { QuantityReportComponent } from './suppliers/report/quantity-report/quantity-report.component';
@@ -101,6 +108,9 @@ import { TrendingReportComponent } from './trending/trending-report/trending-rep
       PromoListComponent,
       PromocodeComponent,
       UploadComponent,
+      SalaryComponent,
+      SalaryslipComponent,
+      SalaryemployeeComponent,
       TailoringsComponent,
       TailoringComponent,
       CustomerComponent,
@@ -154,6 +164,8 @@ import { TrendingReportComponent } from './trending/trending-report/trending-rep
       PromoService,
 
       StockService,
+      SalaryService,
+      
       TailoringService,
       SizesService,
       CustomerService
@@ -166,7 +178,7 @@ import { TrendingReportComponent } from './trending/trending-report/trending-rep
       SupplierComponent,
 
       DeliveryAddRiderComponent,
-
+      SalaryComponent,
       DeliveryAllocateRiderComponent,
    
       EmployeeComponent,
