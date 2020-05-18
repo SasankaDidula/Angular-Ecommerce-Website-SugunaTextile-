@@ -1,3 +1,19 @@
 #contact .card:hover i,#contact .card:hover h4{
 	color: #87d37c;
 }
+.center {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+  }
+
+  .tile {
+	width: 200pxpx;
+	height: 200px;
+	border: 1px solid #777;
+	margin: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  }

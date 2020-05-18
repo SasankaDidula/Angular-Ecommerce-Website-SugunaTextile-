@@ -19,4 +19,14 @@ a.disabled {
     justify-content: center;
   }
 
+  .title{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  .sub-title{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+  }
   

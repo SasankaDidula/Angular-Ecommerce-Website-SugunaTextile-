@@ -19,8 +19,8 @@ export class ProductsComponent implements OnInit {
   filteredProducts: Products[] = [];
   category ="";
   size="";
-  //cart$: Observable<ShoppingCart>;
-  cart$;
+  cart$: Observable<ShoppingCart>;
+  //cart$;
   categories$;
   sizes$;
 
@@ -35,21 +35,27 @@ export class ProductsComponent implements OnInit {
 
       route.queryParamMap.subscribe(params => {
         this.category = params.get('category');
-        console.log(this.category);
 
+        this.cart();
         this.size = params.get('size');
         this.filteredProducts = (this.category) ?
         this.products.filter(p => p.category === this.category): 
         this.products;
+
       });
-      this.cart$ = shoppingCartService.getCart();
-      this.populateProduct();
+      
    }
 
   async ngOnInit() {
+    // this.cart$ = (await this.shoppingCartService.getCart());
+    // this.populateProduct();
+  }
+
+  async cart() {
     this.cart$ = (await this.shoppingCartService.getCart());
     this.populateProduct();
   }
+
 
   private populateProduct(){
     this.productService
