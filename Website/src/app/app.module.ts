@@ -68,7 +68,10 @@ import { AboutUsComponent } from './core/components/about-us/about-us.component'
     ChangePasswordComponent,
     DeleteAccountComponent,
     ConactUsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent
   ],
   
   imports: [
