@@ -24,13 +24,27 @@ export class ProductFormComponent implements OnInit {
 
   }
 
+  ngOnInit(): void {
+  }
+
 
   save(product: any){
     this.productService.create(product);
     this.router.navigate(['/admin/products']);
   }
 
-  ngOnInit(): void {
+  
+  demo() {
+    this.productService.form.setValue({
+      $key: null,
+      title: 'Short Sleeve Cuban Shirt',
+      price: '2000',
+      category: '',
+      size: '',
+      quantity: '10',
+      imageUrl: 'https://www.surfstitch.com/on/demandware.static/-/Sites-ss-master-catalog/default/dwb4490f9a/images/WSM0967HMS/HUMUS-MENS-CLOTHING-RUSTY-SHIRTS-WSM0967HMS_1.JPG',
+      Date: '22.05.2020',
+    })
   }
 
 }

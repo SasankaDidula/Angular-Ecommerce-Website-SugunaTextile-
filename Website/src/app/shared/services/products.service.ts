@@ -9,9 +9,7 @@ import { Products } from '../models/products';
 export class ProductsService {
   form;
   
-  constructor(private db: AngularFireDatabase) { 
-    
-  }  
+  constructor(private db: AngularFireDatabase) {}  
   
   create(product: Products) {
     return this.db.list('/products').push(product);
@@ -26,10 +24,6 @@ export class ProductsService {
       }))
     );
   }
-
-  delete(itemKey){
-    this.db.object('/products/' + itemKey).remove();
-  }
   
  initializeFormGroup() {
     this.form.setValue({
@@ -43,6 +37,11 @@ export class ProductsService {
       size:''
     });
   }
+
+  delete(itemKey){
+    this.db.object('/products/' + itemKey).remove();
+  }
+
 
   populateForm(itemKey) {
     this.form.patchValue(itemKey);

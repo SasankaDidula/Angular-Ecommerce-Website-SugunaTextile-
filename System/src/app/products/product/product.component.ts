@@ -57,16 +57,17 @@ export class ProductComponent implements OnInit {
       this.service.initializeFormGroup();
       this.dialogRef.close();
     }
+
     demo() {
       this.service.form.setValue({
         $key: null,
-        title: 'Nike Shorts',
-        price: 200,
-        category: '0',
-        sizes: [],
-        quantity: '',
-        imageUrl: 'https://pngriver.com/wp-content/uploads/2017/11/jents-Dress-Shirts-free-PNG-transparent-background-images-free-download-clipart-pics-dress-shirt-png-image-914.png',
-        date: ''
-      });
+        title: 'Sunflower Top',
+        price: '2500',
+        category: '',
+        sizes: '',
+        quantity: '10',
+        imageUrl: 'https://urban.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/1/2/12170.jpg',
+        date: '22.05.2020',
+      })
     }
 }
