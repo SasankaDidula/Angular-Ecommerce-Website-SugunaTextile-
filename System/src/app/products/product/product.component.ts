@@ -61,12 +61,12 @@ export class ProductComponent implements OnInit {
     demo() {
       this.service.form.setValue({
         $key: null,
-        title: 'Sunflower Top',
+        title: 'Black T-Shirt',
         price: '2500',
         category: '',
         sizes: '',
         quantity: '10',
-        imageUrl: 'https://urban.lk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/1/2/12170.jpg',
+        imageUrl: 'https://cdn.clipart.email/df7b40cbedeabb79a74a89d006bb1c3d_cute-universe-drawing-t-shirt-kiss-me-bang-bang_800-800.jpeg',
         date: '22.05.2020',
       })
     }
